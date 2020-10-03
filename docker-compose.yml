@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  jekyll:
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cursodegitjeckyll:latest
+    environment:
+      - TZ=Europe/Madrid
+      - BUNDLE_DATA=/gems
+    volumes:
+      - .:/usr/src/app
+      - ./docker-data/.irb-history:/home/jekyll/.irb-history
+      - gems_cache:/gems:delegated
+      - node_modules_cache:/usr/src/app/node_modules
+    ports:
+      - "4000:4000"
+
+volumes:
+  gems_cache:
+  node_modules_cache:

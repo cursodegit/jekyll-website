@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="{{ page.lang | default: site.lang | default: "en" }}">
+<head>
+	{%- include head.html -%}
+</head>
+<body class="{{site.canvas.body_class}}">
+	<!-- The Main Wrapper
+	============================================= -->
+	<div id="wrapper">
+
+		<!-- Header
+		============================================= -->
+		<header id="header">
+			{%- include header.html -%}
+		</header>
+		
+		<!-- Site Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap">
+				{{ content }}
+			</div>
+		</section>
+
+		{%- include footer.html -%}
+	</div>
+
+	<!-- Scripts
+	============================================= -->
+
+	<!-- JavaScripts
+	============================================= -->
+	<script src="{{ "/assets/js/jquery.js" | relative_url }}"></script>
+	<script src="{{ "/assets/js/plugins.min.js" | relative_url }}"></script>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script src="{{ "/assets/js/functions.js" | relative_url }}"></script>
+
+	{%- include footer_scripts.html -%}
+</body>
+</html>
