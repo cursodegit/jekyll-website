@@ -2,3 +2,23 @@
     Custom Stylesheet ( Any custom styling you want to apply should be defined here ).
 ====================================================================================*/
 
+.portfolio-testimonial .owl-dots {
+	text-align: center;
+	position: relative;
+	left: inherit;
+	bottom: inherit;
+}
+
+.owl-dot {
+    background-color: #bbbbbb;
+}
+
+.owl-carousel button.owl-dot.active {
+    background-color: #000000;
+}
+
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel button.owl-dot {
+    background-color: #bbbbbb;
+}
