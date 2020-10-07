@@ -9,7 +9,7 @@
 
 	<!-- Scripts
 	============================================= -->
-
+	{% contentblock pre_footer_scripts %}
     <!-- jquery -->
 	<script src="{{ "/assets/js/jquery.min.js" | relative_url }}"></script>
  	<!-- counterUp js -->
@@ -58,6 +58,8 @@
     <script src="{{ "/assets/js/custom-min.js" | relative_url }}"></script>
     <!-- script js -->
     <script src="{{ "/assets/js/script.js" | relative_url }}"></script>
+
+	{% contentblock post_footer_scripts %}
 
 	{%- include footer_scripts.html -%}
 </body>

@@ -4,96 +4,592 @@
 
 layout: home
 ---
-<div class="container">
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    <section>
-        Hello!!
-    </section>    
-    
+{% contentfor pre_footer_scripts %}
+<script sync src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkp837gqPvwSoUbCxF34EcEmLD5XGcvo8"></script>
+{% endcontentfor %}
+
+{% contentfor post_footer_scripts %}
+
+<script>
+// Start Map 01
+jQuery(document).ready(function($) {
+    var iconSize   = google.maps.Size(32, 37);
+    var anchorSize = google.maps.Size(16, 34);
+    var markers = [
+                    {
+                        address: "Madrid, Spain",
+                        data: "<div class=\"gmap-marker-wrap\"><h5 class=\"gmap-marker-title\">Madrid<\/h5><div class=\"gmap-marker-content\"><i class=\"fa fa-map-marker\" aria-hidden=\"true\"><\/i> 19 cursos<br \/><\/div><\/div>",
+                        options: {
+                            icon: {
+                                url: "{{ "/assets/img/map_number_icons/number_19.png" | relative_url }}",
+                                size: iconSize,
+                                anchor: anchorSize
+                            },
+                            visible: true,
+                        }
+                    },
+                    {
+                        address: "Barcelona, Spain",
+                        data: "<div class=\"gmap-marker-wrap\"><h5 class=\"gmap-marker-title\">Barcelona<\/h5><div class=\"gmap-marker-content\"><i class=\"fa fa-map-marker\" aria-hidden=\"true\"><\/i> 4 cursos<br \/><\/div><\/div>",
+                        options: {
+                            icon: {
+                                url: "{{ "/assets/img/map_number_icons/number_4.png" | relative_url }}",
+                                size: iconSize,
+                                anchor: anchorSize
+                            },
+                            visible: true,
+                        }
+                    },
+                    {
+                        address: "Valencia, Spain",
+                        data: "<div class=\"gmap-marker-wrap\"><h5 class=\"gmap-marker-title\">Valencia<\/h5><div class=\"gmap-marker-content\"><i class=\"fa fa-map-marker\" aria-hidden=\"true\"><\/i> 4 cursos<br \/><\/div><\/div>",
+                        options: {
+                            icon: {
+                                url: "{{ "/assets/img/map_number_icons/number_4.png" | relative_url }}",
+                                size: iconSize,
+                                anchor: anchorSize
+                            },
+                            visible: true,
+                        }
+                    },
+                    {
+                        address: "Elda, Spain",
+                        data: "<div class=\"gmap-marker-wrap\"><h5 class=\"gmap-marker-title\">Elda<\/h5><div class=\"gmap-marker-content\"><i class=\"fa fa-map-marker\" aria-hidden=\"true\"><\/i> 1 curso<br \/><\/div><\/div>",
+                        options: {
+                            icon: {
+                                url: "{{ "/assets/img/map_number_icons/number_1.png" | relative_url }}",
+                                size: iconSize,
+                                anchor: anchorSize
+                            },
+                            visible: true,
+                        }
+                    },
+                    {
+                        address: "Logroño, Spain",
+                        data: "<div class=\"gmap-marker-wrap\"><h5 class=\"gmap-marker-title\">Logroño<\/h5><div class=\"gmap-marker-content\"><i class=\"fa fa-map-marker\" aria-hidden=\"true\"><\/i> 12 cursos<br \/><\/div><\/div>",
+                        options: {
+                            icon: {
+                                url: "{{ "/assets/img/map_number_icons/number_12.png" | relative_url }}",
+                                size: iconSize,
+                                anchor: anchorSize
+                            },
+                            visible: true,
+                        }
+                    },
+                    {
+                        address: "Valladolid, Spain",
+                        data: "<div class=\"gmap-marker-wrap\"><h5 class=\"gmap-marker-title\">Valladolid<\/h5><div class=\"gmap-marker-content\"><i class=\"fa fa-map-marker\" aria-hidden=\"true\"><\/i> 8 cursos<br \/><\/div><\/div>",
+                        options: {
+                            icon: {
+                                url: "{{ "/assets/img/map_number_icons/number_8.png" | relative_url }}",
+                                size: iconSize,
+                                anchor: anchorSize
+                            },
+                            visible: true,
+                        }
+                    },
+                    {
+                        address: "Guisona, Spain",
+                        data: "<div class=\"gmap-marker-wrap\"><h5 class=\"gmap-marker-title\">Guisona<\/h5><div class=\"gmap-marker-content\"><i class=\"fa fa-map-marker\" aria-hidden=\"true\"><\/i> 4 cursos<br \/><\/div><\/div>",
+                        options: {
+                            icon: {
+                                url: "{{ "/assets/img/map_number_icons/number_4.png" | relative_url }}",
+                                size: iconSize,
+                                anchor: anchorSize
+                            },
+                            visible: true,
+                        }
+                    },
+                    {
+                        address: "Cáceres, Spain",
+                        data: "<div class=\"gmap-marker-wrap\"><h5 class=\"gmap-marker-title\">Cáceres<\/h5><div class=\"gmap-marker-content\"><i class=\"fa fa-map-marker\" aria-hidden=\"true\"><\/i> 2 cursos<br \/><\/div><\/div>",
+                        options: {
+                            icon: {
+                                url: "{{ "/assets/img/map_number_icons/number_2.png" | relative_url }}",
+                                size: iconSize,
+                                anchor: anchorSize
+                            },
+                            visible: true,
+                        }
+                    },
+                    {
+                        address: "Badajoz, Spain",
+                        data: "<div class=\"gmap-marker-wrap\"><h5 class=\"gmap-marker-title\">Badajoz<\/h5><div class=\"gmap-marker-content\"><i class=\"fa fa-map-marker\" aria-hidden=\"true\"><\/i> 2 cursos<br \/><\/div><\/div>",
+                        options: {
+                            icon: {
+                                url: "{{ "/assets/img/map_number_icons/number_2.png" | relative_url }}",
+                                size: iconSize,
+                                anchor: anchorSize
+                            },
+                            visible: true,
+                        }
+                    },
+                    {
+                        address: "Palma de Mallorca, Spain",
+                        data: "<div class=\"gmap-marker-wrap\"><h5 class=\"gmap-marker-title\">Palma de Mallorca<\/h5><div class=\"gmap-marker-content\"><i class=\"fa fa-map-marker\" aria-hidden=\"true\"><\/i> 1 curso<br \/><\/div><\/div>",
+                        options: {
+                            icon: {
+                                url: "{{ "/assets/img/map_number_icons/number_1.png" | relative_url }}",
+                                size: iconSize,
+                                anchor: anchorSize
+                            },
+                            visible: true,
+                        }
+                    }				
+                ];
+
+    var gmMapDiv = $("#slmap2");
+    (
+        function($) {
+
+            if (gmMapDiv.length) {
+
+                var gmHeight = gmMapDiv.attr("data-height");
+                var gmWidth = gmMapDiv.attr("data-width");
+                var gmZoomEnable = gmMapDiv.attr("data-zoom_enable");
+                var gmZoom = gmMapDiv.attr("data-zoom");
+                gmMapDiv.width(gmWidth).height(gmHeight);
+                gmMapDiv.gmap3({
+                    action: "init",
+                    marker: {
+                        values: markers,
+                        events: {
+                            click: function(marker, event, context) {
+                                if (context.data == 0) {
+                                    return;
+                                }
+                                var map = $(this).gmap3("get");
+                                infowindow = $(this).gmap3({
+                                    get: {
+                                        name: "infowindow"
+                                    }
+                                });
+                                if (infowindow) {
+                                    infowindow.open(map, marker);
+                                    infowindow.setContent(context.data);
+                                } else {
+                                    $(this).gmap3({
+                                        infowindow: {
+                                            anchor: marker,
+                                            options: {
+                                                content: context.data
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    },
+                    map: {
+                        options: {
+                            center: [40.416775, -3.703790],
+                            zoom: parseInt(gmZoom),
+                            zoomControl: true,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP,
+                            mapTypeControl: false,
+                            scaleControl: false,
+                            scrollwheel: gmZoomEnable == 'enable' ? true : false,
+                            streetViewControl: false,
+                            draggable: true,
+                            styles: [{
+                                    "featureType": "water",
+                                    "elementType": "geometry",
+                                    "stylers": [{
+                                            "color": "#e9e9e9"
+                                        },
+                                        {
+                                            "lightness": 17
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "landscape",
+                                    "elementType": "geometry",
+                                    "stylers": [{
+                                            "color": "#f5f5f5"
+                                        },
+                                        {
+                                            "lightness": 20
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "road.highway",
+                                    "elementType": "geometry.fill",
+                                    "stylers": [{
+                                            "color": "#ffffff"
+                                        },
+                                        {
+                                            "lightness": 17
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "road.highway",
+                                    "elementType": "geometry.stroke",
+                                    "stylers": [{
+                                            "color": "#ffffff"
+                                        },
+                                        {
+                                            "lightness": 29
+                                        },
+                                        {
+                                            "weight": 0.2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "road.arterial",
+                                    "elementType": "geometry",
+                                    "stylers": [{
+                                            "color": "#ffffff"
+                                        },
+                                        {
+                                            "lightness": 18
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "road.local",
+                                    "elementType": "geometry",
+                                    "stylers": [{
+                                            "color": "#ffffff"
+                                        },
+                                        {
+                                            "lightness": 16
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "poi",
+                                    "elementType": "geometry",
+                                    "stylers": [{
+                                            "color": "#f5f5f5"
+                                        },
+                                        {
+                                            "lightness": 21
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "poi.park",
+                                    "elementType": "geometry",
+                                    "stylers": [{
+                                            "color": "#dedede"
+                                        },
+                                        {
+                                            "lightness": 21
+                                        }
+                                    ]
+                                },
+                                {
+                                    "elementType": "labels.text.stroke",
+                                    "stylers": [{
+                                            "visibility": "on"
+                                        },
+                                        {
+                                            "color": "#ffffff"
+                                        },
+                                        {
+                                            "lightness": 16
+                                        }
+                                    ]
+                                },
+                                {
+                                    "elementType": "labels.text.fill",
+                                    "stylers": [{
+                                            "saturation": 36
+                                        },
+                                        {
+                                            "color": "#333333"
+                                        },
+                                        {
+                                            "lightness": 40
+                                        }
+                                    ]
+                                },
+                                {
+                                    "elementType": "labels.icon",
+                                    "stylers": [{
+                                        "visibility": "off"
+                                    }]
+                                },
+                                {
+                                    "featureType": "transit",
+                                    "elementType": "geometry",
+                                    "stylers": [{
+                                            "color": "#f2f2f2"
+                                        },
+                                        {
+                                            "lightness": 19
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "administrative",
+                                    "elementType": "geometry.fill",
+                                    "stylers": [{
+                                            "color": "#fefefe"
+                                        },
+                                        {
+                                            "lightness": 20
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "administrative",
+                                    "elementType": "geometry.stroke",
+                                    "stylers": [{
+                                            "color": "#fefefe"
+                                        },
+                                        {
+                                            "lightness": 17
+                                        },
+                                        {
+                                            "weight": 1.2
+                                        }
+                                    ]
+                                }
+                            ],
+
+
+                        }
+                    }
+                });
+            }
+        }
+    )(jQuery);
+});
+
+</script>
+{% endcontentfor %}
+
+<section class="position-relative ptb-40 ptb-sm-35 ptb-md-60">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="section-title text-center section-heading mb-5">
+                    <h2>¿Problemas con git?</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="position-relative d-flex align-items-center justify-content-center wow zoomIn mb-80" data-wow-duration="1.5s">
+                    <img src="{{ "/assets/img/frustration.jpg" | relative_url }}" alt="frustración con git">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="section-title text-center text-md-left section-heading mb-md-0">
+                    <p class="mb-3">
+                        Pérdidas de códido, desorden, miedo a ejecutar comandos, frustración, poca efectividad, merges imposibles...
+                        ¿te resulta familiar?
+                    </p>
+                    <p class="mb-3">
+                        Otras veces el equipo lleva tiempo usando git con cierta soltura, sin embargo hay pequeños detalles que se os escapan y 
+                        os falta confianza a la hora de ejecutar las operaciones más complejas.
+                    </p>
+                    <p class="mb-3">
+                        Nuestro <strong>curso de git avanzado</strong>
+                        os dará la confianza que necesitáis para sacarle todo el partido a git y <strong>utilizarlo sin miedo, con precisión y efectividad</strong>
+                    </p>
+                    <p class="text-center">
+                        <a href="{{ "/contacto.html" | relative_url }}" class="btn btn-success">
+                            Contacta con nosotros
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="app-services-area position-relative pt-80 gray-bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="section-title text-center section-heading mb-5">
+                    <h2>Tu equipo está a tres pasos de multiplicar su productividad</h2>
+                </div>
+            </div>
+        </div>        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="icon-box horizontal-icon-box no-border text-center mb-5" data-wow-duration="1s">
+                    <div class="inner p-3 p-lg-5">
+                        <div class="icon-3 rounded bg-color m-auto">
+                            <i class="fa fa-code text-white"></i>
+                        </div>
+                        <div class="content mt-4">
+                            <h5 class="heading heading-h5 mb-0">Consultoría</h5>
+                            <p class="mt-3">							
+                                Antes del curso, nuestro equipo lleva a cabo una consultoría previa. En ella 
+                                <strong>analizamos el estado del equipo y estudiamos vuestras necesidades</strong>.   
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="icon-box horizontal-icon-box no-border text-center mb-5" data-wow-duration="1s">
+                    <div class="inner p-3 p-lg-5">
+                        <div class="icon-3 rounded bg-color m-auto">
+                            <i class="fa fa-layer-group text-white"></i>
+                        </div>
+                        <div class="content mt-4">
+                            <h5 class="heading heading-h5 mb-0">Definición</h5>
+                            <p class="mt-3">
+                                La sesión de consultoría nos permite <strong>definir los objetivos y concretar el temario del curso de git</strong> más adecuado para vuestro equipo. 
+                                El contenido del curso dependerá de la experiencia que ya tengáis con git, vuestro stack tecnológico y entorno de desarrollo, estructura del equipo y el tipo
+                                de proyectos que realicéis.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="icon-box horizontal-icon-box no-border text-center mb-5" data-wow-duration="1s">
+                    <div class="inner p-3 p-lg-5">
+                        <div class="icon-3 rounded bg-color m-auto">
+                            <i class="fa fa-download text-white"></i>
+                        </div>
+                        <div class="content mt-4">
+                            <h5 class="heading heading-h5 mb-0">Formación</h5>
+                            <p class="mt-3">
+                                Impartimos el curso de git avanzado en vuestras instalaciones, en base a los requisitos, objetivos y temario definidos 
+                                en las sesiones de trabajo previas al curso.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Developr happiness Start -->
+<section class="position-relative ptb-40">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="section-title text-center section-heading mb-5">
+                    <h2>Developer happiness</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="position-relative d-flex align-items-center justify-content-center wow zoomIn mb-80" data-wow-duration="1.5s">
+                    <img src="{{ "/assets/img/team_success.jpg" | relative_url }}" alt="frustración con git">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="section-title text-center text-md-left section-heading mb-md-0">
+                    <p class="mb-3">
+                        Una vez finalizado el curso, <strong>vuestro equipo dispondrá de los conocimientos necesarios
+                        para resolver todos esos problemas que os hacían perder efectividad</strong>.
+                    </p>
+                    <p class="mb-3">
+                        Además, somos conscientes de que hay muchas preguntas que no surgen durante la formación. Por ello, 
+                        contaréis con el <strong>acompañamiento del instructor cuando el curso termine para consultarle cualquier duda que os 
+                        pueda surgir sobre el temario impartido</strong>.
+                    </p>
+                    <p class="mb-3">
+                        Con práctica, llegaréis a controlar el versionado de vuestros proyectos con precisión y efectividad.
+                    </p>
+                    <p class="lead text-center">
+                        <a href="/contacto.html" class="btn btn-success">
+                            Contacta con nosotros
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Developr happiness End -->
+
+<section class="counter_area ptb-80 ptb-sm-40 ptb-md-60 z-index-2 bg-light-black">
+    <div class="container">
+        <div class="row">
+            <!-- Single Cool Facts -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-cool-fact text-center mb-3 mb-lg-0">
+                    <i class="fas fa-user-graduate fa-4x text-white"></i>
+                    <h2 class="mt-3 text-white"><span class="count">600</span></h2>
+                    <p class="mt-3 text-white">Profesionales formados</p>
+                </div>
+            </div>
+            <!-- Single Cool Facts -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-cool-fact text-center mb-3 mb-lg-0">
+                    <i class="fas fa-chalkboard-teacher fa-4x text-white"></i>
+                    <h2 class="mt-3 text-white"><span class="count">55</span></h2>
+                    <p class="mt-3 text-white">Cursos presenciales</p>
+                </div>
+            </div>
+            <!-- Single Cool Facts -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-cool-fact text-center mb-3 mb-lg-0">
+                    <i class="fas fa-globe fa-4x text-white"></i>
+                    <h2 class="mt-3 text-white"><span class="count">3</span></h2>
+                    <p class="mt-3 text-white">Cursos a distancia</p>
+                </div>
+            </div>
+            <!-- Single Cool Facts -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-cool-fact text-center mb-3 mb-lg-0">
+                    <i class="fas fa-city fa-4x text-white"></i>
+                    <h2 class="mt-3 text-white"><span class="count">10</span></h2>
+                    <p class="mt-3 text-white">Ciudades</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Google Map Area Start-->
+<div class="ptb-0 section text-center">
+    <div class="sl-gmap3" id="slmap2" data-height="400" data-width="100%" data-zoom_enable="" data-zoom="6" data-map_type="roadmap" data-map_style="style11">
+    </div>
 </div>
+<!--Google Map Area Start-->
+
+<section class="position-relative ptb-40 ptb-sm-35 ptb-md-60 gray-bg">
+    <div>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="position-relative d-flex align-items-center justify-content-center wow zoomIn mb-80" data-wow-duration="1.5s">
+                    <img src="{{ "/assets/img/community.jpg" | relative_url }}" alt="frustración con git">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="section-title text-center text-md-left section-heading mb-md-0">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 col-lg-8">
+                            <div class="section-title text-center section-heading mb-5">
+                                <h2>Meetups &amp; Blog</h2>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <p class="mb-3">
+                        <a href="https://www.youtube.com/watch?v=qwL3lhRwn78" style="position: relative;">
+                            <img src="{{ "/assets/img/meetup_git_julio_2014.png" | relative_url }}" alt="Video">
+                        </a>
+                    </p>
+
+                    <p class="text-center">
+                        Visita nuestro <a href="https://www.youtube.com/channel/UCxrqcHQVPkwiNu_BOuZ4jdQ">canal de youtube</a>, 
+                        apuntate al <a href="https://www.meetup.com/es-ES/Spanish-Git-Meetup/">meetup de git</a> 
+                        y aprende leyendo <a href="http://www.aprendegit.com">nuestro blog</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
