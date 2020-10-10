@@ -46,6 +46,9 @@ window.klaroConfig = {
             },
             googleAnalytics: {
                 description: ''
+            },
+            youtube: {
+                description: 'Estas cookies se utilizan para mostrar contenido de youtube empotrado dentro de nuestras páginas. Si no las seleccionas, no te mostraremos los vídeos sino enlaces a la correspondiente página de youtube'
             }
 
         }
