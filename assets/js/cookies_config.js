@@ -46,6 +46,9 @@ window.klaroConfig = {
             },
             googleAnalytics: {
                 description: ''
+            },
+            youtube: {
+                description: 'Estas cookies se utilizan para mostrar contenido de youtube empotrado dentro de nuestras páginas. Si no las seleccionas, no te mostraremos los vídeos sino enlaces a la correspondiente página de youtube'
             }
 
         }
@@ -74,8 +77,15 @@ window.klaroConfig = {
             default: true,
             title: 'YouTube',
             purposes: ['thirdParty'],
-            cookies: ['IDE', 'YSC', 'VISITOR_INFO1_LIVE', 'CONSENT', 'PREF', 'GPS'],
-            callback: function(consent, app) {
+            callback: function(consent, service) {
+                var elements = document.querySelectorAll("[data-name='youtube']");
+                if (elements.length && elements.length > 0) {
+                    if (consent === true) {
+                        Array.prototype.forEach.call(elements, function(e){e.style.visibility='visible'});
+                    } else {
+                        Array.prototype.forEach.call(elements, function(e){e.style.visibility='hidden'});                    
+                    }    
+                }
             },
             required: false,
             optOut: false,
