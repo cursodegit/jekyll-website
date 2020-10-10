@@ -74,8 +74,15 @@ window.klaroConfig = {
             default: true,
             title: 'YouTube',
             purposes: ['thirdParty'],
-            cookies: ['IDE', 'YSC', 'VISITOR_INFO1_LIVE', 'CONSENT', 'PREF', 'GPS'],
-            callback: function(consent, app) {
+            callback: function(consent, service) {
+                var elements = document.querySelectorAll("[data-name='youtube']");
+                if (elements.length && elements.length > 0) {
+                    if (consent === true) {
+                        Array.prototype.forEach.call(elements, function(e){e.style.visibility='visible'});
+                    } else {
+                        Array.prototype.forEach.call(elements, function(e){e.style.visibility='hidden'});                    
+                    }    
+                }
             },
             required: false,
             optOut: false,
