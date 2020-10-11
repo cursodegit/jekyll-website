@@ -65,9 +65,10 @@ window.klaroConfig = {
             title: 'Google Analytics',
             description: '', 
             purposes: ['analytics'],
-            cookies: [/^ga/i],
-            callback: function(consent, app) {
-            },
+            cookies: [
+                [/^(_ga|_gid).*$/, '/', 'localhost'],
+                [/^(_ga|_gid).*$/, '/', '.cursodegit.com'],
+            ],
             required: false,
             optOut: false,
             onlyOnce: true,
@@ -90,6 +91,5 @@ window.klaroConfig = {
             required: false,
             optOut: false,
         }
-
     ],
 };
