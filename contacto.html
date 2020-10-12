@@ -17,7 +17,7 @@ layout: page
 {% endcontentfor %}
 
 <div class="container">
-    <div style="width: 640px; margin-left: auto; margin-right: auto;">    
+    <div style="width: 640px; margin-left: auto; margin-right: auto;" data-name="googleForms">    
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScElaoeRvwEU_RwNTB2zvOftLcTCPDt78R5lYiwEl5soklkPg/viewform?embedded=true" 
                 width="640" 
                 height="2100" 
@@ -26,6 +26,12 @@ layout: page
                 marginwidth="0">
                 Cargando…
         </iframe>
+    </div>
+
+    <div class="alert alert-warning text-center" data-name="googleFormsAltText">
+        No has dado tu consentimiento al uso de Google Forms. Para acceder al formulario de contacto, accede 
+        a la <a href="javascript:;" onclick="return klaro.show();">Configuración de cookies</a> y 
+        activa Google Forms en la sección "Cookies de terceros".
     </div>
 
 </div>
