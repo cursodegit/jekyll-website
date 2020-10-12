@@ -48,7 +48,10 @@ window.klaroConfig = {
                 description: ''
             },
             youtube: {
-                description: 'Estas cookies se utilizan para mostrar contenido de youtube empotrado dentro de nuestras páginas. Si no las seleccionas, no te mostraremos los vídeos sino enlaces a la correspondiente página de youtube'
+                description: 'Estas cookies se utilizan para mostrar contenido de youtube empotrado dentro de nuestras páginas. Si no las seleccionas, no te mostraremos los vídeos sino enlaces a la correspondiente página de youtube.'
+            },
+            googleForms: {
+                description: 'Estas cookies se utilizan para mostrar el formulario de contacto empotrado dentro de nuestra página de contacto. Si no las seleccionas, no te mostraremos el formulario de contacto.'
             }
 
         }
@@ -72,6 +75,33 @@ window.klaroConfig = {
             required: false,
             optOut: false,
             onlyOnce: true,
+        },
+        {
+            name: 'googleForms',
+            default: true,
+            title: 'Google Forms',
+            purposes: ['thirdParty'],
+            callback: function(consent, service) {
+                var elements = document.querySelectorAll("[data-name='googleForms']");
+                var altTextElements = document.querySelectorAll("[data-name='googleFormsAltText']");
+                if (elements.length && elements.length > 0) {
+                    if (consent === true) {
+                        Array.prototype.forEach.call(elements, function(e){e.style.display='block'});
+                    } else {
+                        Array.prototype.forEach.call(elements, function(e){e.style.display='none'});                    
+                    }    
+                }
+
+                if (altTextElements.length && altTextElements.length > 0) {
+                    if (consent === true) {
+                        Array.prototype.forEach.call(altTextElements, function(e){e.style.display='none'});
+                    } else {
+                        Array.prototype.forEach.call(altTextElements, function(e){e.style.display='block'});                    
+                    }    
+                }
+            },
+            required: false,
+            optOut: false,
         },
         {
             name: 'youtube',
