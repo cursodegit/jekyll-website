@@ -56,7 +56,7 @@ window.klaroConfig = {
 
         }
     },    
-    apps: [
+    services: [
         {
             name: 'cookiesConsent',
             purposes: ['tecnical'],
