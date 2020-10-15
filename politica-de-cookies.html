@@ -8,6 +8,25 @@ description: >-
 image: /assets/img/cards/politica_de_cookies.jpeg  
 ---
 
+{% contentfor breadcrumb_trail %}
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://wwww.cursodegit.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Política de cookies"
+      }]
+    }
+</script>
+{% endcontentfor %}
+
 {% contentfor before_page_content %}
 
 <div class="breadcrumb-area ptb-80 ptb-md-60 ptb-sm-40 mb-80 breadcrumb-title-bar" style="background-color: rgb(230, 230, 230);">

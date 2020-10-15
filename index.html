@@ -13,6 +13,21 @@ image: /assets/img/cards/cursos_avanzados.jpeg
 <script sync src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkp837gqPvwSoUbCxF34EcEmLD5XGcvo8"></script>
 {% endcontentfor %}
 
+{% contentfor breadcrumb_trail %}
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://wwww.cursodegit.com/"
+      }]
+    }
+</script>
+{% endcontentfor %}
+
 {% contentfor post_footer_scripts %}
 
 <script>
