@@ -43,6 +43,10 @@ facebook:
   app_id: 810425943052665
   publisher: https://www.facebook.com/cursodegit
 
+webmaster_verifications:
+  google: 93oj72nJPCkvPyyLNq5d4q6susEfPQn8dOxP0wiYLfM
+  bing: D611841E1E280E315112404D41810CB0
+
 snail:
   body_class: template-color-25
 # Exclude from processing.
