@@ -36,6 +36,13 @@ lang: es
 plugins:
   - jekyll-feed
 
+twitter:
+  username: cursodegit
+  card: summary_large_image  
+facebook:
+  app_id: 810425943052665
+  publisher: https://www.facebook.com/cursodegit
+
 snail:
   body_class: template-color-25
 # Exclude from processing.
