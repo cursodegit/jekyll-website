@@ -3,9 +3,29 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
+title: Curso avanzado de git
+description: >- 
+  Cursos avanzados de git en modalidad presencial y a distancia. Entiende cómo funciona git 
+  y mejora la productividad de tu equipo.
+image: /assets/img/cards/cursos_avanzados.jpeg
 ---
 {% contentfor pre_footer_scripts %}
 <script sync src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkp837gqPvwSoUbCxF34EcEmLD5XGcvo8"></script>
+{% endcontentfor %}
+
+{% contentfor breadcrumb_trail %}
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://wwww.cursodegit.com/"
+      }]
+    }
+</script>
 {% endcontentfor %}
 
 {% contentfor post_footer_scripts %}

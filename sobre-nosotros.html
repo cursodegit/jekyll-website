@@ -1,6 +1,29 @@
 ---
 layout: page
+title: Conócenos
+description: >- 
+  Conoce al equipo que imparte el curso avanzado de git y
+  lee alguna de las opiniones de personas que han asistido a nuestra formación.
+image: /assets/img/cards/sobre_nosotros.jpeg
 ---
+{% contentfor breadcrumb_trail %}
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://wwww.cursodegit.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Sobre nosotros"
+      }]
+    }
+</script>
+{% endcontentfor %}
 
 {% contentfor before_page_content %}
 
