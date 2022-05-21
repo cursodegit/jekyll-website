@@ -1,7 +1,7 @@
 /*----------------------------------------------
 
 Template name:  Snail
-Version:        1.0
+Version:        3.0
 Author:         Snail
 Author Email:   support@company.com 
 
@@ -42,6 +42,19 @@ We may release future updates so it will overwrite this file. it's better and sa
         }, 600);
         return false;
     });
+
+    function scrollNav() {
+        $('.sl_header .mainmenu a,.navbar .navbar-nav .nav-link,.side-nav .navbar-nav .nav-link').click(function() {
+            $(".active").removeClass("active");
+            $(this).addClass("active");
+
+            $('html, body').stop().animate({
+                scrollTop: $($(this).attr('href')).offset().top - 80
+            }, 300);
+            return false;
+        });
+    }
+    scrollNav();
     /*=====================================
         Isotope filter Activation
     =========================================*/
@@ -80,6 +93,13 @@ We may release future updates so it will overwrite this file. it's better and sa
                 });
                 return false;
             });
+        }
+    });    
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+            $('.header-unpinned').addClass('static');
+        } else {    
+            $('.header-pinned').removeClass('show');
         }
     });
 
@@ -149,7 +169,46 @@ We may release future updates so it will overwrite this file. it's better and sa
         e.target === this && searchClose();
     });
 
+    /* =============================
+        Header Full Details Scroll On Fixed
+    =================================*/
 
+    if ($('.header-full-menu .inner-header').length) {
+        $(window).on('scroll', function() {
+            if ($(this).scrollTop() > 260) { // Set position from top to add class
+                $('.header-full-menu .inner-header').addClass('header-full-active');
+            } else {
+                $('.header-full-menu .inner-header').removeClass('header-full-active');
+            }
+        });
+    }
+
+    /* =============================
+        Header Full Details toggle
+    =================================*/
+
+    if ($("#sidemenu_toggle").length) {
+        $("#sidemenu_toggle").on("click", function() {
+            $(".side-menu").removeClass("side-menu-opacity");
+            $(".pushwrap").toggleClass("active");
+            $(".side-menu").addClass("side-menu-active"), $("#close_side_menu").fadeIn(700)
+        }), $("#close_side_menu").on("click", function() {
+            $(".side-menu").removeClass("side-menu-active"), $(this).fadeOut(200), $(".pushwrap").removeClass("active");
+            setTimeout(function() {
+                $(".side-menu").addClass("side-menu-opacity");
+            }, 500);
+        }), $(".side-nav .navbar-nav .nav-link").on("click", function() {
+            $(".side-menu").removeClass("side-menu-active"), $("#close_side_menu").fadeOut(200), $(".pushwrap").removeClass("active");
+            setTimeout(function() {
+                $(".side-menu").addClass("side-menu-opacity");
+            }, 500);
+        }), $("#btn_sideNavClose").on("click", function() {
+            $(".side-menu").removeClass("side-menu-active"), $("#close_side_menu").fadeOut(200), $(".pushwrap").removeClass("active");
+            setTimeout(function() {
+                $(".side-menu").addClass("side-menu-opacity");
+            }, 500);
+        });
+    }
     /* =============================
         Sticky Header 
     =================================*/
@@ -201,7 +260,6 @@ We may release future updates so it will overwrite this file. it's better and sa
             }
         });
     }
-
     // Header White To Black
 
     function HeaderwhiteToblack() {
@@ -222,6 +280,7 @@ We may release future updates so it will overwrite this file. it's better and sa
             }
         });
     }
+    // headerChangable();
 
     $(document).ready(function() {
         HeaderblackTowhite();
@@ -271,6 +330,24 @@ We may release future updates so it will overwrite this file. it's better and sa
     $('.popup-mobile-visiable').on('click', function(e) {
         e.target === this && menuClose();
     });
+
+    /* ===================================
+      Rotating Text
+      ====================================== */
+
+    if ($(".js-rotating").length) {
+        $(".js-rotating").Morphext({
+            // The [in] animation type. Refer to Animate.css for a list of available animations.
+            animation: "flipInY",
+            // An array of phrases to rotate are created based on this separator. Change it if you wish to separate the phrases differently (e.g. So Simple | Very Doge | Much Wow | Such Cool).
+            separator: ",",
+            // The delay between the changing of each phrase in milliseconds.
+            speed: 5000,
+            complete: function() {
+                // Called after the entrance animation is executed.
+            }
+        });
+    }
 
     /* =============================
         Hamberger Menu
@@ -324,7 +401,31 @@ We may release future updates so it will overwrite this file. it's better and sa
             }
         ]
     });
+    if ($('.slider').length > 0) {
+        $('.slider').slick({
+              autoplay: true,
+              speed: 800,
+              lazyLoad: 'progressive',
+              arrows: true,
+              dots: false,
+                prevArrow: '<div class="slick-nav prev-arrow"><i></i><svg><use xlink:href="#circle"></svg></div>',
+                nextArrow: '<div class="slick-nav next-arrow"><i></i><svg><use xlink:href="#circle"></svg></div>',
+        }).slickAnimation();
 
+        $('.slick-nav').on('click touch', function(e) {
+
+            e.preventDefault();
+
+            var arrow = $(this);
+
+            if(!arrow.hasClass('animate')) {
+                arrow.addClass('animate');
+                setTimeout(() => {
+                    arrow.removeClass('animate');
+                }, 1600);
+            }   
+        });
+    }
     /*=====================================
         Date time Picker
     =========================================*/
@@ -424,7 +525,7 @@ We may release future updates so it will overwrite this file. it's better and sa
 
     $('.count').counterUp({
         delay: 10,
-        time: 2000
+        time: 3500
     });
 
     /*============================== 
@@ -665,14 +766,37 @@ We may release future updates so it will overwrite this file. it's better and sa
 
     ContentHover();
 
+    function ContentHover() {
+
+        var $hoverContentHeight = 0;
+
+        $('body').on('mouseenter', '.fancybox-hover-block', function() {
+            $hoverContentHeight = parseInt($(this).find('.fancy-box-info').outerHeight(true));
+            $(this).find('.fancy-box-header').css('transform', 'translateY(-' + $hoverContentHeight + 'px)');
+        });
+
+        $('body').on('mouseleave', '.fancybox-hover-block', function() {
+            $(this).find('.fancy-box-header').css('transform', 'translateY(0)');
+        });
+    }
+
+    ContentHover();
+
     /* =============================
         Typed Js
     =================================*/
 
-    $(function() { $(".typed").typed({ strings: ["Neural Text to Speech", "Celebrity voices", "Frustration Detection", "Wi-Fi control", "Food Network feature"], typeSpeed: 130, loop: true }); });
-
-    // Landing page banner
-    $(function() { $(".landing-typed").typed({ strings: ["Innovative", "Creative"], typeSpeed: 130, loop: true }); });
+    if (('[data-typed]').length > 0) {
+        $('[data-typed]').each(function(index, el) {
+            new Typed(el, {
+                strings: JSON.parse($(el).attr('data-typed')),
+                typeSpeed: 200,
+                backSpeed: 150,
+                backDelay: 1e3,
+                loop: !0
+            });
+        });
+    }
 
     /* =============================
         Testimonial Slider
@@ -1196,6 +1320,45 @@ We may release future updates so it will overwrite this file. it's better and sa
         });
     }
 
+    var carouselSlider = new Swiper('.services-carousel', {
+        slidesPerGroup: 1,
+        loop: true,
+        speed: 1000,
+        parallax: true,
+        autoplay: 3000,
+        speed: 800,
+        spaceBetween: 30,
+        navigation: false,
+        pagination: false,
+        breakpoints: {
+            2500: {
+                slidesPerView: 3.5
+            },
+            2000: {
+                slidesPerView: 3.5
+            },
+            1499: {
+                slidesPerView: 3.5
+            },
+            1200: {
+                slidesPerView: 2.5
+            },
+
+            991: {
+                slidesPerView: 2
+            },
+
+            767: {
+                slidesPerView: 1
+
+            },
+            300: {
+                slidesPerView: 1
+
+            }
+        }
+    });
+
     if ($('.testimonial-classic').length > 0) {
         $('.testimonial-classic').owlCarousel({
             items: 1,
@@ -1214,11 +1377,11 @@ We may release future updates so it will overwrite this file. it's better and sa
         Parrallax Scene
     ======================================*/
 
-    if ($("#parrllax-scene").length > 0) {
-        var scene = document.getElementById('parrllax-scene');
-        var parallax = new Parallax(scene);
-        var scene1 = document.getElementById('parrllax-scene-1');
-        var parallax = new Parallax(scene1);
+    var scenes = [];
+    var scenesSelector = document.querySelectorAll('.parallax-scene');
+
+    for (var i = 0; i < scenesSelector.length; i++) {
+        scenes[i] = new Parallax(scenesSelector[i]);
     }
 
     /*==================================
@@ -1331,6 +1494,17 @@ We may release future updates so it will overwrite this file. it's better and sa
         $(this).data('opacity', $(this).css('opacity'));
         var url = $(this).attr('data-opacity');
         $(this).css('opacity', url)
+    });
+
+
+    /*==================================
+        Opacity // Custom tag
+    ======================================*/
+
+    $("[data-height]").each(function() {
+        $(this).data('height', $(this).css('height'));
+        var url = $(this).attr('data-height');
+        $(this).css('height', url)
     });
 
 
@@ -1466,12 +1640,84 @@ We may release future updates so it will overwrite this file. it's better and sa
             icon: 'http://www.google.com/mapfiles/markerA.png'
         }];
 
-        new Maplace({
-            locations: data,
-            controls_type: 'list',
-            controls_on_map: false
-        }).Load();
+        // new Maplace({
+        //     locations: data,
+        //     controls_type: 'list',
+        //     controls_on_map: false
+        // }).Load();
     }
+
+    /* =====================================
+           Parallax
+    ====================================== */
+
+    $(window).on('scroll', function () {
+        if ($(this).scrollTop() > 220) { // Set position from top to add class
+            $('.creative-st-header').addClass('header-appear');
+        }
+        else {
+            $('.creative-st-header').removeClass('header-appear');
+        }
+    });
+
+     /* ===================================
+         Scroll
+    ====================================== */
+
+    //scroll to appear
+    $(window).on('scroll', function () {
+        if ($(this).scrollTop() > 500)
+            $('.scroll-top-arrow').fadeIn('slow');
+        else
+            $('.scroll-top-arrow').fadeOut('slow');
+    });
+
+    //Click event to scroll to top
+    $(document).on('click', '.scroll-top-arrow', function () {
+        $('html, body').animate({scrollTop: 0}, 800);
+        return false;
+    });
+
+    $(".scroll").on("click", function (event) {
+        event.preventDefault();
+        $("html,body").animate({
+            scrollTop: $(this.hash).offset().top - 60}, 1200);
+    });
+
+
+    if ($(window).width() > 992) {
+        $(".studio-parallax").parallaxie({
+            speed: 0.55,
+            offset: 0,
+        });
+    }
+
+    /* ===================================
+         Side Menu
+    ====================================== */
+    $(window).on("load", function () {
+
+    "use strict";
+        /* ===================================
+                Loading Timeout
+         ====================================== */
+
+        $('.side-menu.hidden').removeClass('hidden');
+    });
+    
+    if ($("#sidemenu_toggle").length) {
+        $("#sidemenu_toggle").on("click", function () {
+            $(".pushwrap").toggleClass("active");
+            $(".side-menu").addClass("side-menu-active"), $("#close_side_menu").fadeIn(700)
+        }), $("#close_side_menu").on("click", function () {
+            $(".side-menu").removeClass("side-menu-active"), $(this).fadeOut(200), $(".pushwrap").removeClass("active")
+        }), $(".side-nav .navbar-nav .nav-link").on("click", function () {
+            $(".side-menu").removeClass("side-menu-active"), $("#close_side_menu").fadeOut(200), $(".pushwrap").removeClass("active")
+        }), $("#btn_sideNavClose").on("click", function () {
+            $(".side-menu").removeClass("side-menu-active"), $("#close_side_menu").fadeOut(200), $(".pushwrap").removeClass("active")
+        });
+    }
+
 
     /*==================================
         Image Comparision
@@ -1496,9 +1742,301 @@ We may release future updates so it will overwrite this file. it's better and sa
         });
     });
 
+    
+  
 
+    /*==================================
+        Charts
+    ======================================*/
+
+    if (document.getElementById('marketsChartBtcLight')) {
+        am4core.ready(function() {
+            // Create chart
+            var chart = am4core.create('marketsChartBtcLight', am4charts.XYChart);
+
+            chart.data = generateChartData();
+
+            var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+            dateAxis.baseInterval = {
+                timeUnit: 'minute',
+                count: 1,
+            };
+            dateAxis.tooltip.disabled = true;
+            dateAxis.renderer.grid.template.disabled = true;
+            dateAxis.renderer.labels.template.disabled = true;
+            dateAxis.renderer.ticks.template.disabled = true;
+            dateAxis.renderer.paddingBottom = 15;
+
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            valueAxis.tooltip.disabled = true;
+            valueAxis.renderer.grid.template.disabled = true;
+            valueAxis.renderer.labels.template.disabled = true;
+            valueAxis.renderer.ticks.template.disabled = true;
+
+            var series = chart.series.push(new am4charts.LineSeries());
+            series.dataFields.dateX = 'date';
+            series.dataFields.valueY = 'prices';
+            series.tooltipText = 'prices: [bold]{valueY}[/]';
+            series.fillOpacity = 0.1;
+            series.fill = am4core.color('#00cc93');
+            series.stroke = am4core.color('#00cc93');
+            series.tooltip.getFillFromObject = false;
+            series.tooltip.background.fill = am4core.color('#2a2e39');
+            series.tooltip.background.stroke = am4core.color('#2a2e39');
+
+            chart.cursor = new am4charts.XYCursor();
+            chart.cursor.lineY.opacity = 1;
+            dateAxis.start = 0;
+            dateAxis.keepSelection = true;
+            chart.zoomOutButton.background.fill = am4core.color(
+                'rgba(0, 0, 0, 0.09)'
+            );
+            chart.zoomOutButton.icon.stroke = am4core.color('rgba(0, 0, 0, 0.40)');
+            chart.zoomOutButton.background.states.getKey(
+                'hover'
+            ).properties.fill = am4core.color('#00cc93');
+
+            function generateChartData() {
+                var chartData = [];
+                // current date
+                var firstDate = new Date();
+                // now set 500 minutes back
+                firstDate.setMinutes(firstDate.getDate() - 500);
+
+                // and generate 500 data items
+                var prices = 500;
+                for (var i = 0; i < 500; i++) {
+                    var newDate = new Date(firstDate);
+                    // each time we add one minute
+                    newDate.setMinutes(newDate.getMinutes() + i);
+                    // some random number
+                    prices += Math.round(
+                        (Math.random() < 0.5 ? 1 : -1) * Math.random() * 10
+                    );
+                    // add data item to the array
+                    chartData.push({
+                        date: newDate,
+                        prices: prices,
+                    });
+                }
+                return chartData;
+            }
+        });
+    }
+
+    if (document.getElementById('marketsChartEthLight')) {
+        am4core.ready(function() {
+            // Create chart
+            var chart = am4core.create('marketsChartEthLight', am4charts.XYChart);
+
+            chart.data = generateChartData();
+
+            var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+            dateAxis.baseInterval = {
+                timeUnit: 'minute',
+                count: 1,
+            };
+            dateAxis.tooltip.disabled = true;
+            dateAxis.renderer.grid.template.disabled = true;
+            dateAxis.renderer.labels.template.disabled = true;
+            dateAxis.renderer.ticks.template.disabled = true;
+            dateAxis.renderer.paddingBottom = 15;
+
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            valueAxis.tooltip.disabled = true;
+            valueAxis.renderer.grid.template.disabled = true;
+            valueAxis.renderer.labels.template.disabled = true;
+            valueAxis.renderer.ticks.template.disabled = true;
+
+            var series = chart.series.push(new am4charts.LineSeries());
+            series.dataFields.dateX = 'date';
+            series.dataFields.valueY = 'prices';
+            series.tooltipText = 'prices: [bold]{valueY}[/]';
+            series.fillOpacity = 0.1;
+            series.fill = am4core.color('#f74745');
+            series.stroke = am4core.color('#f74745');
+            series.tooltip.getFillFromObject = false;
+            series.tooltip.background.fill = am4core.color('#2a2e39');
+            series.tooltip.background.stroke = am4core.color('#2a2e39');
+
+            chart.cursor = new am4charts.XYCursor();
+            chart.cursor.lineY.opacity = 1;
+            dateAxis.start = 0;
+            dateAxis.keepSelection = true;
+            chart.zoomOutButton.background.fill = am4core.color(
+                'rgba(0, 0, 0, 0.09)'
+            );
+            chart.zoomOutButton.icon.stroke = am4core.color('rgba(0, 0, 0, 0.40)');
+            chart.zoomOutButton.background.states.getKey(
+                'hover'
+            ).properties.fill = am4core.color('#f74745');
+
+            function generateChartData() {
+                var chartData = [];
+                // current date
+                var firstDate = new Date();
+                // now set 500 minutes back
+                firstDate.setMinutes(firstDate.getDate() - 500);
+
+                // and generate 500 data items
+                var prices = 500;
+                for (var i = 0; i < 500; i++) {
+                    var newDate = new Date(firstDate);
+                    // each time we add one minute
+                    newDate.setMinutes(newDate.getMinutes() + i);
+                    // some random number
+                    prices += Math.round(
+                        (Math.random() < 0.5 ? 1 : -1) * Math.random() * 10
+                    );
+                    // add data item to the array
+                    chartData.push({
+                        date: newDate,
+                        prices: prices,
+                    });
+                }
+                return chartData;
+            }
+        });
+    }
+
+    if (document.getElementById('marketsChartLtcLight')) {
+        am4core.ready(function() {
+            // Create chart
+            var chart = am4core.create('marketsChartLtcLight', am4charts.XYChart);
+
+            chart.data = generateChartData();
+
+            var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+            dateAxis.baseInterval = {
+                timeUnit: 'minute',
+                count: 1,
+            };
+            dateAxis.tooltip.disabled = true;
+            dateAxis.renderer.grid.template.disabled = true;
+            dateAxis.renderer.labels.template.disabled = true;
+            dateAxis.renderer.ticks.template.disabled = true;
+            dateAxis.renderer.paddingBottom = 15;
+
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            valueAxis.tooltip.disabled = true;
+            valueAxis.renderer.grid.template.disabled = true;
+            valueAxis.renderer.labels.template.disabled = true;
+            valueAxis.renderer.ticks.template.disabled = true;
+
+            var series = chart.series.push(new am4charts.LineSeries());
+            series.dataFields.dateX = 'date';
+            series.dataFields.valueY = 'prices';
+            series.tooltipText = 'prices: [bold]{valueY}[/]';
+            series.fillOpacity = 0.1;
+            series.fill = am4core.color('#00cc93');
+            series.stroke = am4core.color('#00cc93');
+            series.tooltip.getFillFromObject = false;
+            series.tooltip.background.fill = am4core.color('#2a2e39');
+            series.tooltip.background.stroke = am4core.color('#2a2e39');
+
+            chart.cursor = new am4charts.XYCursor();
+            chart.cursor.lineY.opacity = 1;
+            dateAxis.start = 0;
+            dateAxis.keepSelection = true;
+            chart.zoomOutButton.background.fill = am4core.color(
+                'rgba(0, 0, 0, 0.09)'
+            );
+            chart.zoomOutButton.icon.stroke = am4core.color('rgba(0, 0, 0, 0.40)');
+            chart.zoomOutButton.background.states.getKey(
+                'hover'
+            ).properties.fill = am4core.color('#00cc93');
+
+            function generateChartData() {
+                var chartData = [];
+                // current date
+                var firstDate = new Date();
+                // now set 500 minutes back
+                firstDate.setMinutes(firstDate.getDate() - 500);
+
+                // and generate 500 data items
+                var prices = 500;
+                for (var i = 0; i < 500; i++) {
+                    var newDate = new Date(firstDate);
+                    // each time we add one minute
+                    newDate.setMinutes(newDate.getMinutes() + i);
+                    // some random number
+                    prices += Math.round(
+                        (Math.random() < 0.5 ? 1 : -1) * Math.random() * 10
+                    );
+                    // add data item to the array
+                    chartData.push({
+                        date: newDate,
+                        prices: prices,
+                    });
+                }
+                return chartData;
+            }
+        });
+    }
+
+    // Animated Globe
+
+    if ($('#vanta-globe').length > 0) {
+        VANTA.GLOBE({
+            el: "#vanta-globe",
+            mouseControls: false,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 700.00,
+            minWidth: 400.00,
+            scale: 0.90,
+            scaleMobile: 1.00,
+            color: 0xff9500,
+            color2: 0xffc300,
+            size: 0.90,
+            backgroundColor: 0xf5f5f5
+        })
+    }
+
+    function vantafunc(x) {
+        if (x.matches) { // If media query matches
+            if ($('#vanta-globe').length > 0) {
+                VANTA.GLOBE({
+                    el: "#vanta-globe",
+                    mouseControls: false,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 300.00,
+                    minWidth: 50.00,
+                    scale: 1.00,
+                    scaleMobile: 0.50,
+                    color: 0xff9500,
+                    color2: 0xffc300,
+                    size: 1.00,
+                    backgroundColor: 0xf5f5f5
+                })
+            }
+        } else {
+            if ($('#vanta-globe').length > 0) {
+                VANTA.GLOBE({
+                    el: "#vanta-globe",
+                    mouseControls: false,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 700.00,
+                    minWidth: 400.00,
+                    scale: 0.90,
+                    scaleMobile: 1.00,
+                    color: 0xff9500,
+                    color2: 0xffc300,
+                    size: 0.90,
+                    backgroundColor: 0xf5f5f5
+                })
+            }
+        }
+    }
+
+    var x = window.matchMedia("(max-width: 768px)")
+    vantafunc(x) // Call listener function at run time
+    x.addListener(vantafunc)
 
 }(jQuery));
+
 
 /*==================================
     Image Comparsion Function
