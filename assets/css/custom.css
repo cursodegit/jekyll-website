@@ -1,4 +1,13 @@
 /*==================================================================================
     Custom Stylesheet ( Any custom styling you want to apply should be defined here ).
 ====================================================================================*/
-
+.lowercase {
+    text-transform: lowercase;
+}
+.footer-logo {
+    text-align: center;
+}
+.footer-logo img {
+    max-width: 25%;
+    margin: auto;
+}
