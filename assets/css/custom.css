@@ -11,3 +11,40 @@
     max-width: 25%;
     margin: auto;
 }
+
+/* GitHub Fork Ribbon: generated using https://www.kirilv.com/fork-ribbon-css-builder/*/
+.ribbon {
+    /* positioning */
+    position: fixed;
+    padding: 3px;
+    width: 210px;
+    /* top right of the page */
+    top: 40px;
+    right: -60px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    /* effects with some shadow */
+    box-shadow: 0 0 0 3px #999999, 0 0 20px -3px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 0 #ffffff, 0 0 5px rgba(0, 0, 0, 0.3);
+    /* looks */
+    background-color: #999999;
+    color: #ffffff !important;
+    font-size: 11px;
+    font-family: sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    /* ribbon effects */
+    border: 2px dotted #ffffff;
+    /* webkit antialias fix */
+    -webkit-backface-visibility: hidden;
+    letter-spacing: .5px;
+    z-index: 10;
+    text-align: center;
+  }
+
+.ribbon:hover {
+    box-shadow: 0 0 0 3px #d7d7d7, 0 0 20px -3px rgba(0, 0, 0, 0.5);
+    background-color: d7d7d7;
+  }
