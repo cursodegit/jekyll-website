@@ -1,0 +1,8 @@
+Makefile/
+.git/
+.jekyll-cache/
+.github/
+_site/
+Dockerfile
+Dockerfile_production
+docker-compose.yml
