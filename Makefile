@@ -1,2 +1,2 @@
 build:
-	docker build -f .\Dockerfile_production  -t jekyll-website .
+	docker build -f .\Dockerfile_production  -t jekyll-website -t eu.gcr.io/web-cursodegit-com/web .
