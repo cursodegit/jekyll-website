@@ -1,8 +1,8 @@
-Makefile/
 .git/
 .jekyll-cache/
 .github/
 _site/
+bin/
 Dockerfile
 Dockerfile_production
 docker-compose.yml
