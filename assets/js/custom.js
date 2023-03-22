@@ -1,9 +1,9 @@
 /*----------------------------------------------
 
 Template name:  Snail
-Version:        3.0
+Version:        6.0
 Author:         Snail
-Author Email:   support@company.com 
+Author Email:   vipul@chetsapp.com 
 
 NOTE:
 ------
@@ -13,15 +13,15 @@ We may release future updates so it will overwrite this file. it's better and sa
 ----------------------------------------------*/
 
 
-(function($) {
+(function ($) {
     "use strict";
 
     /*=====================================
         Preloader
     =========================================*/
 
-    $(window).on('load', function() {
-        $("body").addClass("loaded").delay(1000).queue(function() {
+    $(window).on('load', function () {
+        $("body").addClass("loaded").delay(1000).queue(function () {
             $('.preloader').addClass("d-none").dequeue();
         });
     });
@@ -29,14 +29,14 @@ We may release future updates so it will overwrite this file. it's better and sa
     /*=====================================
         Scroll Top
     =========================================*/
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('#scroll-top').addClass('show');
         } else {
             $('#scroll-top').removeClass('show');
         }
     });
-    $('#scroll-top').click(function() {
+    $('#scroll-top').click(function () {
         $("html, body").animate({
             scrollTop: 0
         }, 600);
@@ -44,8 +44,8 @@ We may release future updates so it will overwrite this file. it's better and sa
     });
 
     function scrollNav() {
-        $('.sl_header .mainmenu a,.navbar .navbar-nav .nav-link,.side-nav .navbar-nav .nav-link').click(function() {
-            $(".active").removeClass("active");
+        $('.sl_header .mainmenu a,.navbar .navbar-nav .nav-link,.side-nav .navbar-nav .nav-link').click(function () {
+            $(".header-menu .active").removeClass("active");
             $(this).addClass("active");
 
             $('html, body').stop().animate({
@@ -59,14 +59,14 @@ We may release future updates so it will overwrite this file. it's better and sa
         Isotope filter Activation
     =========================================*/
 
-    $(window).on('load', function() {
+    $(window).on('load', function () {
         if ($('.isotope-item').length > 0) {
             var $grid = $('.isotope-item').isotope({
                 itemSelector: '.item',
                 layoutMode: 'fitRows'
             });
 
-            $('.nav-item').click(function() {
+            $('.nav-item').click(function () {
                 $('.nav-item').removeClass('active');
                 $(this).addClass('active');
                 var selector = $(this).attr('data-filter');
@@ -84,7 +84,7 @@ We may release future updates so it will overwrite this file. it's better and sa
                 layoutMode: 'fitRows'
             });
 
-            $('.filter-item').click(function() {
+            $('.filter-item').click(function () {
                 $('.filter-item').removeClass('active');
                 $(this).addClass('active');
                 var selector = $(this).attr('data-filter');
@@ -94,32 +94,33 @@ We may release future updates so it will overwrite this file. it's better and sa
                 return false;
             });
         }
-    });    
-    $(window).scroll(function() {
+    });
+    $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('.header-unpinned').addClass('static');
-        } else {    
+        } else {
             $('.header-pinned').removeClass('show');
         }
     });
+
+
 
     /*=====================================
         Masonary wih isotope filter
     =========================================*/
 
-    $(window).on('load', function() {
-        $('.masonry-activation').imagesLoaded(function() {
+    $(window).on('load', function () {
+        $('.masonry-activation').imagesLoaded(function () {
             var $grid = $('.masonry-wrap').isotope({
                 itemSelector: '.masonary-item',
                 percentPosition: true,
                 transitionDuration: '0.7s',
                 masonry: {
-                    // use outer width of grid-sizer for columnWidth
                     columnWidth: 1,
                 }
             });
 
-            $('.nav-item').click(function() {
+            $('.nav-item').click(function () {
                 $('.nav-item').removeClass('active');
                 $(this).addClass('active');
                 var selector = $(this).attr('data-filter');
@@ -146,26 +147,26 @@ We may release future updates so it will overwrite this file. it's better and sa
     }
 
 
-    $('.btn-search-click').on("click", function(e) {
+    $('.btn-search-click').on("click", function (e) {
         e.preventDefault(),
-            function() {
+            function () {
                 $body.addClass('page-search-popup-opened'), $html.css({
                     overflow: "hidden"
                 });
                 var e = $('.sl-search-popup').find("form input[type='search']");
-                setTimeout(function() {
+                setTimeout(function () {
                     e.focus()
                 }, 500)
             }()
     });
 
 
-    $('.search-close').on('click', function(e) {
+    $('.search-close').on('click', function (e) {
         e.preventDefault();
         searchClose();
     });
 
-    $('.sl-search-popup').on('click', function(e) {
+    $('.sl-search-popup').on('click', function (e) {
         e.target === this && searchClose();
     });
 
@@ -174,8 +175,8 @@ We may release future updates so it will overwrite this file. it's better and sa
     =================================*/
 
     if ($('.header-full-menu .inner-header').length) {
-        $(window).on('scroll', function() {
-            if ($(this).scrollTop() > 260) { // Set position from top to add class
+        $(window).on('scroll', function () {
+            if ($(this).scrollTop() > 260) {
                 $('.header-full-menu .inner-header').addClass('header-full-active');
             } else {
                 $('.header-full-menu .inner-header').removeClass('header-full-active');
@@ -188,23 +189,23 @@ We may release future updates so it will overwrite this file. it's better and sa
     =================================*/
 
     if ($("#sidemenu_toggle").length) {
-        $("#sidemenu_toggle").on("click", function() {
+        $("#sidemenu_toggle").on("click", function () {
             $(".side-menu").removeClass("side-menu-opacity");
             $(".pushwrap").toggleClass("active");
             $(".side-menu").addClass("side-menu-active"), $("#close_side_menu").fadeIn(700)
-        }), $("#close_side_menu").on("click", function() {
+        }), $("#close_side_menu").on("click", function () {
             $(".side-menu").removeClass("side-menu-active"), $(this).fadeOut(200), $(".pushwrap").removeClass("active");
-            setTimeout(function() {
+            setTimeout(function () {
                 $(".side-menu").addClass("side-menu-opacity");
             }, 500);
-        }), $(".side-nav .navbar-nav .nav-link").on("click", function() {
+        }), $(".side-nav .navbar-nav .nav-link").on("click", function () {
             $(".side-menu").removeClass("side-menu-active"), $("#close_side_menu").fadeOut(200), $(".pushwrap").removeClass("active");
-            setTimeout(function() {
+            setTimeout(function () {
                 $(".side-menu").addClass("side-menu-opacity");
             }, 500);
-        }), $("#btn_sideNavClose").on("click", function() {
+        }), $("#btn_sideNavClose").on("click", function () {
             $(".side-menu").removeClass("side-menu-active"), $("#close_side_menu").fadeOut(200), $(".pushwrap").removeClass("active");
-            setTimeout(function() {
+            setTimeout(function () {
                 $(".side-menu").addClass("side-menu-opacity");
             }, 500);
         });
@@ -219,11 +220,11 @@ We may release future updates so it will overwrite this file. it's better and sa
         Option Demo
     =================================*/
 
-    $('.quick-option').on('click', function(e) {
+    $('.quick-option').on('click', function (e) {
         e.preventDefault(),
-            function() {
+            function () {
                 $demoOption.toggleClass('open')
-                setTimeout(function() {
+                setTimeout(function () {
                     if ($(".quick-option i").hasClass("fa-sliders-h")) {
 
                         $('.quick-option i').addClass('ti-close');
@@ -244,7 +245,7 @@ We may release future updates so it will overwrite this file. it's better and sa
     // Header Black To White
 
     function HeaderblackTowhite() {
-        $('.header-black-to-white').each(function() {
+        $('.header-black-to-white').each(function () {
             if ($(window).width() < 992) {
                 $(this).removeClass("header-black-version");
                 $(this).addClass("header-light-version");
@@ -260,10 +261,9 @@ We may release future updates so it will overwrite this file. it's better and sa
             }
         });
     }
-    // Header White To Black
 
     function HeaderwhiteToblack() {
-        $('.header-white-to-black').each(function() {
+        $('.header-white-to-black').each(function () {
             if ($(window).width() > 992) {
                 $(this).removeClass("header-light-version");
                 $(this).addClass("header-black-version");
@@ -280,12 +280,11 @@ We may release future updates so it will overwrite this file. it's better and sa
             }
         });
     }
-    // headerChangable();
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         HeaderblackTowhite();
         HeaderwhiteToblack();
-        $(window).resize(function() {
+        $(window).resize(function () {
             HeaderblackTowhite();
             HeaderwhiteToblack();
         });
@@ -295,7 +294,7 @@ We may release future updates so it will overwrite this file. it's better and sa
         Minicart Activation
     =================================*/
 
-    $('.minicart-trigger').on('click', function(e) {
+    $('.minicart-trigger').on('click', function (e) {
         e.stopPropagation();
         $(this).siblings('.shopping-cart').slideToggle('400');
         $(this).siblings('.shopping-cart').toggleClass('show');
@@ -313,9 +312,9 @@ We may release future updates so it will overwrite this file. it's better and sa
         Mobile Menu Popup
     =================================*/
 
-    $('.popup-mobile-click').on('click', function(e) {
+    $('.popup-mobile-click').on('click', function (e) {
         e.preventDefault(),
-            function() {
+            function () {
                 $body.addClass('popup-mobile-menu-wrapper'), $html.css({
                     overflow: "hidden"
                 });
@@ -323,11 +322,11 @@ We may release future updates so it will overwrite this file. it's better and sa
     });
 
 
-    $('.mobile-close').on('click', function(e) {
+    $('.mobile-close').on('click', function (e) {
         e.preventDefault();
         menuClose();
     });
-    $('.popup-mobile-visiable').on('click', function(e) {
+    $('.popup-mobile-visiable').on('click', function (e) {
         e.target === this && menuClose();
     });
 
@@ -337,14 +336,11 @@ We may release future updates so it will overwrite this file. it's better and sa
 
     if ($(".js-rotating").length) {
         $(".js-rotating").Morphext({
-            // The [in] animation type. Refer to Animate.css for a list of available animations.
             animation: "flipInY",
-            // An array of phrases to rotate are created based on this separator. Change it if you wish to separate the phrases differently (e.g. So Simple | Very Doge | Much Wow | Such Cool).
             separator: ",",
-            // The delay between the changing of each phrase in milliseconds.
             speed: 5000,
-            complete: function() {
-                // Called after the entrance animation is executed.
+            complete: function () {
+
             }
         });
     }
@@ -353,12 +349,12 @@ We may release future updates so it will overwrite this file. it's better and sa
         Hamberger Menu
     =================================*/
 
-    $('.hamberger-trigger').on('click', function(e) {
+    $('.hamberger-trigger').on('click', function (e) {
         e.preventDefault();
         $('.open-hamberger-wrapper').addClass('is-visiable');
     });
 
-    $('.page-close').on('click', function(e) {
+    $('.page-close').on('click', function (e) {
         e.preventDefault();
         $('.open-hamberger-wrapper').removeClass('is-visiable');
     });
@@ -367,7 +363,7 @@ We may release future updates so it will overwrite this file. it's better and sa
         Sidebar Mobile Menu
     =================================*/
 
-    $('.object-custom-menu > li.has-mega-menu > a').on('click', function(e) {
+    $('.object-custom-menu > li.has-mega-menu > a').on('click', function (e) {
         e.preventDefault();
         $(this).siblings('.object-submenu').slideToggle('400');
         $(this).toggleClass('active').siblings('.object-submenu').toggleClass('is-visiable');
@@ -378,54 +374,57 @@ We may release future updates so it will overwrite this file. it's better and sa
     =========================================*/
 
     $('.componant-slider').slick({
-        dots: true,
-        infinite: true,
-        speed: 300,
-        autoplay: true,
-        slidesToShow: 2.8,
         centerMode: true,
-        centerPadding: '30px',
-        responsive: [{
-                breakpoint: 1200,
+        centerPadding: '60px',
+        slidesToShow: 3,
+        dots: true,
+        responsive: [
+            {
+                breakpoint: 768,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 3
                 }
             },
             {
-                breakpoint: 1008,
+                breakpoint: 480,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1
                 }
             }
         ]
     });
     if ($('.slider').length > 0) {
         $('.slider').slick({
-              autoplay: true,
-              speed: 800,
-              lazyLoad: 'progressive',
-              arrows: true,
-              dots: false,
-                prevArrow: '<div class="slick-nav prev-arrow"><i></i><svg><use xlink:href="#circle"></svg></div>',
-                nextArrow: '<div class="slick-nav next-arrow"><i></i><svg><use xlink:href="#circle"></svg></div>',
+            autoplay: true,
+            speed: 800,
+            lazyLoad: 'progressive',
+            arrows: true,
+            dots: false,
+            prevArrow: '<div class="slick-nav prev-arrow"><i></i><svg><use xlink:href="#circle"></svg></div>',
+            nextArrow: '<div class="slick-nav next-arrow"><i></i><svg><use xlink:href="#circle"></svg></div>',
         }).slickAnimation();
 
-        $('.slick-nav').on('click touch', function(e) {
+        $('.slick-nav').on('click touch', function (e) {
 
             e.preventDefault();
 
             var arrow = $(this);
 
-            if(!arrow.hasClass('animate')) {
+            if (!arrow.hasClass('animate')) {
                 arrow.addClass('animate');
                 setTimeout(() => {
                     arrow.removeClass('animate');
                 }, 1600);
-            }   
+            }
         });
     }
+
     /*=====================================
         Date time Picker
     =========================================*/
@@ -444,7 +443,7 @@ We may release future updates so it will overwrite this file. it's better and sa
     /*=====================================
         Image Justify Activation
     =========================================*/
-    $(window).on('load', function() {
+    $(window).on('load', function () {
         $('#npgallery2').justifiedGallery({
             rowHeight: 320,
             maxRowHeight: null,
@@ -483,14 +482,14 @@ We may release future updates so it will overwrite this file. it's better and sa
         Scroll to Top
     =========================================*/
 
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('#GotoTop').fadeIn();
         } else {
             $('#GotoTop').fadeOut();
         }
     });
-    $('#GotoTop').click(function() {
+    $('#GotoTop').click(function () {
         $("html, body").animate({ scrollTop: 0 }, 600);
         return false;
     });
@@ -515,7 +514,7 @@ We may release future updates so it will overwrite this file. it's better and sa
         });
     }
 
-    $("a").on("mouseleave", function() {
+    $("a").on("mouseleave", function () {
         $("#cursor").removeClass("active");
         $("#cursor").removeClass("active");
     });
@@ -533,10 +532,10 @@ We may release future updates so it will overwrite this file. it's better and sa
     ===============================*/
 
 
-    $('[data-countdown]').each(function() {
+    $('[data-countdown]').each(function () {
         var $this = $(this),
             finalDate = $(this).data('countdown');
-        $this.countdown(finalDate, function(event) {
+        $this.countdown(finalDate, function (event) {
             $this.html(event.strftime('<span class="sl-count days"><span class="count-inner"><span class="time-count">%-D</span> <p>Days</p></span></span> <span class="sl-count hour"><span class="count-inner"><span class="time-count">%-H</span> <p>Hours</p></span></span> <span class="sl-count minutes"><span class="count-inner"><span class="time-count">%M</span> <p>Minutes</p></span></span> <span class="sl-count second"><span class="count-inner"><span class="time-count">%S</span> <p>Seconds</p></span></span>'));
         });
     });
@@ -610,15 +609,15 @@ We may release future updates so it will overwrite this file. it's better and sa
     /*===================================
         Modal Toggle class
     ====================================*/
-    $(document).on('click', '[data-toggle-class]', function(e) {
+    $(document).on('click', '[data-bs-toggle-class]', function (e) {
         var $self = $(this);
-        var attr = $self.attr('data-toggle-class');
-        var target = $self.attr('data-toggle-class-target') || $self.attr('data-target');
+        var attr = $self.attr('data-bs-toggle-class');
+        var target = $self.attr('data-bs-toggle-class-target') || $self.attr('data-target');
         var closest = $self.attr('data-target-closest');
         var classes = (attr && attr.split(',')) || '',
             targets = (target && target.split(',')) || Array($self),
             key = 0;
-        $.each(classes, function(index, value) {
+        $.each(classes, function (index, value) {
             var target = closest ? $self.closest(targets[(targets.length == 1 ? 0 : key)]) : $(targets[(targets.length == 1 ? 0 : key)]),
                 current = target.attr('data-class'),
                 _class = classes[index];
@@ -653,12 +652,12 @@ We may release future updates so it will overwrite this file. it's better and sa
         Custom Form PlaceHolder
     =================================*/
 
-    $(function() {
-        $(".field-wrapper .field-placeholder").on("click", function() {
+    $(function () {
+        $(".field-wrapper .field-placeholder").on("click", function () {
             $(this).closest(".field-wrapper").find("input").focus();
             $(this).closest(".field-wrapper").find("textarea").focus();
         });
-        $(".field-wrapper input,.field-wrapper textarea").on("change", function() {
+        $(".field-wrapper input,.field-wrapper textarea").on("change", function () {
             var value = $.trim($(this).val());
             if (value) {
                 $(this).closest(".field-wrapper").addClass("hasValue");
@@ -693,27 +692,27 @@ We may release future updates so it will overwrite this file. it's better and sa
             navText: [('<i class="fa fa-arrow-left"></i>'), ('<i class="fa fa-arrow-right"></i>')]
         })
 
-        welcomeSlider.on('translate.owl.carousel', function() {
+        welcomeSlider.on('translate.owl.carousel', function () {
             var layer = $("[data-animation]");
-            layer.each(function() {
+            layer.each(function () {
                 var anim_name = $(this).data('animation');
                 $(this).removeClass('animated ' + anim_name).css('opacity', '0');
             });
         });
 
-        $("[data-delay]").each(function() {
+        $("[data-delay]").each(function () {
             var anim_del = $(this).data('delay');
             $(this).css('animation-delay', anim_del);
         });
 
-        $("[data-duration]").each(function() {
+        $("[data-duration]").each(function () {
             var anim_dur = $(this).data('duration');
             $(this).css('animation-duration', anim_dur);
         });
 
-        welcomeSlider.on('translated.owl.carousel', function() {
+        welcomeSlider.on('translated.owl.carousel', function () {
             var layer = welcomeSlider.find('.owl-item.active').find("[data-animation]");
-            layer.each(function() {
+            layer.each(function () {
                 var anim_name = $(this).data('animation');
                 $(this).addClass('animated ' + anim_name).css('opacity', '1');
             });
@@ -730,7 +729,7 @@ We may release future updates so it will overwrite this file. it's better and sa
         play = "M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26",
         $animation = $('#animation');
 
-    $(".ytp-play-button").on('click', function() {
+    $(".ytp-play-button").on('click', function () {
         flip = !flip;
         $animation.attr({
             "from": flip ? pause : play,
@@ -754,28 +753,23 @@ We may release future updates so it will overwrite this file. it's better and sa
 
         var $hoverContentHeight = 0;
 
-        $('body').on('mouseenter', '.fancybox-hover-block', function() {
+        $('body').on('mouseenter', '.fancybox-hover-block', function () {
             $hoverContentHeight = parseInt($(this).find('.fancy-box-info').outerHeight(true));
             $(this).find('.fancy-box-header').css('transform', 'translateY(-' + $hoverContentHeight + 'px)');
         });
-
-        $('body').on('mouseleave', '.fancybox-hover-block', function() {
+        $('body').on('mouseleave', '.fancybox-hover-block', function () {
             $(this).find('.fancy-box-header').css('transform', 'translateY(0)');
         });
     }
 
     ContentHover();
-
     function ContentHover() {
-
         var $hoverContentHeight = 0;
-
-        $('body').on('mouseenter', '.fancybox-hover-block', function() {
+        $('body').on('mouseenter', '.fancybox-hover-block', function () {
             $hoverContentHeight = parseInt($(this).find('.fancy-box-info').outerHeight(true));
             $(this).find('.fancy-box-header').css('transform', 'translateY(-' + $hoverContentHeight + 'px)');
         });
-
-        $('body').on('mouseleave', '.fancybox-hover-block', function() {
+        $('body').on('mouseleave', '.fancybox-hover-block', function () {
             $(this).find('.fancy-box-header').css('transform', 'translateY(0)');
         });
     }
@@ -787,7 +781,7 @@ We may release future updates so it will overwrite this file. it's better and sa
     =================================*/
 
     if (('[data-typed]').length > 0) {
-        $('[data-typed]').each(function(index, el) {
+        $('[data-typed]').each(function (index, el) {
             new Typed(el, {
                 strings: JSON.parse($(el).attr('data-typed')),
                 typeSpeed: 200,
@@ -802,7 +796,7 @@ We may release future updates so it will overwrite this file. it's better and sa
         Testimonial Slider
     =================================*/
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         $("#sl-testimonial-slider").owlCarousel({
             items: 1,
             loop: true,
@@ -884,12 +878,12 @@ We may release future updates so it will overwrite this file. it's better and sa
     }
 
 
-    $('.customNextBtn').click(function(event) {
+    $('.customNextBtn').click(function (event) {
         event.preventDefault();
         owl.trigger('next.owl.carousel');
     });
 
-    $('.customPrevBtn').click(function(event) {
+    $('.customPrevBtn').click(function (event) {
         event.preventDefault();
         owl.trigger('prev.owl.carousel');
     });
@@ -1390,14 +1384,14 @@ We may release future updates so it will overwrite this file. it's better and sa
 
 
     if ($(".sl-hero-has-animation").length > 0) {
-        setTimeout(function() {
+        setTimeout(function () {
             $(".sl-hero-has-animation").addClass("sl-hero-animate");
         }, 100);
     }
 
     var heroPropCarouselItems = 1;
 
-    $(".sl-hero-props-carousel-1 .carousel-item").each(function(index, element) {
+    $(".sl-hero-props-carousel-1 .carousel-item").each(function (index, element) {
         if (index == 0) {
             $(".sl-hero-props-carousel-1-prices").addClass(
                 "sl-price-active sl-first-time"
@@ -1415,28 +1409,26 @@ We may release future updates so it will overwrite this file. it's better and sa
         "<span>0" + $(".sl-hero-props-carousel-1 .carousel-item").length + "</span>"
     );
 
-    $(".sl-hero-props-carousel-1").on("slide.bs.carousel", function(carousel) {
+    $(".sl-hero-props-carousel-1").on("slide.bs.carousel", function (carousel) {
         $(".sl-hero-props-carousel-1-prices").removeClass("sl-first-time");
         $(".sl-hero-props-carousel-1-prices").carousel(carousel.to);
     });
 
-    $(".sl-hero-props-carousel-1").on("slid.bs.carousel", function(carousel) {
+    $(".sl-hero-props-carousel-1").on("slid.bs.carousel", function (carousel) {
         var tickerPos = carousel.to * 13;
 
-        $(
-            ".sl-hero-props-carousel-1-prices .sl-carousel-ticker-counter > span"
-        ).css("transform", "translateY(-" + tickerPos + "px)");
+        $(".sl-hero-props-carousel-1-prices .sl-carousel-ticker-counter > span").css("transform", "translateY(-" + tickerPos + "px)");
     });
 
-    $(".sl-hero-props-carousel-1 .sl-carousel-control-next").click(function(e) {
+    $(".sl-hero-props-carousel-1 .sl-carousel-control-next").click(function (e) {
         $(".sl-hero-props-carousel-1").carousel("next");
     });
 
-    $(".sl-hero-props-carousel-1 .sl-carousel-control-prev").click(function(e) {
+    $(".sl-hero-props-carousel-1 .sl-carousel-control-prev").click(function (e) {
         $(".sl-hero-props-carousel-1").carousel("prev");
     });
 
-    $(".sl-hero-props-carousel-2-right").on("slide.bs.carousel", function(carousel) {
+    $(".sl-hero-props-carousel-2-right").on("slide.bs.carousel", function (carousel) {
         if (carousel.direction == "left") {
             $(".sl-hero-props-carousel-2-left").carousel("next");
         } else {
@@ -1444,17 +1436,17 @@ We may release future updates so it will overwrite this file. it's better and sa
         }
     });
 
-    $(".sl-hero-props-carousel-2 .sl-carousel-control-next").click(function(e) {
+    $(".sl-hero-props-carousel-2 .sl-carousel-control-next").click(function (e) {
         $(".sl-hero-props-carousel-2-right").carousel("next");
     });
 
-    $(".sl-hero-props-carousel-2 .sl-carousel-control-prev").click(function(e) {
+    $(".sl-hero-props-carousel-2 .sl-carousel-control-prev").click(function (e) {
         $(".sl-hero-props-carousel-2-right").carousel("prev");
     });
 
     var heroPropCarousel2Items = 1;
 
-    $(".sl-hero-props-carousel-2-right .carousel-item").each(function(index, element) {
+    $(".sl-hero-props-carousel-2-right .carousel-item").each(function (index, element) {
         $(".sl-hero-props-carousel-2 .sl-carousel-ticker-counter").append(
             "<span>0" + heroPropCarousel2Items + "</span>"
         );
@@ -1467,7 +1459,7 @@ We may release future updates so it will overwrite this file. it's better and sa
         "</span>"
     );
 
-    $(".sl-hero-props-carousel-2-right").on("slid.bs.carousel", function(carousel) {
+    $(".sl-hero-props-carousel-2-right").on("slid.bs.carousel", function (carousel) {
         var tickerPos = carousel.to * 13;
 
         $(".sl-hero-props-carousel-2 .sl-carousel-ticker-counter > span").css(
@@ -1480,7 +1472,7 @@ We may release future updates so it will overwrite this file. it's better and sa
         Background image // Custom tag
     ======================================*/
 
-    $("[data-bg-image]").each(function() {
+    $("[data-bg-image]").each(function () {
         $(this).data('image', $(this).css('background-image'));
         var url = "url('" + $(this).attr('data-bg-image') + "')";
         $(this).css('background-image', url)
@@ -1490,7 +1482,7 @@ We may release future updates so it will overwrite this file. it's better and sa
         Opacity // Custom tag
     ======================================*/
 
-    $("[data-opacity]").each(function() {
+    $("[data-opacity]").each(function () {
         $(this).data('opacity', $(this).css('opacity'));
         var url = $(this).attr('data-opacity');
         $(this).css('opacity', url)
@@ -1501,7 +1493,7 @@ We may release future updates so it will overwrite this file. it's better and sa
         Opacity // Custom tag
     ======================================*/
 
-    $("[data-height]").each(function() {
+    $("[data-height]").each(function () {
         $(this).data('height', $(this).css('height'));
         var url = $(this).attr('data-height');
         $(this).css('height', url)
@@ -1519,7 +1511,7 @@ We may release future updates so it will overwrite this file. it's better and sa
         viewFactor: 0.5
     });
 
-    $.fn.visible = function(partial) {
+    $.fn.visible = function (partial) {
 
         var $t = $(this),
             $w = $(window),
@@ -1529,31 +1521,25 @@ We may release future updates so it will overwrite this file. it's better and sa
             _bottom = _top + $t.height(),
             compareTop = partial === true ? _bottom : _top,
             compareBottom = partial === true ? _top : _bottom;
-
         return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
-
     };
-
     var allMods = $(".block-reveal");
-
-    allMods.each(function(i, el) {
+    allMods.each(function (i, el) {
         var el = $(el);
         if (el.visible(true)) {
             el.addClass("already-visible");
         }
     });
-
-    $(window).scroll(function(event) {
-        allMods.each(function(i, el) {
+    $(window).scroll(function (event) {
+        allMods.each(function (i, el) {
             var el = $(el);
             if (el.visible(true)) {
                 el.addClass("block-reveal-inner");
             }
         });
     });
-
-    $(window).scroll(function(event) {
-        allMods.each(function(i, el) {
+    $(window).scroll(function (event) {
+        allMods.each(function (i, el) {
             var el = $(el);
             if (el.visible(true)) {
                 el.addClass("block-reveal-inner");
@@ -1565,7 +1551,7 @@ We may release future updates so it will overwrite this file. it's better and sa
         Radial Progress
     ================================*/
 
-    $('.radial-progress').waypoint(function() {
+    $('.radial-progress').waypoint(function () {
         $('.radial-progress').easyPieChart({
             lineWidth: 5,
             scaleLength: 0,
@@ -1589,7 +1575,7 @@ We may release future updates so it will overwrite this file. it's better and sa
         min: 10,
         max: 500,
         values: [110, 400],
-        slide: function(event, ui) {
+        slide: function (event, ui) {
             $('#amount').val('$' + ui.values[0] + ' - $' + ui.values[1]);
         }
     });
@@ -1602,13 +1588,12 @@ We may release future updates so it will overwrite this file. it's better and sa
 
     $('.pro-qty').prepend('<span class="dec qtybtn">-</span>');
     $('.pro-qty').append('<span class="inc qtybtn">+</span>');
-    $('.qtybtn').on('click', function() {
+    $('.qtybtn').on('click', function () {
         var $button = $(this);
         var oldValue = $button.parent().find('input').val();
         if ($button.hasClass('inc')) {
             var newVal = parseFloat(oldValue) + 1;
         } else {
-            // Don't allow decrementing below zero
             if (oldValue > 0) {
                 var newVal = parseFloat(oldValue) - 1;
             } else {
@@ -1623,7 +1608,6 @@ We may release future updates so it will overwrite this file. it's better and sa
     ======================================*/
 
     if ($('.google-map-area').length > 0) {
-        // Map JS
         var data = [{
             lat: 23.76161,
             lon: 90.4357444,
@@ -1639,12 +1623,6 @@ We may release future updates so it will overwrite this file. it's better and sa
             zoom: 8,
             icon: 'http://www.google.com/mapfiles/markerA.png'
         }];
-
-        // new Maplace({
-        //     locations: data,
-        //     controls_type: 'list',
-        //     controls_on_map: false
-        // }).Load();
     }
 
     /* =====================================
@@ -1652,7 +1630,7 @@ We may release future updates so it will overwrite this file. it's better and sa
     ====================================== */
 
     $(window).on('scroll', function () {
-        if ($(this).scrollTop() > 220) { // Set position from top to add class
+        if ($(this).scrollTop() > 220) {
             $('.creative-st-header').addClass('header-appear');
         }
         else {
@@ -1660,31 +1638,26 @@ We may release future updates so it will overwrite this file. it's better and sa
         }
     });
 
-     /* ===================================
-         Scroll
-    ====================================== */
+    /* ===================================
+        Scroll
+   ====================================== */
 
-    //scroll to appear
     $(window).on('scroll', function () {
         if ($(this).scrollTop() > 500)
             $('.scroll-top-arrow').fadeIn('slow');
         else
             $('.scroll-top-arrow').fadeOut('slow');
     });
-
-    //Click event to scroll to top
     $(document).on('click', '.scroll-top-arrow', function () {
-        $('html, body').animate({scrollTop: 0}, 800);
+        $('html, body').animate({ scrollTop: 0 }, 800);
         return false;
     });
-
     $(".scroll").on("click", function (event) {
         event.preventDefault();
         $("html,body").animate({
-            scrollTop: $(this.hash).offset().top - 60}, 1200);
+            scrollTop: $(this.hash).offset().top - 60
+        }, 1200);
     });
-
-
     if ($(window).width() > 992) {
         $(".studio-parallax").parallaxie({
             speed: 0.55,
@@ -1695,16 +1668,11 @@ We may release future updates so it will overwrite this file. it's better and sa
     /* ===================================
          Side Menu
     ====================================== */
+
     $(window).on("load", function () {
-
-    "use strict";
-        /* ===================================
-                Loading Timeout
-         ====================================== */
-
+        "use strict";
         $('.side-menu.hidden').removeClass('hidden');
     });
-    
     if ($("#sidemenu_toggle").length) {
         $("#sidemenu_toggle").on("click", function () {
             $(".pushwrap").toggleClass("active");
@@ -1718,39 +1686,31 @@ We may release future updates so it will overwrite this file. it's better and sa
         });
     }
 
-
     /*==================================
         Image Comparision
     ======================================*/
 
-    $('.comparision-slider').each(function() {
+    $('.comparision-slider').each(function () {
         var cur = $(this);
-        // Adjust the slider
         var width = cur.width() + 'px';
         cur.find('.resize img').css('width', width);
-        // Bind dragging events
         drags(cur.find('.handle'), cur.find('.resize'), cur);
     });
 
-    // Update sliders on resize. 
-
-    $(window).resize(function() {
-        $('.comparision-slider').each(function() {
+    $(window).resize(function () {
+        $('.comparision-slider').each(function () {
             var cur = $(this);
             var width = cur.width() + 'px';
             cur.find('.resize img').css('width', width);
         });
     });
 
-    
-  
-
     /*==================================
         Charts
     ======================================*/
 
     if (document.getElementById('marketsChartBtcLight')) {
-        am4core.ready(function() {
+        am4core.ready(function () {
             // Create chart
             var chart = am4core.create('marketsChartBtcLight', am4charts.XYChart);
 
@@ -1798,22 +1758,16 @@ We may release future updates so it will overwrite this file. it's better and sa
 
             function generateChartData() {
                 var chartData = [];
-                // current date
                 var firstDate = new Date();
-                // now set 500 minutes back
                 firstDate.setMinutes(firstDate.getDate() - 500);
 
-                // and generate 500 data items
                 var prices = 500;
                 for (var i = 0; i < 500; i++) {
                     var newDate = new Date(firstDate);
-                    // each time we add one minute
                     newDate.setMinutes(newDate.getMinutes() + i);
-                    // some random number
                     prices += Math.round(
                         (Math.random() < 0.5 ? 1 : -1) * Math.random() * 10
                     );
-                    // add data item to the array
                     chartData.push({
                         date: newDate,
                         prices: prices,
@@ -1825,8 +1779,7 @@ We may release future updates so it will overwrite this file. it's better and sa
     }
 
     if (document.getElementById('marketsChartEthLight')) {
-        am4core.ready(function() {
-            // Create chart
+        am4core.ready(function () {
             var chart = am4core.create('marketsChartEthLight', am4charts.XYChart);
 
             chart.data = generateChartData();
@@ -1873,22 +1826,15 @@ We may release future updates so it will overwrite this file. it's better and sa
 
             function generateChartData() {
                 var chartData = [];
-                // current date
                 var firstDate = new Date();
-                // now set 500 minutes back
                 firstDate.setMinutes(firstDate.getDate() - 500);
-
-                // and generate 500 data items
                 var prices = 500;
                 for (var i = 0; i < 500; i++) {
                     var newDate = new Date(firstDate);
-                    // each time we add one minute
                     newDate.setMinutes(newDate.getMinutes() + i);
-                    // some random number
                     prices += Math.round(
                         (Math.random() < 0.5 ? 1 : -1) * Math.random() * 10
                     );
-                    // add data item to the array
                     chartData.push({
                         date: newDate,
                         prices: prices,
@@ -1900,8 +1846,7 @@ We may release future updates so it will overwrite this file. it's better and sa
     }
 
     if (document.getElementById('marketsChartLtcLight')) {
-        am4core.ready(function() {
-            // Create chart
+        am4core.ready(function () {
             var chart = am4core.create('marketsChartLtcLight', am4charts.XYChart);
 
             chart.data = generateChartData();
@@ -1948,22 +1893,15 @@ We may release future updates so it will overwrite this file. it's better and sa
 
             function generateChartData() {
                 var chartData = [];
-                // current date
                 var firstDate = new Date();
-                // now set 500 minutes back
                 firstDate.setMinutes(firstDate.getDate() - 500);
-
-                // and generate 500 data items
                 var prices = 500;
                 for (var i = 0; i < 500; i++) {
                     var newDate = new Date(firstDate);
-                    // each time we add one minute
                     newDate.setMinutes(newDate.getMinutes() + i);
-                    // some random number
                     prices += Math.round(
                         (Math.random() < 0.5 ? 1 : -1) * Math.random() * 10
                     );
-                    // add data item to the array
                     chartData.push({
                         date: newDate,
                         prices: prices,
@@ -1973,8 +1911,6 @@ We may release future updates so it will overwrite this file. it's better and sa
             }
         });
     }
-
-    // Animated Globe
 
     if ($('#vanta-globe').length > 0) {
         VANTA.GLOBE({
@@ -1994,7 +1930,7 @@ We may release future updates so it will overwrite this file. it's better and sa
     }
 
     function vantafunc(x) {
-        if (x.matches) { // If media query matches
+        if (x.matches) {
             if ($('#vanta-globe').length > 0) {
                 VANTA.GLOBE({
                     el: "#vanta-globe",
@@ -2032,11 +1968,149 @@ We may release future updates so it will overwrite this file. it's better and sa
     }
 
     var x = window.matchMedia("(max-width: 768px)")
-    vantafunc(x) // Call listener function at run time
+    vantafunc(x)
     x.addListener(vantafunc)
 
-}(jQuery));
+    $('.portfolio-carousel').owlCarousel({
 
+        loop: true,
+        margin: 10,
+        slideSpeed: 5000,
+        slideTransition: 'linear',
+        nav: false,
+        dots: false,
+        autoplay: false,
+        autoplayTimeout: 8000,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            1000: {
+                items: 1
+            },
+        }
+
+    });
+
+    $('.portfolio-right-arr').click(function () {
+        var owl = $('.portfolio-carousel');
+        owl.owlCarousel();
+        owl.trigger('next.owl.carousel');
+    });
+    $('.portfolio-left-arr').click(function () {
+        var owl = $('.portfolio-carousel');
+        owl.owlCarousel();
+        owl.trigger('prev.owl.carousel');
+    });
+
+    // Top Menu Push Button
+
+    $.fn.jPushMenu = function (customOptions) {
+        var o = $.extend({}, $.fn.jPushMenu.defaultOptions, customOptions);
+
+        $('body').addClass(o.pushBodyClass);
+
+        $(this).addClass('jPushMenuBtn');
+
+        $(this).click(function (e) {
+            e.stopPropagation();
+
+            var target = '',
+                push_direction = '';
+
+            if ($(this).is('.' + o.showLeftClass)) {
+                target = '.cbp-spmenu-left';
+                push_direction = 'toright';
+            }
+            else if ($(this).is('.' + o.showRightClass)) {
+                target = '.cbp-spmenu-right';
+                push_direction = 'toleft';
+            }
+            else if ($(this).is('.' + o.showTopClass)) {
+                target = '.cbp-spmenu-top';
+            }
+            else if ($(this).is('.' + o.showBottomClass)) {
+                target = '.cbp-spmenu-bottom';
+            }
+
+            if (target == '') {
+                return;
+            }
+
+            $(this).toggleClass(o.activeClass);
+            $(target).toggleClass(o.menuOpenClass);
+
+            if ($(this).is('.' + o.pushBodyClass) && push_direction != '') {
+                $('body').toggleClass(o.pushBodyClass + '-' + push_direction);
+            }
+
+            $('.jPushMenuBtn').not($(this)).toggleClass('disabled');
+
+            return;
+        });
+
+        var jPushMenu = {
+            close: function (o) {
+                $('.jPushMenuBtn,body,.cbp-spmenu')
+                    .removeClass('disabled ' + o.activeClass + ' ' + o.menuOpenClass + ' ' + o.pushBodyClass + '-toleft ' + o.pushBodyClass + '-toright');
+            }
+        }
+
+        if (o.closeOnClickOutside) {
+            $(document).click(function () {
+                jPushMenu.close(o);
+            });
+        }
+
+    };
+
+    $.fn.jPushMenu.defaultOptions = {
+        pushBodyClass: 'push-body',
+        showLeftClass: 'menu-left',
+        showRightClass: 'menu-right',
+        showTopClass: 'menu-top',
+        showBottomClass: 'menu-bottom',
+        activeClass: 'menu-active',
+        menuOpenClass: 'menu-open',
+        closeOnClickOutside: true,
+        closeOnClickLink: true
+    };
+
+    // Columned Slider
+
+    var swiper = new Swiper('.columned-slider-inner', {
+        slidesPerView: 4,
+        spaceBetween: 0,
+
+        breakpoints: {
+            1250: {
+                slidesPerView: 4,
+            },
+            1050: {
+                slidesPerView: 3,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            750: {
+                slidesPerView: 2,
+            },
+
+            550: {
+                slidesPerView: 1,
+            },
+            0: {
+                slidesPerView: 1,
+            }
+        }
+    });
+
+}(jQuery));
 
 /*==================================
     Image Comparsion Function
@@ -2044,59 +2118,457 @@ We may release future updates so it will overwrite this file. it's better and sa
 
 function drags(dragElement, resizeElement, container) {
 
-    // Initialize the dragging event on mousedown.
-    dragElement.on('mousedown touchstart', function(e) {
+    dragElement.on('mousedown touchstart', function (e) {
 
         dragElement.addClass('draggable');
         resizeElement.addClass('resizable');
 
-        // Check if it's a mouse or touch event and pass along the correct value
         var startX = (e.pageX) ? e.pageX : e.originalEvent.touches[0].pageX;
 
-        // Get the initial position
         var dragWidth = dragElement.outerWidth(),
             posX = dragElement.offset().left + dragWidth - startX,
             containerOffset = container.offset().left,
             containerWidth = container.outerWidth();
-
-        // Set limits
         minLeft = containerOffset + 10;
         maxLeft = containerOffset + containerWidth - dragWidth - 10;
-
-        // Calculate the dragging distance on mousemove.
-        dragElement.parents().on("mousemove touchmove", function(e) {
-
-            // Check if it's a mouse or touch event and pass along the correct value
+        dragElement.parents().on("mousemove touchmove", function (e) {
             var moveX = (e.pageX) ? e.pageX : e.originalEvent.touches[0].pageX;
-
             leftValue = moveX + posX - dragWidth;
-
-            // Prevent going off limits
             if (leftValue < minLeft) {
                 leftValue = minLeft;
             } else if (leftValue > maxLeft) {
                 leftValue = maxLeft;
             }
-
-            // Translate the handle's left value to masked divs width.
             widthValue = (leftValue + dragWidth / 2 - containerOffset) * 100 / containerWidth + '%';
-
-            // Set the new values for the slider and the handle. 
-            // Bind mouseup events to stop dragging.
-            $('.draggable').css('left', widthValue).on('mouseup touchend touchcancel', function() {
+            $('.draggable').css('left', widthValue).on('mouseup touchend touchcancel', function () {
                 $(this).removeClass('draggable');
                 resizeElement.removeClass('resizable');
             });
             $('.resizable').css('width', widthValue);
-
-        }).on('mouseup touchend touchcancel', function() {
+        }).on('mouseup touchend touchcancel', function () {
             dragElement.removeClass('draggable');
             resizeElement.removeClass('resizable');
         });
         e.preventDefault();
         e.stopPropagation();
-    }).on('mouseup touchend touchcancel', function(e) {
+    }).on('mouseup touchend touchcancel', function (e) {
         dragElement.removeClass('draggable');
         resizeElement.removeClass('resizable');
     });
 }
+if ($("#creative_studio_menu").length) {
+    const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+        target: '#creative_studio_menu'
+    });
+}
+jQuery('.testimonial-slider2').owlCarousel({
+    items: 1,
+    loop: true,
+    margin: 30,
+    nav: false,
+    dots: false,
+    autoplay: true,
+    smartSpeed: 1000,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+
+});
+
+/* ===================================
+   Marketing progress bar Start
+   ====================================== */
+
+$(".progress-bar").each(function () {
+    $(this).appear(function () {
+        $(this).animate({ width: $(this).attr("aria-valuenow") + "%" }, 3000)
+    });
+});
+
+/* ===================================
+    Marketing progress bar end
+====================================== */
+
+/* ===================================
+    Side Menu
+====================================== */
+if ($("#sidemenu_toggle").length) {
+    $("#sidemenu_toggle").on("click", function () {
+        $(".pushwrap").toggleClass("active");
+        $(".side-menu-portfolio").addClass("side-menu-active"), $("#close_side_menu").fadeIn(700)
+    }), $("#close_side_menu").on("click", function () {
+        $(".side-menu-portfolio").removeClass("side-menu-active"), $(this).fadeOut(200), $(".pushwrap").removeClass("active")
+    }), $(".side-nav .navbar-nav .nav-link").on("click", function () {
+        $(".side-menu-portfolio").removeClass("side-menu-active"), $("#close_side_menu").fadeOut(200), $(".pushwrap").removeClass("active")
+    }), $("#btn_sideNavClose").on("click", function () {
+        $(".side-menu-portfolio").removeClass("side-menu-active"), $("#close_side_menu").fadeOut(200), $(".pushwrap").removeClass("active")
+    });
+}
+if ($(window).width() > 992) {
+    $(window).on('scroll', function () {
+        if ($(this).scrollTop() > 260) {
+            $('header').addClass('header-appear');
+            $('#slider-social').addClass('slider-social-fixed');
+        }
+        else {
+            $('header').removeClass('header-appear');
+            $('#slider-social').removeClass('slider-social-fixed');
+        }
+    });
+}
+else {
+    $(window).on('scroll', function () {
+        if ($(this).scrollTop() > 260) {
+            $('header').addClass('header-appear');
+
+        }
+        else {
+            $('header').removeClass('header-appear');
+        }
+    });
+}
+
+/*==================================
+    Arrow Box Hide And Show Start
+======================================*/
+
+$('.mini-custom-box.bg-blue-cyan').on("mouseenter", function () {
+    $('.arrow-box').addClass('arrow-box-hidden');
+    $('.arrow-box .las').addClass('las-hidden');
+    $('.arrow-box1').addClass('arrow-box1-display');
+    $('.arrow-box1 .las').addClass('las-visible');
+});
+
+$('.mini-custom-box').on("mouseleave", function () {
+    $('.arrow-box').removeClass('arrow-box-hidden');
+    $('.arrow-box .las').removeClass('las-hidden');
+    $('.arrow-box1').removeClass('arrow-box1-display');
+    $('.arrow-box1 .las').removeClass('las-visible');
+});
+
+/*==================================
+    Arrow Box Hide And Show End
+======================================*/
+
+/*==================================
+    Text Zoom In Start
+======================================*/
+
+anime.timeline({ loop: true })
+    .add({
+        targets: '.Text-zoom-in .Text-zoom-word',
+        scale: [14, 1],
+        opacity: [0, 1],
+        easing: "easeOutCirc",
+        duration: 800,
+        delay: (el, i) => 800 * i
+    }).add({
+        targets: '.Text-zoom-in',
+        opacity: 0,
+        duration: 1000,
+        easing: "easeOutExpo",
+        delay: 1000
+    });
+
+/*==================================
+  Text Zoom In End
+======================================*/
+
+/*==================================
+    Toggle Navigation Start
+======================================*/
+
+$('#toggle-btn').on('mouseover', function () {
+
+    $('#toggle-btn').on("click", function () {
+        $('.broad').removeClass('reverse-nav');
+        setTimeout(function () {
+            $('.broad').addClass('broad-nav');
+        }, 200);
+        $("#toggle-btn").addClass("close_nav");
+        $("#toggle-btn").attr("id", "close_nav");
+        $("#close_nav").removeClass("toggle-btn");
+
+    });
+    $('#close_nav').on("click", function () {
+
+        $('.broad').addClass('reverse-nav');
+        $("#close_nav").removeClass("close_nav");
+        $("#close_nav").attr("id", "toggle-btn");
+        $("#toggle-btn").removeClass("close_nav");
+        setTimeout(function () {
+            $('.broad').removeClass('broad-nav');
+            $('.broad').removeClass('reverse-nav');
+        }, 200);
+    });
+});
+
+/*==================================
+    Toggle Navigation ENd
+======================================*/
+
+/*==================================
+    Side Nav Start
+======================================*/
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+/*==================================
+    Side Nav End
+======================================*/
+
+/* ===================================
+  Portfolio Painting  Owl Carousel Start
+ ====================================== */
+
+$(window).on("load", function () {
+
+    var sync1 = $("#sync1");
+    var sync2 = $("#sync2");
+    var slidesPerPage = 4;
+    var syncedSecondary = true;
+
+    sync1.owlCarousel({
+        center: true,
+        autoWidth: true,
+        singleItem: true,
+        items: 3,
+        slideSpeed: 3000,
+        nav: true,
+        dots: false,
+        loop: true,
+        margin: 0,
+        autoplay: false,
+        responsiveRefreshRate: 200,
+        transitionStyle: "fade",
+
+        0: {
+            items: 1,
+        },
+        480: {
+            items: 1,
+        },
+
+        800: {
+            items: 1,
+        }
+
+    }).on('changed.owl.carousel', syncPosition);
+
+    sync2
+        .on('initialized.owl.carousel', function () {
+            sync2.find(".owl-item").eq(0).addClass("current");
+        })
+        .owlCarousel({
+            items: slidesPerPage,
+            dots: false,
+            nav: false,
+            smartSpeed: 200,
+            slideSpeed: 500,
+            slideBy: slidesPerPage,
+            responsiveRefreshRate: 100,
+        }).on('changed.owl.carousel', syncPosition2);
+
+    function syncPosition(el) {
+        var count = el.item.count - 1;
+        var current = Math.round(el.item.index - (el.item.count / 2) - .5);
+
+        if (current < 0) {
+            current = count;
+        }
+        if (current > count) {
+            current = 0;
+        }
+        sync2
+            .find(".owl-item")
+            .removeClass("current")
+            .eq(current)
+            .addClass("current");
+        var onscreen = sync2.find('.owl-item.active').length - 1;
+        var start = sync2.find('.owl-item.active').first().index();
+        var end = sync2.find('.owl-item.active').last().index();
+        if (current > end) {
+            sync2.data('owl.carousel').to(current, 100, true);
+        }
+        if (current < start) {
+            sync2.data('owl.carousel').to(current - onscreen, 100, true);
+        }
+    }
+
+    function syncPosition2(el) {
+        if (syncedSecondary) {
+            var number = el.item.index;
+            sync1.data('owl.carousel').to(number, 100, true);
+        }
+    }
+    sync2.on("click", ".owl-item", function (e) {
+        e.preventDefault();
+        var number = $(this).index();
+        sync1.data('owl.carousel').to(number, 300, true);
+    });
+});
+
+/* ===================================
+  Portfolio Painting Owl Carousel End
+ ====================================== */
+
+/*===================================
+    Upside Menu Navbar Start
+====================================== */
+
+$('.menu-btn').on("click", function () {
+    $('.outer-wrapper').removeClass('end-anm1');
+    $('.outer-wrapper').addClass('inner-wrapper-top');
+    $('.main-content').addClass('main-content-hide');
+    $('body').css({ overflow: 'hidden' });
+    $('.outer-wrapper').addClass('start-anm1');
+
+});
+$('.close-outerwindow').on("click", function () {
+    $('.outer-wrapper').removeClass('start-anm1');
+    $('.outer-wrapper').addClass('end-anm1');
+    $('body').css({ overflow: 'visible' });
+    $('.main-content').removeClass('main-content-hide');
+    setTimeout(function () {
+        $('.outer-wrapper').removeClass('inner-wrapper-top');
+    }, 800);
+});
+$('.outer-wrapper ul li a').click(function () {
+    $('.outer-wrapper').removeClass('inner-wrapper-top');
+});
+
+/*===================================
+        Upside Menu Navbar End
+====================================== */
+
+/*===================================
+        Handbag Scroll Slider Start
+====================================== */
+
+// debounce from underscore.js
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function () {
+        var context = this, args = arguments;
+        var later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+};
+
+// use x and y mousewheel event data to navigate flickity
+function slick_handle_wheel_event(e, slick_instance, slick_is_animating) {
+    // do not trigger a slide change if another is being animated
+    if (!slick_is_animating) {
+        // pick the larger of the two delta magnitudes (x or y) to determine nav direction
+        var direction =
+            Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+
+        console.log("wheel scroll ", e.deltaX, e.deltaY, direction);
+
+        if (direction > 0) {
+            // next slide
+            slick_instance.slick("slickNext");
+        } else {
+            // prev slide
+            slick_instance.slick("slickPrev");
+        }
+    }
+}
+
+// debounce the wheel event handling since trackpads can have a lot of inertia
+var slick_handle_wheel_event_debounced = debounce(
+    slick_handle_wheel_event
+    , 100, true
+);
+
+// init slider 
+const slick_2 = $(".slides");
+slick_2.slick({
+    dots: true,
+    slidesToShow: 3.5,
+    slidesToScroll: 1,
+    arrows: false,
+    responsive: [
+        {
+            breakpoint: 1100,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: false
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 2,
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                slidesToScroll: 1
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                slidesToScroll: 1
+            }
+        }
+    ]
+});
+var slick_2_is_animating = false;
+
+slick_2.on("afterChange", function (index) {
+    console.log("Slide after change " + index);
+    slick_2_is_animating = false;
+});
+
+slick_2.on("beforeChange", function (index) {
+    console.log("Slide before change " + index);
+    slick_2_is_animating = true;
+});
+
+slick_2.on("wheel", function (e) {
+    slick_handle_wheel_event_debounced(e.originalEvent, slick_2, slick_2_is_animating);
+});
+
+/*===================================
+        Handbag Scroll Slider End
+====================================== */
+
+
+/*===================================
+        Ad Aegncy Menu Start
+====================================== */
+$(".ham1").click(function () {
+    $(".main-content-box").css("transform", "rotate(-20deg)");
+    $(".ham1").css("transform", "rotate(-90deg)");
+    $(".cross1").css("transform", "rotate(0deg)");
+});
+
+$(".cross1").click(function () {
+    $(".main-content-box").css("transform", "rotate(0deg)");
+    $(".ham1").css("transform", "rotate(0deg)");
+    $(".cross1").css("transform", "rotate(90deg)");
+});
+
+/*===================================
+        Ad Aegncy Menu End
+====================================== */
