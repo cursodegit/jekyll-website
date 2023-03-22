@@ -3,4 +3,8 @@
 ====================================================================================*/
 
     // Landing page banner
-    $(function() { new Typed(".git-landing-typed", { strings: ["Trabaja con", "Utiliza", "Comprende", ], typeSpeed: 130, loop: true }); });
+    $(document).ready(function() { 
+	if ( $(".git-landing-typed").length ) {
+		new Typed(".git-landing-typed", { strings: ["Trabaja con", "Utiliza", "Comprende", ], typeSpeed: 130, loop: true }); 
+	}		
+    });
