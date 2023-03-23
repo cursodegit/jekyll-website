@@ -31,3 +31,4 @@ RUN bundle exec jekyll build
 FROM nginx:1.22-alpine
 
 COPY --from=jekyll --chown=nginx:nginx /usr/src/app/_site /usr/share/nginx/html
+COPY nginx-*.conf /etc/nginx/conf.d/
