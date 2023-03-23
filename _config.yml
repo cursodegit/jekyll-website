@@ -27,7 +27,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.cursodegit.com" # the base hostname & protocol for your site, e.g. http://example.com
 
 
-host: 0.0.0.0 
+host: 0.0.0.0
 
 lang: es
 
@@ -38,7 +38,7 @@ plugins:
 
 twitter:
   username: cursodegit
-  card: summary_large_image  
+  card: summary_large_image
 facebook:
   app_id: 810425943052665
   publisher: https://www.facebook.com/cursodegit
@@ -68,3 +68,5 @@ snail:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+exclude:
+  - nginx*.conf
