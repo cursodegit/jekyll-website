@@ -1,4 +1,4 @@
-FROM ruby:2.7
+FROM ruby:3.2.1
 
 ENV DEBIAN_FRONTEND noninteractive
 ARG JEKYLL_UID=10001
@@ -29,7 +29,7 @@ ENV LC_ALL en_US.UTF-8
 USER jekyll
 ENV BUNDLE_PATH="/gems"
 COPY Gemfile* /usr/src/app/
-RUN bundle install && gem install jekyll
+RUN bundle install
 
 RUN echo 'require "irb/ext/save-history"' >> ~/.irbrc; \
     echo IRB.conf[:SAVE_HISTORY] = 100 >> ~/.irbrc; \
