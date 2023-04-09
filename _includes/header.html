@@ -25,17 +25,25 @@
                                             <a href="javascript:void(0);"><span>Cursos</span></a>
                                             <!-- Start Dropdown Menu -->
                                             <ul class="dropdown__menu">
-                                                <li><a href="curso-de-git-avanzado-presencial.html"><span>Git avanzado - presencial</span></a></li>
-                                                <li><a href="curso-de-git-avanzado-a-distancia.html"><span>Git avanzado - a distancia</span></a></li>
+						    <li><a href="{% link curso-de-git-avanzado-presencial.html %}"><span>Git avanzado - presencial</span></a></li>
+						    <li><a href=" {% link curso-de-git-avanzado-a-distancia.html %}"><span>Git avanzado - a distancia</span></a></li>
+                                            </ul>
+                                            <!-- End Dropdown Menu -->
+                                        </li>                                        
+                                        <li class="lavel-1 with--drop slide-dropdown">
+                                            <a href="javascript:void(0);"><span>Docs</span></a>
+                                            <!-- Start Dropdown Menu -->
+                                            <ul class="dropdown__menu">
+						    <li><a href="{% link docs/instalacion-cliente-git/sourcetree-windows.md %}"><span>Instalación Sourcetree Windows 11</span></a></li>
                                             </ul>
                                             <!-- End Dropdown Menu -->
                                         </li>                                        
                                         <li class="lavel-1">
-                                            <a href="sobre-nosotros.html"><span>Sobre nosotros</span></a>
+						<a href="{% link sobre-nosotros.html %}"><span>Sobre nosotros</span></a>
                                         </li>
 
                                         <li class="lavel-1 with--drop slide-dropdown">
-                                            <a href="contacto.html"><span>Contacto</span></a>
+						<a href="{% link contacto.html %}"><span>Contacto</span></a>
                                         </li>
                                     </ul>
                                 </nav>
