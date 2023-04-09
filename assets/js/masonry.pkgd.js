@@ -1102,15 +1102,7 @@ proto.enableTransition = function(/* style */) {
     return;
   }
 
-  // make `transition: foo, bar, baz` from style object
-  // HACK un-comment this when enableTransition can work
-  // while a transition is happening
-  // var transitionValues = [];
-  // for ( var prop in style ) {
-  //   // dash-ify camelCased properties like WebkitTransition
-  //   prop = vendorProperties[ prop ] || prop;
-  //   transitionValues.push( toDashedAll( prop ) );
-  // }
+  
   // munge number to millisecond, to match stagger
   var duration = this.layout.options.transitionDuration;
   duration = typeof duration == 'number' ? duration + 'ms' : duration;
