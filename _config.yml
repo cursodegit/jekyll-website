@@ -70,3 +70,5 @@ snail:
 #   - vendor/ruby/
 exclude:
   - nginx*.conf
+  - Dockerfile
+  - Dockerfile_production
