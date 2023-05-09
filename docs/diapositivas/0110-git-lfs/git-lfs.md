@@ -5,7 +5,7 @@ Extensión de git facilita el versionado de ficheros grandes.
 * Web: [https://git-lfs.com/](https://git-lfs.com/)
 * GitHub: [https://github.com/git-lfs/git-lfs](https://github.com/git-lfs/git-lfs)
 
-------
+^^^^^^
 
 #### Git LFS
 
@@ -41,7 +41,7 @@ conflictos 😢)
 ^^^^^^
 #### Git LFS - ¿Cómo funciona?
 
-![Git LFS](../img/git-lfs.png)
+<img src="../img/git-lfs.png" class="r-stretch" alt="Git LFS">
 
 Sustituir el fichero por un puntero y almacenar el fichero fuera del 
 _snapshot_ 
@@ -81,6 +81,21 @@ Los ficheros físicos se almacenarán en nuestra carpeta `.git`:
 `OID-PATH` = OID[0:2]/OID[2:4]/OID
 
 por ejemplo `.git/lfs/objects/4d/7a/4d7a214614a...ab786`
+
+^^^^^^
+#### Git LFS - ¿Cómo funciona?
+
+**El servidor de git debe tener soporte para Git LFS** 
+
+GitLab, GitHub, Bitbucket o GitTea tienen soporte
+
+Notes:
+
+Los servidores mayoritarios tienen soporte para Git LFS. 
+
+Analizar los planes de precios ya que aunque todos ofrecen un espacio
+limitado gratuito, este no suele ser suficiente para cubrir las 
+necesidades de un equipo profesional.
 
 ^^^^^^
 #### Git LFS - No es oro...
@@ -148,15 +163,38 @@ Entender cómo funciona y utilizar el sentido común
 Notes:
 
 Aunque hay casos de uso muy claros, como los que hemos comentado en 
-diapositvas anteriores, nos encontraremos en situaciones en las que no 
-tendremos tan claro si su uso nos aportará algún valor o no.
+diapositvas anteriores.
 
-
+Nos encontraremos sin embargo en situaciones en las que no 
+tendremos tan claro si su uso nos aportará algún valor o no. Como ya hemos
+visto en ocasiones anteriores en ese curso, con el ecosistema de git
+el mejor enfoque es entender cómo funcionan las herramientas para poder
+aplicarlas cuando resuelven los problemas para los que estas 
+han sido creadas.
 
 ^^^^^^
 #### Git LFS - ¿Cuándo utilizarlo?
 
 ¿Y si `git + git-lfs` no es la solución? 🤔
 
+- Subversion
 - [PlasticSCM para juegos](https://unity.com/solutions/version-control)
 - [Perforce / Helix Core](https://www.perforce.com/products/helix-core)
+
+Notes:
+
+Sobre Subversion: esta herramienta está más preparada para gestionar ficheros
+binarios.
+
+Existen algunos proyectos, como por ejemplo juegos, para los que git no 
+va a ser la mejor opción por cómo gestiona los ficheros binarios. Al final,
+`git-lfs` se limita a sustituir un fichero por un puntero, pero no facilita
+más herramientas. ¿Se cubre con ello las necesidades que un equipo de 
+diseño 3D puede tener para trabajar simultáneamente con ficheros? 
+
+En mi opinión
+(personal e intransferible) ni siquiera usando `git-lfs` vamos a poder igualar 
+la capacidad que sistemas de control de versiones tienen para trabajar con 
+ficheros de este tipo. Es por ello que conviene evaluarlos
+
+¿Es git la mejor herramienta para nuestro equipo en estos casos?
