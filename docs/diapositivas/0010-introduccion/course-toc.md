@@ -8,3 +8,4 @@
 * Módulo 8: Pull Requests
 * Módulo 9: El `index` de git
 * Módulo 10: `.gitignore`
+* Módulo 11: `git-lfs` soporte para ficheros grandes
