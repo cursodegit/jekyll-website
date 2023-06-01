@@ -10,16 +10,17 @@ No trabaja a nivel de fichero
 
 Notes:
 Siguiendo con la metáfora que comentábamos en las diapositivas anteriores,
-git se puede entender como un conjunto de comandos que nos permiten hacer las
-siguientes operaciones:
+git se puede entender como un conjunto de comandos que nos permite gestionar 
+una estructura de datos. Estos comandos nos permiten:
 
 - Generar snapshots de código: Una de las principales diferencias entre git y otros
   sistemas de control de versiones, como Subversion, es que trabaja a nivel de 
   _snapshot_. Es decir, git hace _snapshots_ de nuestro código en cada commit y esos
-  _snapshots_ contienen todos los ficheros del proyecto
+  _snapshots_ contienen todos los ficheros del proyecto. Cada uno de los _snapshots_
+  que generamos se convertirá en un nodo de la estructura de datos
 - Actuar sobre la historia del repositorio: los _snapshots_ se almacenan en una
   estructura de datos (Grafo acíclido dirigido, DAG por sus siglas en inglés) que
-  conforman la historia de nuestro código. 
+  conforman la historia de nuestro código.
 - Gestionar referencias sobre esa estructura de datos: crear ramas o tags, sincronizar
   con un repositorio remoto usando `fetch`, hacer un `merge` o el comando `reset --hard` son ejemplos
   de operaciones sobre las referencias que apuntan a nuestra estructura de datos
@@ -40,7 +41,7 @@ pero cómo queramos usarla **es nuestra responsabilidad**. No almacena ninguna i
 referente a flujos de trabajo (desarrollo vs staging vs producción), importancia 
 relativa de unos commits o ramas frente a otras (`master` es más importante que una 
 rama de funcionalidad) ni sabe qué es lo que estamos almacenando en los _snapshots_.
-Puede ser código fuente o nuetro diario personal, le da lo mismo.
+Puede ser código fuente o nuestro diario personal, le da lo mismo.
 
 
 ^^^^^^
