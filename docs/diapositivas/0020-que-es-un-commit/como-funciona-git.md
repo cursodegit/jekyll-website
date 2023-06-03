@@ -1,7 +1,5 @@
 ## ¿Cómo funciona git?
 
-asdfa
-
 Notes:
 
 En esta sección veremos cómo funciona git y qué ocurre cuando hacemos un commit
