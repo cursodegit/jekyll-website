@@ -60,7 +60,7 @@ Al hacer el commit, git hará lo siguiente:
 
 Notes:
 Al hacer el segundo commit, git hará lo siguiente:
-- crear un snapshot del código, incluyendo todos los ficheros
+- crear una instantánea (_snapshot_) del código ¡de todos los ficheros!
 - añadir los datos para ese snapshot:
   - Nombre
   - Email
@@ -96,7 +96,7 @@ Si seguimos modificando nuestro código y hacemos un nuevo commit,
 volverá a ocurrir lo mismo:
 
 
-- crear un snapshot del código, incluyendo todos los ficheros
+- crear una instantánea (_snapshot_) de todo el código
 - añadir los datos para ese snapshot:
   - Nombre
   - Email
