@@ -26,6 +26,10 @@ Para desarrollar la web o escribir artículos en el blog utilizaremos docker.
       ```bash
       > docker-compose build --build-arg JEKYLL_UID=1000
       ```
+      o 
+      ```bash
+      > bin/build-development.sh
+      ```
 * Inicializa las gemas
 ```bash
 > docker-compose run --rm jekyll bundle install
