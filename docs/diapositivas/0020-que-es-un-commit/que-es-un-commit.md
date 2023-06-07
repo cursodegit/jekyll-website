@@ -77,9 +77,39 @@ desorbitado tamaño que requeriría almacenar la información.
 
 #### ¿Qué ocurre con el tamaño del repositorio?
 
+<img alt="Detalle de un commit" src="../img/objetos-de-git.png" class="r-stretch">
+
 Notes:
 
 Aunque a alto nivel git se comporta como si realmente estuviese almacenando una instantánea completa
 por cada commit, a bajo nivel no se comporta así.
 
+Si miramos en detalle qué es un commit, veríamos que un se trata de un objeto de git que apenas contiene
+información:
+- Los datos del commit (nombre y correo electrónico del autor, fecha, mensaje y hash del commit aterior)
+- Un puntero a otro objeto de objeto de git, que puede ser un objeto de tipo _tree_, que contiene punteros 
+  a otros objetos de git de tipo _tree_ o de tipo _blob_. En estos últimos es en los que realmente 
+  se almacena el fichero con el código fuente.
 
+Incluso si los cambios que hemos confirmado ocupan varios megabytes, el objeto de tipo _commit_ 
+apenas ocupará unos bytes en el disco duro.
+
+Todos estos objetos de git son los que realmente almacenan la instantánea de nuestro código, son los que 
+almacenan los ficheros y los cambios que se han producido en ellos. Estos objetos de git se comportan 
+como un sistema de ficheros en miniatura y son los que hacen que al confirmar nuevos cambios en el 
+repositorio, no se almacenen 200MB más, sino que ocupe un espacio suficiente como para almacenar los cambios.
+Por ejemplo, si un fichero no ha cambiado, un objeto de tipo _tree_ puede guardar un puntero al mismo
+_blob_ que el _commit_ anterior ya que el contenido del _blob_ no ha cambiado de un commit a otro.
+
+
+^^^^^^
+
+#### ¿Qué ocurre con el tamaño del repositorio?
+
+<img alt="Tamaño del repositorio" src="../img/tamano-real-repositorio.png" class="r-stretch">
+
+Notes:
+Esta diapositiva representa lo que realmente ocurre con el tamaño de un repositorio 
+cuando se trabaja con él: git optimiza el almacenamiento y aunque a alto nivel
+parezca que tenemos instantáneas completas del cógido, el tamaño de la carpeta 
+`.git` no se multiplica con cada nuevo commit
