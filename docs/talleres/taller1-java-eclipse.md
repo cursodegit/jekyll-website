@@ -71,8 +71,101 @@ Abrir una consola PowerShell y ejecutar los siguientes comandos:
 Initialized empty Git repository in C:/Users/aalba/eclipse-workspace/GithubClient/.git/
 ```
 
-Si estás en `Linux` os `MacOS`, sólo tienes que adaptar las rutas a tu sistema operativo.
+Si estás en `Linux` o `MacOS`, sólo tienes que adaptar las rutas a tu sistema operativo.
+Por ejemplo, `/home/aalba/workspace/GitHubClient`.
 
 ## La carpeta .git
 
+Tras ejecutar el comando `git init`, aparecerá la carpeta oculta `.git/` en la propia 
+carpeta del proyecto:
 
+![Crear repositorio con SourceTree: carpeta .git](./img/crear-repo-en-sourcetree-carpeta-dotgit.png)
+
+Usando la consola también podemos ver esta carpeta:
+
+```powershell
+PS C:\Users\aalba\eclipse-workspace\GithubClient> Get-ChildItem -Force
+
+
+    Directory: C:\Users\aalba\eclipse-workspace\GithubClient
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d--h--        08/06/2023      7:49                .git
+d-----        07/06/2023      8:03                .settings
+d-----        07/06/2023      8:03                bin
+d-----        07/06/2023      8:03                src
+-a----        07/06/2023      8:03            397 .classpath
+-a----        07/06/2023      8:03            388 .project
+```
+
+La carpeta `.git/objects` contiene los objetos de git (`commit`, `tree`, `blob`, etc) que 
+se generan al hacer un commit. En este momento, esa capeta está vacía ya que 
+nuestro repositorio no contine ningún commit:
+
+![Crear repositorio con SourceTree: carpeta .git/objects vacía](./img/crear-repo-en-sourcetree-dotgit-objects-vacia.png)
+
+## El fichero .gitignore 
+
+Antes de continuar y hacer el primer commit, debemos añadir al proyecto un fichero 
+`.gitignore`. Hablaremos en profundidad sobre este fichero más adelante en el curso.
+De momento, solo diré que es un fichero _especial_ que git utiliza para 
+no hacer seguimiento de ciertos ficheros.
+
+Para ello, iremos a la página web [gitignore.io](https://gitignore.io), introducimos
+`Eclipse` en el buscador y hacemos click en el botón `Create`. Obtendremos una 
+página web en texto plano con el contenido del fichero `.gitignore`. 
+Creamos el fichero dentro de la carpeta de nuestro proyecto 
+(`C:\Users\aalba\eclipse-workspace\GithubClient\.gitignore`)
+con el texto que acabamos de copiar, y lo guardamos.
+
+¡Ya estamos en condiciones de hacer el primer commit!
+
+## El primer commit
+
+Abrir `SourceTree` y en la parte izquierda hacer clic sobre 
+`File Status`. En la pantalla, veremos dos ventanas, en la ventana 
+de abajo `SourceTree` nos muestra los cambios que hay en nuestro 
+área de trabajo. En la ventana de arriba vemos los 
+ficheros que están preparados. `SourceTree` nos muestra lo que ha cambiado
+en el área de trabajo **con respecto al commit anterior**. Dado que no 
+hay commit anterior todavía, git nos dice que estamos viendo ficheros 
+nuevos para él (de ahí el icono con la interrogación que `SourceTree`
+utiliza para representarlos):
+
+
+![Primer commit](./img/primer-commit-ficheros-no-preparados.png)
+
+
+### La carpeta src 
+Si nos fijamos en la pantalla anterior, veremos que la carpeta `src/` 
+no aparece en la lista de ficheros que git reconoce.
+El motivo es que esa carpeta está vacía en este momento y 
+**git no gestiona carpetas, sólo gestiona ficheros**. Hablaremos con más detalle 
+de esta característica de git más adelante.
+
+Si queremos que la carpeta `src/` forme parte de nuestra primera instánea, 
+una práctica habitual es crear un fichero vacío dentro de esa carpeta, 
+que se suele llamar `src/.keep` (también lo veremos como `.gitkeep`). 
+Creamos el fichero en `Eclipse` y volvemos a `SourceTree`:
+
+
+![Primer commit](./img/primer-commit-ficheros-no-preparados-con-dotkeep.png)
+
+En la ventana _Unstaged files_ veremos que ahora sí aparece el fichero 
+`src/.keep`.
+
+
+### Preparación de los ficheros 
+
+Hacemos clic sobre el botón `Stage all` que está en la ventana _Unstaged files_.
+Al hacerlo, veremos que todos los ficheros suben al área de preparación (_staging area_):
+
+![Primer commit: ficheros preparados](./img/primer-commit-ficheros-preparados.png)
+
+### Haciendo (por fin) el primer commit
+A continuación, hacemos clic sobre el botón `Commit` que está en la parte 
+superior izquierda de la aplicación. Al hacerlo, en la parte inferior de la 
+pantalla aparecerá el mensaje para escribir nuestro mensaje. Escribiremos 
+"Esqueleto del proyecto" 
