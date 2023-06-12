@@ -1,8 +1,9 @@
 ---
 layout: lab
+title: "Taller 1: esqueleto del proyecto y primer commit"
 ---
 
-# Taller 1: version Java con Eclipse
+# Taller 1 (versión Java con Eclipse): esqueleto del proyecto y primer _commit_
 
 ## Requisitos
 Para realizar este taller es necesario tener instalado el siguiente software:
@@ -125,9 +126,11 @@ con el texto que acabamos de copiar, y lo guardamos.
 ## El primer commit
 
 Abrir `SourceTree` y en la parte izquierda hacer clic sobre 
-`File Status`. En la pantalla, veremos dos ventanas, en la ventana 
-de abajo `SourceTree` nos muestra los cambios que hay en nuestro 
-área de trabajo. En la ventana de arriba vemos los 
+`File Status`. En la ventana, veremos dos secciones: _Staged files_ y _Unstaged files_.
+
+En la sección _Unstaged files_ (la que está debajo) 
+veremos los cambios que hay en nuestro 
+área de trabajo. En la sección de _Staged files_ vemos los 
 ficheros que están preparados. `SourceTree` nos muestra lo que ha cambiado
 en el área de trabajo **con respecto al commit anterior**. Dado que no 
 hay commit anterior todavía, git nos dice que estamos viendo ficheros 
@@ -168,4 +171,30 @@ Al hacerlo, veremos que todos los ficheros suben al área de preparación (_stag
 A continuación, hacemos clic sobre el botón `Commit` que está en la parte 
 superior izquierda de la aplicación. Al hacerlo, en la parte inferior de la 
 pantalla aparecerá el mensaje para escribir nuestro mensaje. Escribiremos 
-"Esqueleto del proyecto" 
+"Esqueleto del proyecto". Para finalizar, hacemos clic sobre el botón `Commit`
+que está en la parte inferior derecha, debajo del espacio para escribir 
+el mensaje. Al hacerlo, confirmaremos los cambios en el repositorio:
+
+![Primer commit: mensaje](./img/primer-commit-mensaje.png)
+
+Una vez confirmados los cambios, `SourceTree` nos mostrará la historia del 
+repositorio:
+
+![Primer commit: historia](./img/primer-commit-historia.png)
+
+(Si no te aparece esta vista después de confirmar los cambios, puedes acceder
+a ella haciendo click sobre `History` en la parte izquierda de la pantalla). 
+
+En esta vista, cuando seleccionamos un _commit_, podremos ver toda su información:
+- Nombre (_hash_) de los cambios confirmados
+- Autor (nombre y correo electrónico)
+- Mensaje
+- Fecha
+- Nombre (_hash_) del _commit_ anterior, que en este caso no aparece porque
+  este es el primero del repositorio
+- Cambios que se han confirmado, que en este caso son todo ficheros nuevos al 
+  ser nuestro primer _commit_
+
+![Primer commit: datos del commit](./img/primer-commit-datos-del-commit.png)
+
+
