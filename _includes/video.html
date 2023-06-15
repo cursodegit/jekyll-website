@@ -1,0 +1,7 @@
+<div class="ratio ratio-1x1">
+  <video width="{{ include.widht | default: ''}}" height="{{ include.height | default: ''}}" controls autoplay>
+    <source src="{{ include.video }}.mp4"  type="video/mp4" />
+    <source src="{{ include.video }}.ogv"  type="video/ogg" />
+    <source src="{{ include.video }}.webm"  type="video/webm" />
+  </video>
+</div>
