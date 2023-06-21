@@ -25,3 +25,15 @@ layout: revealjs
 		 data-separator-vertical="^\^\^\^\^\^\^"
 		 data-charset="utf8">
 </section>
+
+<section data-markdown="mensaje-del-commit.md"
+		 data-separator="^------"
+		 data-separator-vertical="^\^\^\^\^\^\^"
+		 data-charset="utf8">
+</section>
+
+<section data-markdown="buenas-practicas.md"
+		 data-separator="^------"
+		 data-separator-vertical="^\^\^\^\^\^\^"
+		 data-charset="utf8">
+</section>
