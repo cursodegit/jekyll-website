@@ -107,9 +107,10 @@ tamaño de los objetos de git. Puedes ver
 [aquí](https://git-scm.com/docs/git-cat-file) la documentación completa del 
 comando.
 
+{% include alert_box.html content="En las siguientes secciones utilizaremos la consola para ejecutar este comando y ver el contenido de los objetos de git" %}
+
 ## El contenido de b1e277c374432c6dc7a1fb268723dc6dabcf968a
 
-{% include alert_box.html content="En las siguientes secciones utilizaremos mucho la consola para ejecutar este comando y ver el contenido de los objetos de git" %}
 
 Usando el comando `git cat-file` vamos a ver el contenido del objeto de git 
 con el _hash_ `b1e277c374432c6dc7a1fb268723dc6dabcf968a`. Para ello:
@@ -133,7 +134,7 @@ contiene únicamente:
 - un puntero a otro objeto de git de tipo `tree`
 
 Nota: Al ser los primeros cambios confirmados, no vemos una referencia al _commit_ 
-anterior. Cuando inspeccionemos el sigundo objeto de tipo `commit` que creamos
+anterior. Cuando inspeccionemos el segundo objeto de tipo `commit` que creamos
 en el taller 2, cosa que haremos en las siguientes secciones, sí que veremos
 esa referencia al _commit_ anterior.
 
@@ -234,10 +235,10 @@ A modo de recordatorio, la tercera vez que confirmamos cambios en el repositorio
 convertimos el proyecto a un proyecto de tipo `Maven`.
 
 
-Al confirmar esos cambios, una de las cosas que hicimos fue añadir al fichero 
-`.gitignore` las reglas de `Maven`:
+Al confirmar esos cambios, una de las cosas que ocurrió cuando hicimos esta 
+conversión fue que se modificó el fichero `.classpath`:
 
-![Cambios en .gitignore](./img/taller-3-cambios-en-gitignore.png)
+![Cambios en .gitignore](./img/taller-3-cambios-en-classpath.png)
 
 Utilizando `Eclipse`, buscamos de nuevo el nombre de la tercera confirmación
 de cambios, que en mi caso es `90336b5`. Lo puedes ver 
@@ -271,7 +272,7 @@ Esto es porque cuando confirmamos estos cambios, modificamos los tres ficheros.
 
 
 Si inspeccionemos el objeto de git `e410a60` de tipo `blob`, que corresponde 
-al el fichero `.classpath`:
+al fichero `.classpath`:
 
 ```powershell
 PS C:\Users\aalba\eclipse-workspace\GithubClient> git cat-file -p e410a60

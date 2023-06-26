@@ -1,4 +1,4 @@
-## Taller 1 
+## Taller 3 
 
 ☑️ Inspeccionar la carpeta `.git/objects`
 
