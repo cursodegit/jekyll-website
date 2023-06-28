@@ -6,7 +6,7 @@
 
 ☑️ Confirmar primeros cambios
 
-[Ir al taller 1](../../talleres/taller1-java-eclipse.html)
+[Ir al taller 1](../../talleres/taller-2-1-java-eclipse.html)
 
 ------
 
@@ -16,6 +16,6 @@
 
 ☑️ Realizar siguientes commits
 
-[Ir al taller 2](../../talleres/taller2-java-eclipse.md)
+[Ir al taller 2](../../talleres/taller-2-2-java-eclipse.md)
 
 

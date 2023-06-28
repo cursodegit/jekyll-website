@@ -10,9 +10,9 @@ layout: lab
 {:toc}
 
 ## Requisitos
-Este taller es continuación del taller [Taller 1: esqueleto del proyecto y primer commit]({% link docs/talleres/taller1-java-eclipse.md %}).
+Este taller es continuación del taller [Taller 1: esqueleto del proyecto y primer commit]({% link docs/talleres/taller-2-1-java-eclipse.md %}).
 
-Es necesario haber completado el [taller 1]({% link docs/talleres/taller1-java-eclipse.md %}) para poder realizar este taller.
+Es necesario haber completado el [taller 1]({% link docs/talleres/taller-2-1-java-eclipse.md %}) para poder realizar este taller.
 Puedes importar el proyecto `java/GithubClient-taller1.zip` en `Eclipse` y partir de él para hacer este taller.
 
 ## Objetivos
@@ -204,7 +204,7 @@ Obtendremos el texto "_Cliente de Github_" como resultado.
 `Maven` tiene sus propias reglas para ignorar ficheros que debemos añadir al 
 fichero `.gitignore` antes de confirmar los cambios.
 
-Como hicimos en [el taller 1]({% link docs/talleres/taller1-java-eclipse.md %}#el-fichero-gitignore),
+Como hicimos en [el taller 1]({% link docs/talleres/taller-2-1-java-eclipse.md %}#el-fichero-gitignore),
 utilizaremos la página [gitignore.io](https://gitignore.io) para obtener las reglas
 correspondientes a `Maven` y las añadimos al final del fichero `.gitignore`, debajo de las
 reglas de `Eclipse`. Después de pegar el texto, comentaremos

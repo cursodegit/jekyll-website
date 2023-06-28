@@ -12,10 +12,10 @@ title: "Taller 3: Inspeccionando la carpeta .git/objects"
 
 ## Requisitos
 Este taller es continuación del taller 
-[Taller 2: esqueleto del proyecto y primer commit]({% link docs/talleres/taller2-java-eclipse.md %}).
+[Taller 2: esqueleto del proyecto y primer commit]({% link docs/talleres/taller-2-2-java-eclipse.md %}).
 
 Es necesario haber completado el 
-[taller 2]({% link docs/talleres/taller2-java-eclipse.md %}) para poder realizar 
+[taller 2]({% link docs/talleres/taller-2-2-java-eclipse.md %}) para poder realizar 
 este taller. Puedes importar el proyecto `java/GithubClient-taller2.zip` en 
 `Eclipse` y partir de él para hacer este taller.
 
