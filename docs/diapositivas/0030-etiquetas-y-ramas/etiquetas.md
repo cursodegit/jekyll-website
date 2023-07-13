@@ -90,3 +90,13 @@ de la etiqueta, pongo el número de la versión.
 Más adelante en esta misma sección, comentaremos 
 otros criterios para considerar un _commit_ importante y etiquetarlo. 
 
+^^^^^^ 
+
+#### Tipos de etiquetas 
+
+- Ligera (_lightway_): sólo contiene el nombre de la confirmación 
+- Anotada (_annotated_): contiene el nombre y otra información, como un texto o una firma gpg
+
+Notes:
+
+Veremos en mucho más detalle estos dos tipos de etiquetas en los talleres.

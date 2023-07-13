@@ -39,15 +39,4 @@ diapositivas. En esta seccion hablaremos sólo de etiquetas y ramas.
 De HEAD y las ramas remotas hablaremos más adelante en el curso.
 
 
-^^^^^^
-
-#### Etiquetas
-
-<img src="../img/historia-repositorio-pasados-unos-dias.png" class="r-stretch" alt="Historia repositorio pasados unos días">
-
-Notes: 
-Mensajes sacados de https://whatthecommit.com 
-
-^^^^^^
-
 
