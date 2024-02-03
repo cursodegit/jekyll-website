@@ -14,7 +14,7 @@ layout: revealjs
 		 data-charset="utf8">
 </section>
 
-<section data-markdown="taller-3-1.md"
+<section data-markdown="taller-3-2.md"
 		 data-separator="^------"
 		 data-separator-vertical="^\^\^\^\^\^\^"
 		 data-charset="utf8">

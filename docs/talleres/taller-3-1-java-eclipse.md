@@ -10,6 +10,9 @@ title: "Taller 3.1: crear y borrar etiquetas"
 * This will become a table of contents (this text will be scrapped).
 {:toc}
 
+## Descarga 
+- [java/GithubClient-taller-3-1.zip &#x1F4E5; ](../talleres/zipfiles/java/GithubClient-taller-3-1.zip)
+
 ## Requisitos
 Este taller es continuación del taller 
 [Taller 2.3: inspeccionando la carpeta `.git/objects`]({% link docs/talleres/taller-2-3-java-eclipse.md %}).
@@ -59,6 +62,8 @@ captura, y hacemos clic en OK:
 
 Tras esta operación, la etiqueta desaparecerá.
 
+{% include alert_box.html content="Volver a crear la etiqueta v0.0 siguiendo los pasos indicados arriba antes de pasar la siguiente taller" %}
+
 ## Utilizando la consola
 
 ### Crear etiqueta 
@@ -84,6 +89,13 @@ b1e277c Esqueleto del proyecto
 Para listar las etiquetas utilizamos:
 
 ```shell
+> git tag -l
+v0.0
+```
+
+o directamente 
+
+```shell
 > git tag
 v0.0
 ```
@@ -98,6 +110,16 @@ Deleted tag 'v0.0' (was 90336b5)
 ```
 
 El comando nos indica dónde estaba la etiqueta que acabamos de borrar.
+
+Antes de terminar el taller, volvemos a crear la etiqueta, aunque utilizaremos un comando ligeramente diferente:
+
+```shell
+> git tag -a -m '' v0.0
+```
+
+En [el siguiente taller]({% link docs/talleres/taller-3-2-java-eclipse.md %}) explicaremos qué es la opción `-a` y hablaremos de los 
+diferentes tipos de etiquetas. Por el momento, diremos que creamos la etiqueta de esta manera para imitar el 
+comportamiento por defecto de `Sourtree` al crear etiquetas.
 
 ## Mover etiquetas 
 

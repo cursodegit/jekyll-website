@@ -92,11 +92,254 @@ otros criterios para considerar un _commit_ importante y etiquetarlo.
 
 ^^^^^^ 
 
-#### Tipos de etiquetas 
+#### Taller 3.1: Creación y borrado de etiquetas
 
-- Ligera (_lightway_): sólo contiene el nombre de la confirmación 
-- Anotada (_annotated_): contiene el nombre y otra información, como un texto o una firma gpg
+- Crear etiquetas
+- Borrar etiquetas
+
+[Taller 3.1](../../talleres/taller-3-1-java-eclipse.html)
+
+^^^^^^
+
+#### Etiquetas: ¿cómo las implementa `git`?
+
+Fichero de texto plano en la carpeta 
+
+`.git/refs/tags/[nombre-de-la-etiqueta]`
+
+que contiene el _hash_ de un objeto de `git`
 
 Notes:
 
-Veremos en mucho más detalle estos dos tipos de etiquetas en los talleres.
+Tras realizar el taller 3.1, tendremos en nuestro duro un fichero de texto en la ruta 
+`.git/refs/tags/v0.0`
+
+El hash que se almacena en ese fichero depende del tipo de etiqueta que hayamos creado.
+Veremos más detalles en las siguientes diapositivas.
+
+^^^^^^
+
+#### Tipos de etiquetas 
+
+- Ligera (_lightway_): El fichero contiene el nombre de la confirmación a la que apunta el tag
+- Anotada (_annotated_): El fichero contiene el nombre de un objeto de git de tipo `tag`
+
+^^^^^^
+
+#### Tipos de etiquetas: Ligera
+
+El fichero sólo contiene la suma `sha` de la confirmación a la que apunta la etiqueta 
+
+```shell
+> cat .git/refs/tags/v0.0
+90336b537eea8e9eb05953dcf205aa79b7a8a3c0 
+```
+
+^^^^^^
+
+#### Tipos de etiquetas: Ligera
+
+Este tipo de etiqueta se utiliza cuando no necesitamos guardar información adicional sobre el tag
+
+
+
+^^^^^^
+
+#### Tipos de etiquetas: Anotada
+
+Este tipo de etiqueta se utiliza cuando 
+
+**queremos almacenar información adicional**
+
+como por ejemplo:
+
+- Comentario
+- Quién creó la etiqueta, cuando lo hizo, etc
+- Almacenar la firma GPG del snapshot de código
+
+Notes:
+
+Una etiqueta anotada, genera un objeto de git intermedio que contiene la información que queremos
+guardar (como el comentario) junto con el hash de la confirmación de cambios a la que apunta 
+la etiqueta.
+
+En siguientes talleres inspeccionaremos este objeto de git.
+
+^^^^^^
+
+#### Tipos de etiquetas
+
+Cada cliente de git selecciona un tipo de etiqueta por defecto:
+
+- `Sourcetree` crea etiquetas anotadas por defecto
+- `git tag` crea etiquetas ligeras por defecto
+
+
+Notes:
+
+Cada cliente de git tiene su _opinión_ acerca de qué tipo de etiqueta es la más conveniente.
+
+En el caso de `Sourcetree`, el tipo de etiqueta por defecto es anotada, ya que consideran importante
+almacenar información sobre quién y cuándo creó la etiqueta. Sin embargo, si se crean las 
+etiquetas usando el comando `git tag` y no se indican más opciones que el nombre de la etiqueta,
+esta se creará como etiqueta ligera.
+
+
+^^^^^^ 
+
+#### Taller 3.2: Etiquetas anotadas vs. etiquetas ligeras
+
+- Crear etiquetas ligeras
+- Crear etiquetas anotadas
+- Inspeccionar el objeto de tipo `tag`
+
+[Taller 3.2](../../talleres/taller-3-2-java-eclipse.html)
+
+^^^^^^
+
+### Sobre los nombres de las etiquetas
+
+Ya sabemos que una etiqueta es 
+
+**un fichero de texto plano en el disco duro**
+
+¿Qué implicaciones tiene esto?
+
+^^^^^^
+
+#### Sobre los nombres de las etiquetas
+
+⚠️ Podré crear tantas etiquetas como quiera, hasta que me quede sin espacio en el disco duro
+
+^^^^^^
+
+#### Sobre los nombres de las etiquetas
+
+⚠️ No puedo tener dos etiquetas con el mismo nombre 
+
+**porque no puedo tener dos ficheros con el mismo nombre en la misma carpeta del disco duro**
+
+^^^^^^
+
+#### Sobre los nombres de las etiquetas
+
+⚠️ Si mi sistema de fichero es _case sensitive_ (como pasa por defecto en Unix) las 
+  etiquetas 
+
+- `v0.0`
+- `V0.0`
+
+**son diferentes**
+
+^^^^^^
+
+#### Sobre los nombres de las etiquetas
+
+⚠️ ¡Cuidado con utilizar caracteres especiales! como  UTF-8 
+
+¿los sistemas de ficheros de todo el entorno los soportan?
+
+Notes:
+
+Los sistemas de ficheros que diferencian mayúsculas y minúsculas así como 
+el soporte UTF-8 del sistema de ficheros son dos temas a los que normalmente 
+no se les presta atención.
+
+Muchas veces he escuchado que al tener todo el entorno en Windows, desde las máquinas de 
+desarrollo hasta los servidores en producción, hace que esto no represente un problema.
+
+Sin embargo, es muy probable que si estás utilizando un servidor de git, especialmente
+si es alguno de los mayoritarios (GitHub, Bitbucket o GitLab), este se aloje en una máquina 
+UNIX (muy probablemente Linux) que tiene un sistema de ficheros diferente al entorno Windows.
+
+Este mismo problema lo tenemos con los nombres de los ficheros de nuestro proyecto.
+En UNIX, los ficheros `Main.java` y `main.java` son diferentes. El uso de entornos
+integrados de desarrollo (IDEs) y convenciones en los nombres de los ficheros hacen que
+estos problemas se minimicen o no existan. Por eso conviene tener convenios similares
+para nombrar las referencias.
+
+^^^^^^
+
+#### Sobre los nombres de las etiquetas
+
+⚠️ El número máximo de caracteres que puede tener el nombre de la etiqueta viene determinado
+  por el sistema de ficheros
+
+^^^^^^
+
+#### Sobre los nombres de las etiquetas: carpetas
+
+Si utilizas una ruta a una carpeta como prefijo para la etiqueta:
+
+`borrar/antiguo-modulo-facturacion`
+
+- Se crea un fichero `.git/refs/tags/borrar/antiguo-modulo-facturacion`
+- Algunos clientes de `git` como `Sourcetree` o `GitKraken` muestran las etiquetas agrupadas en una carpeta
+
+Notes:
+El uso de una ruta como prefijo de las etiquetas tiene varios efectos:
+- Se crean carpetas con los prefijos dentro de `.git/refs/tags/`, como en el ejemplo de la diapositiva
+- Como consecuencia, podríamos tener etiquetas con el mismo *nombre*, pero no con el mismo prefijo. Por ejemplo:
+  - `features/un-tag`
+  - `hotfixes/un-tag`
+- Algunos clientes de `git` nos muestran esas etiquetas agrupagas en una carpeta, lo que puede facilitar
+  su visualización 
+- Nos facilita la vida a la hora de buscar etiquetas por consola: `git tag -l | grep features` 
+
+
+Una alternativa al uso de estas rutas como prefijos es utilizar prefijos con guiones o guiones bajos,
+por ejemplo `features-un-tag` y `hotfixes-un-tag`. Aunque los clientes gráficos no mostrarán las etiquetas
+agrupadas en una carpeta, el comando  `git tag -l | grep features` seguirá filtrando.
+
+^^^^^^
+
+### Una confusión habitual...
+
+**Una etiqueta sólo puede apuntar a una confirmación de cambios**
+
+Una etiqueta en `git` no funciona como una etiqueta en una tienda de ropa, que se 
+puede añadir a varios productos
+
+Notes:
+
+Una confusión habitual con las etiquetas de `git` es _confundirlas_ con el concepto
+de etiqueta al que estamos familiarizados.
+
+Por ejemplo, en una tienda de ropa podríamos poner una etiqueta `azul` a todas las prendas
+de ese color. Sin embargo, no podemos poner una etiqueta `desplegado` en diferentes 
+confirmaciones para indicar cuáles de ellas se subieron a producción.
+¿cuál es el motivo? ¡no podemos tener dos ficheros en la carpeta `.git/refs/tags/` con el mismo
+nombre!
+
+La relación entre una etiqueta y la confirmación podríamos decir que es 1:N, es decir,
+una etiqueta solo puede apuntar a una confirmación y una confirmación puede tener N 
+etiquetas.
+
+^^^^^^ 
+
+### Recomendaciones
+
+- Fijar un convenio de nombres
+- Utilizar caracteres ASCII [a-z], [A-Z], [0-9], `-`, `_` y `.`
+
+Notes:
+
+Para evitar algunos de los problemas derivados de la implementación como ficheros de texto plano,
+acordar un convenio de nombres puede resultar útil. Por ejemplo:
+- *camel case*: `NombreDeLaEtiqueta`
+- *snake case*: `nombre_de_la_etiqueta`
+- Utilizar nombre del usuario como prefijo mas *snake case*: `aalbagarcia/nombre_de_la_etiqueta`
+- Utilizar nombre del usuario como prefijo mas y guiones como separador: `aalbagarcia/nombre-de-la-etiqueta`
+
+Mi experiencia me ha mostrado que el uso del nombre de usuario como prefijo es muy útil, es un convenio
+que he utilizado en varios equipos con los que he trabajado.
+
+Junto al convenio de nombres, también podemos limitar el uso a carateres ASCII para evitar los efectos 
+que puede tener el uso de caracteres especiales.
+
+
+Recordad que el impacto del uso de mayúsculas y minúsculas o caracteres especiales es bajo si 
+todos tus entorno de desarrollo, staging, producción, etc utilizan el mismo sistema operativo.
+Esto es algo que toma más relevancia cuando se mezclan entornos con diferentes sistemas
+operativos como suele ocurrir con Unix y Windows.
+
