@@ -28,8 +28,8 @@ ENV LC_ALL en_US.UTF-8
 
 USER jekyll
 ENV BUNDLE_PATH="/gems"
-COPY Gemfile* /usr/src/app/
-RUN bundle install
+# COPY Gemfile* /usr/src/app/
+# RUN bundle install
 
 RUN echo 'require "irb/ext/save-history"' >> ~/.irbrc; \
   echo IRB.conf[:SAVE_HISTORY] = 100 >> ~/.irbrc; \
