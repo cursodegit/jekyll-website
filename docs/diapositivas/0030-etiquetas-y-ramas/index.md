@@ -25,3 +25,9 @@ layout: revealjs
 		 data-separator-vertical="^\^\^\^\^\^\^"
 		 data-charset="utf8">
 </section>
+
+<section data-markdown="integracion-de-ramas.md"
+		 data-separator="^------"
+		 data-separator-vertical="^\^\^\^\^\^\^"
+		 data-charset="utf8">
+</section>
