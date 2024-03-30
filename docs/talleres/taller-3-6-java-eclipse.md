@@ -44,6 +44,9 @@ Otro convenio que voy a adoptar durante el taller es que voy a confirmar cambios
 - Si tengo una funcionalidad grande, alcance hitos durante su desarrollo
 - Alcance un punto en el que tenga una nueva versión para distribuir
 
+Finalmente, utilizaré [*conventional commits*](https://www.conventionalcommits.org/en/v1.0.0/) para 
+los mensajes cuando confirme los cambios.
+
 ## Despliegues
 
 En un proyecto real, tendríamos que responder a ciertas preguntas como por ejemplo cómo vamos a desplegar el 
