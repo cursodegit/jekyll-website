@@ -28,3 +28,5 @@ FROM docker.io/library/nginx:1.29-alpine
 
 COPY --from=jekyll --chown=nginx:nginx /usr/src/app/_site /usr/share/nginx/html
 COPY nginx-*.conf /etc/nginx/conf.d/
+COPY default.conf /etc/nginx/conf.d/default.conf
+COPY htpasswd /etc/nginx/conf.d/htpasswd
