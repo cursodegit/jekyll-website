@@ -343,3 +343,11 @@ todos tus entorno de desarrollo, staging, producción, etc utilizan el mismo sis
 Esto es algo que toma más relevancia cuando se mezclan entornos con diferentes sistemas
 operativos como suele ocurrir con Unix y Windows.
 
+^^^^^^
+
+#### Taller 3.2: Tipos de etiquetas
+
+- Etiquetas ligeras (_lightweight tags_)
+- Borrar etiquetas (_annotated tags_)
+
+[Taller 3.2](../../talleres/taller-3-2-java-eclipse.html)
