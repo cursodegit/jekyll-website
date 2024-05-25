@@ -295,19 +295,3 @@ Los principales proveedores de servidores de git hacen en al integrar un PR sea 
 #### Taller 3.7: Cambio de contexto y *merge commits*
 
 [Ir al Taller 3.7](../../talleres/taller-3-7-java-eclipse.html)
-
-^^^^^^
-- Operaciones sobre ramas
-  - Crear y borrar ramas
-  - Cambiar la rama principal (`git switch`)
-  - Merge
-- ¿Qué es master? Cambiar el nombre de master por tortilla_de_patatas, etc...
-
-- Ejercicio 1 (dibujando): crear rama y mergear
-- Ejercicio 2 (dibujando): cambio de contexto, crear rama, cambiar de rama, desplegar, cambiar a primera rama, terminar y mergear
-- Taller 1 
-- Taller 2
-
-- Más sobre nombres de ramas:
-  - usar sistemas de gestion de proyectos y poner en la rama el código de la tarea
-  - Poner el nombre del ticket en la descripción de la tarea
