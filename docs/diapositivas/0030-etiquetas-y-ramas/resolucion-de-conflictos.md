@@ -11,8 +11,8 @@ y cómo resolverlos.
 Cuando dos personas modifican la misma parte de un archivo 
 
 - Modifican la misma línea o la inmediatamente anterior o posterior
-- Se crea el mismo fichero 
-- Se modifica un fichero que se ha borrado
+- Crean el mismo fichero
+- Una modifica un fichero que la otra ha borrado
 
 Notes:
 Sería más correcto decir que los conflictos ocurren cuando en dos confirmaciones 
@@ -44,7 +44,7 @@ Somos nosotros los que debemos terminar de mezclar los cambios:
 - `git revert`
 
 Notes:
-Cualquier operación de git que suponga la mezcla de cambios puede generar 
+Cualquier operación de `git` que suponga la mezcla de cambios puede generar 
 conflictos. Todos los comandos descritos en estas diapositivas mezclan cambios 
 de una u otra forma y, por lo tanto, pueden generar conflictos.
 
@@ -58,12 +58,10 @@ Otra situación habitual en la que nos encontramos con conflictos es al guardar
 algo en el *stash* y luego recuperarlo en una rama diferente a aquella en la que 
 se generó. 
 
-^^^^^^
-
 
 ^^^^^^
 
-#### Taller 3.8: Resolución de conflictos con durante `git merge`
+#### Taller 3.8: Resolución de conflictos durante `git merge`
 
 [Ir al Taller 3.8](../../talleres/taller-3-8-java-eclipse.html)
 
