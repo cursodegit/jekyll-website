@@ -3,7 +3,7 @@ layout: lab
 title: "Taller 3.7: Cambios de contexto y merge commits"
 ---
 
-# Taller 3.6 (version Java con Eclipse): Cambios de contexto y *merge commits*
+# Taller 3.7 (version Java con Eclipse): Cambios de contexto y *merge commits*
 
 ## Índice
 
