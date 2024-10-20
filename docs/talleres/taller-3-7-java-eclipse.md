@@ -113,30 +113,30 @@ import org.json.JSONObject;
 
 public class MainClass {
 
-  public static void main(String[] args) throws Exception {
-    try {
-      String token = System.getenv().get("GITHUB_PERSONAL_ACCESS_TOKEN");
-      Client client = new Client(token);
-      JSONArray json = client.getIssues("gradle/gradle");
-      printIssues(json);
-    } catch(Exception e) {
-      System.out.println(e.getMessage());
-      throw e;
-    }
-  }
+	public static void main(String[] args) throws Exception {
+		try {
+			String token = System.getenv().get("GITHUB_PERSONAL_ACCESS_TOKEN");
+			Client client = new Client(token);
+			JSONArray json = client.getIssues("gradle/gradle");
+			printIssues(json);
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+			throw e;
+		}
+	}
 	
-  private static void printIssues(JSONArray json) {
-    for (int i = 0; i < json.length(); i++) {
-      JSONObject jsonObject = json.getJSONObject(i);
-      String title = jsonObject.getString("title");
+	private static void printIssues(JSONArray json) {
+		for (int i = 0; i < json.length(); i++) {
+			JSONObject jsonObject = json.getJSONObject(i);
+			String title = jsonObject.getString("title");
 
-      JSONObject userObject = jsonObject.getJSONObject("user");
-      String user = userObject.getString("login");
+			JSONObject userObject = jsonObject.getJSONObject("user");
+			String user = userObject.getString("login");
 
 
-      System.out.println("[" + user + "] " + title);
-    }
-  }
+			System.out.println("[" + user + "] " + title);
+		}
+	}
 }
 ```
 
@@ -308,9 +308,9 @@ Editamos el fichero `src/com/alfonsoalba/InvalidTokenException.java` y añadimos
 package com.alfonsoalba;
 
 public class InvalidTokenException extends Exception {
-  public InvalidTokenException(String errorMessage) {
-        super(errorMessage);
-    }
+	public InvalidTokenException(String errorMessage) {
+		super(errorMessage);
+	}
 }
 ```
 
@@ -330,53 +330,53 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 public class Client {
-  private HttpClient client;
-  private String token;
+	private HttpClient client;
+	private String token;
 
-  public Client(String token) throws InvalidTokenException, IOException, InterruptedException {
-    this.client = HttpClient.newHttpClient();
-    this.token = token;
-    this.verifyToken();
-  }
+	public Client(String token) throws InvalidTokenException, IOException, InterruptedException {
+		this.client = HttpClient.newHttpClient();
+		this.token = token;
+		this.verifyToken();
+	}
 
-  public JSONArray getIssues(String repo) throws Exception {
-    String url = "https://api.github.com/repos/" + repo + "/issues";
-    HttpRequest request = HttpRequest.newBuilder(URI.create(url))
-        .header("Accept", "application/vnd.github+json")
-        .header("Content-Type", "application/vnd.github.raw+json")
-        .header("Authorization", "Bearer " + token)
-        .header("X-GitHub-Api-Version", "2022-11-28")
-        .build();
+	public JSONArray getIssues(String repo) throws Exception {
+		String url = "https://api.github.com/repos/" + repo + "/issues";
+		HttpRequest request = HttpRequest.newBuilder(URI.create(url))
+				.header("Accept", "application/vnd.github+json")
+				.header("Content-Type", "application/vnd.github.raw+json")
+				.header("Authorization", "Bearer " + token)
+				.header("X-GitHub-Api-Version", "2022-11-28")
+				.build();
 
-    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-    return getJSONFromResponse(response);
-  }
+		return getJSONFromResponse(response);
+	}
 
-  private void verifyToken() throws InvalidTokenException, IOException, InterruptedException {
-    String url = "https://api.github.com/octocat/";
-    HttpRequest request = HttpRequest.newBuilder(URI.create(url))
-        .header("Accept", "application/vnd.github+json")
-        .header("Content-Type", "application/vnd.github.raw+json")
-        .header("Authorization", "Bearer " + this.token)
-        .header("X-GitHub-Api-Version", "2022-11-28")
-        .build();
+	private void verifyToken() throws InvalidTokenException, IOException, InterruptedException {
+		String url = "https://api.github.com/octocat/";
+		HttpRequest request = HttpRequest.newBuilder(URI.create(url))
+				.header("Accept", "application/vnd.github+json")
+				.header("Content-Type", "application/vnd.github.raw+json")
+				.header("Authorization", "Bearer " + this.token)
+				.header("X-GitHub-Api-Version", "2022-11-28")
+				.build();
 
-    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-    if (response.statusCode() == 401) {
-      throw new InvalidTokenException("El token parece que no es correcto");
-    }
-  }
-  
-  private JSONArray getJSONFromResponse(HttpResponse<String> response) throws JSONException {
-    try {
-      return new JSONArray(response.body());
-    } catch (JSONException e) {
-      e.printStackTrace();
-      throw e;
-    }
-  }
+		if (response.statusCode() == 401) {
+			throw new InvalidTokenException("El token parece que no es correcto");
+		}
+	}
+	
+	private JSONArray getJSONFromResponse(HttpResponse<String> response) throws JSONException {
+		try {
+			return new JSONArray(response.body());
+		} catch (JSONException e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
 }
 ```
 
@@ -390,28 +390,28 @@ import org.json.JSONObject;
 
 public class MainClass {
 
-  public static void main(String[] args) throws Exception {
-    try {
-      String token = System.getenv().get("GITHUB_PERSONAL_ACCESS_TOKEN");
-      Client client = new Client(token);
-      JSONArray json = client.getIssues("gradle/gradle");
-      printIssues(json);
-    } catch(InvalidTokenException e) {
-      System.out.println(e.getMessage());
-      System.exit(1);
-    } catch(Exception e) {
-      System.out.println(e.getMessage());
-      throw e;
-    }
-  }
-  
-  private static void printIssues(JSONArray json) {
-    for (int i = 0; i < json.length(); i++) {
-      JSONObject jsonObject = json.getJSONObject(i);
-      String title = jsonObject.getString("title");
-      System.out.println("Title: " + title);
-    }
-  }
+	public static void main(String[] args) throws Exception {
+		try {
+			String token = System.getenv().get("GITHUB_PERSONAL_ACCESS_TOKEN");
+			Client client = new Client(token);
+			JSONArray json = client.getIssues("gradle/gradle");
+			printIssues(json);
+		} catch(InvalidTokenException e) {
+			System.out.println(e.getMessage());
+			System.exit(1);
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+			throw e;
+		}
+	}
+	
+	private static void printIssues(JSONArray json) {
+		for (int i = 0; i < json.length(); i++) {
+			JSONObject jsonObject = json.getJSONObject(i);
+			String title = jsonObject.getString("title");
+			System.out.println("Title: " + title);
+		}
+	}
 }
 ```
 
@@ -453,10 +453,11 @@ Estamos listos para desplegar una nueva versión.
 
 ### Desplegar
 
-Una vez corregido el error, vamos a desplegarlo. En este proyecto, el primer paso para desplegar es enviarle el 
-ejecutable *al jefe* para que lo pruebe. Supongamos que recibimos luz verde para desplegar. Seguramente este 
-procedimiento se pueda mejorar a medida que el proyecto avance, por ejemplo añadiendo tests automatizados, 
-para evitar depender de que una persona haga estas pruebas. Veremos si llegamos a ese punto en algún momento.
+Terminada la tarea `GHC-10`, vamos a desplegarla. En este proyecto, el primer paso para desplegar es enviarle el 
+ejecutable *al jefe* para que lo pruebe. Tendremos que avisar 
+al jefe de que en este ejecutable que le enviamos, se sigue mostrando una excepción en lugar de un mensaje 
+cuando el `token` no es válido. Cuando pruebe la versión final a distribuir verá que todo funciona correctamente.
+Supongamos que tras las pruebas que hace *el jefe*, recibimos luz verde para desplegar.
 
 El siguiente paso integrar en la rama `master` el código de la nueva versión, que está en  `GHC-11-verificaToken`. 
 Queremos integrar en `master`, así que hacemos `master` la rama activa. en `Sourcetree`, hacemos doble clic sobre 
@@ -511,33 +512,33 @@ import org.json.JSONObject;
 
 public class MainClass {
 
-  public static void main(String[] args) throws Exception {
-    try {
-      String token = System.getenv().get("GITHUB_PERSONAL_ACCESS_TOKEN");
-      Client client = new Client(token);
-      JSONArray json = client.getIssues("gradle/gradle");
-      printIssues(json);
-    } catch(Exception e) {
-      System.out.println(e.getMessage());
-      throw e;
-    }
-  }
-  
-  private static void printIssues(JSONArray json) {
-    for (int i = 0; i < json.length(); i++) {
-      JSONObject jsonObject = json.getJSONObject(i);
-      String title = jsonObject.getString("title");
-      String state = jsonObject.getString("state");
-      String url = jsonObject.getString("url");
+	public static void main(String[] args) throws Exception {
+		try {
+			String token = System.getenv().get("GITHUB_PERSONAL_ACCESS_TOKEN");
+			Client client = new Client(token);
+			JSONArray json = client.getIssues("gradle/gradle");
+			printIssues(json);
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+			throw e;
+		}
+	}
+	
+	private static void printIssues(JSONArray json) {
+		for (int i = 0; i < json.length(); i++) {
+			JSONObject jsonObject = json.getJSONObject(i);
+			String title = jsonObject.getString("title");
+			String state = jsonObject.getString("state");
+			String url = jsonObject.getString("url");
 
-      JSONObject userObject = jsonObject.getJSONObject("user");
-      String user = userObject.getString("login");
+			JSONObject userObject = jsonObject.getJSONObject("user");
+			String user = userObject.getString("login");
 
 
-      System.out.println("[" + user + "] - (" + state + ") - " + title);
-      System.out.println("\t" + url );
-    }
-  }
+			System.out.println("[" + user + "] - (" + state + ") - " + title);
+			System.out.println("\t" + url );
+		}
+	}
 }
 ```
 
@@ -578,6 +579,777 @@ era `fast-forward`:
 Si hacemos clic sobre el *merge commit* vemos que es un commit con la misma información que tienen los otros 
 *commits*: nombre e email del autor, fecha, mensaje y *checksum* del *commit* anterior. La diferencia es que 
 este tiene dos *commits* anteriores y el mensaje lo ha creado `git` sin preguntarnos.
+
+Antes de distribuir el ejecutable a los usuarios, se lo enviaríamos *al jefe* para que hiciese un último chequeo 
+de que todo funciona correctamente. 
+
+
+## Utilizando la consola
+
+### Crear rama 
+
+Nos han pedido que al escueto listado que nos muestra los tickets de GitHub por pantalla,
+añadamos la siguiente información:
+- Usuario que creó el ticket
+- Estado del ticket
+- Enlace al ticket 
+
+Imaginemos que esta tarea tiene asignado el ticket de Jira número `GHC-10`.
+
+Creamos una rama que llamaremos `GHC-10-usuarioEstadoYEnlace`. Vimos cómo crear ramas 
+en el [taller 3.4]({% link docs/talleres/taller-3-4-java-eclipse.md %}) y en el 
+[taller 3.6]({% link docs/talleres/taller-3-6-java-eclipse.md %}):
+
+```shell
+> git switch -c GHC-10-usuarioEstadoYEnlace master
+Switched to a new branch 'GHC-10-usuarioEstadoYEnlace'
+```
+Con este comando, estamos creando una rama (opción `-c`) de nombre `GHC-10-usuarioEstadoYEnlace` apuntando a la misma confirmación
+de cambios a la que apunta `master`.
+
+```shell
+> git branch -v
+
+* GHC-10-usuarioEstadoYEnlace 15c8bda refactor: Extrae clase Client
+  listadoTickets              15c8bda refactor: Extrae clase Client
+  main                        90336b5 Configuramos Maven en el proyecto
+  master                      15c8bda refactor: Extrae clase Client
+  primer-commit               b1e277c Esqueleto del proyecto
+```
+
+### Confirmar primeros cambios: usuario
+
+Nos han pedido que mostremos más información sobre el _issue_ de `GitHub` en nuestro cliente: usuario, 
+estado del ticket y un enlace al ticket. Empezaremos por añadir el usuario.
+
+Antes de continuar, nos aseguramos de que la rama `GHC-10-usuarioEstadoYEnlace` es la rama activa. 
+
+Mirando la [Documentación de la API de GitHub](https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28), 
+podemos ver la respuesta `JSON` y cómo extraer el usuario. Modificamos el fichero `src/com/alfonsoalba/MainClass.java`
+e incluimos el código que muestra el usuario:
+
+```java
+// src/com/alfonsoalba/MainClass.java
+package com.alfonsoalba;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+public class MainClass {
+
+	public static void main(String[] args) throws Exception {
+		try {
+			String token = System.getenv().get("GITHUB_PERSONAL_ACCESS_TOKEN");
+			Client client = new Client(token);
+			JSONArray json = client.getIssues("gradle/gradle");
+			printIssues(json);
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+			throw e;
+		}
+	}
+	
+	private static void printIssues(JSONArray json) {
+		for (int i = 0; i < json.length(); i++) {
+			JSONObject jsonObject = json.getJSONObject(i);
+			String title = jsonObject.getString("title");
+
+			JSONObject userObject = jsonObject.getJSONObject("user");
+			String user = userObject.getString("login");
+
+
+			System.out.println("[" + user + "] " + title);
+		}
+	}
+}
+```
+
+Ejecutamos la solución en `Eclipse` y verificamos que funciona correctamente:
+
+![Salida por consola con usuario](./img/taller-3-7-eclipse-usuario.png)
+
+Una vez comprobamos que el código funciona, y antes de pasar al siguiente paso (mostrar el estado), vamos a 
+confirmar los cambios. Una buena práctica de `git` es realizar *commits* atómicos, y cada uno de los tres 
+cambios que tenemos que hacer se pueden considerar atómicos (usuario, estado y URL del *issue*). Esta decisión es 
+arbitraria y algunos podéis considerar que los tres cambios se podrían incluir en un mismo *commit* ya que están 
+relacionados. También consideraríais que ese *commit* con el usuario, el estado y la URL sería atómico. Dependiendo 
+del contexto en el que se tenga que tomar esta decisión, estoy de acuerdo con ella. Sin embargo, en este contexto 
+(en el contexto de este taller), tiene sentido 
+hacer tres *commits* y así es como vamos a proceder. Con este párrafo pretendo ilustrar que las decisiones y buenas 
+prácticas de `git` son muchas veces relativas y, al final, debemos usar el sentido comnún y aquello que 
+le funciona al equipo o proyecto en el que estemos.
+
+Veamos en qué estado se encuentran los ficheros del proyecto. Para ello ejecutamos `git status`:
+
+```shell
+> git status
+
+On branch GHC-10-usuarioEstadoYEnlace
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/com/alfonsoalba/MainClass.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+Podemos ver los cambios en el fichero ejecutando `git diff`:
+
+```shell
+> git diff
+diff --git a/src/com/alfonsoalba/MainClass.java b/src/com/alfonsoalba/MainClass.java
+index 43c7511..e40c6c4 100644
+--- a/src/com/alfonsoalba/MainClass.java
++++ b/src/com/alfonsoalba/MainClass.java
+@@ -21,7 +21,12 @@ public class MainClass {
+                for (int i = 0; i < json.length(); i++) {
+                        JSONObject jsonObject = json.getJSONObject(i);
+                        String title = jsonObject.getString("title");
+-                       System.out.println("Title: " + title);
++
++                       JSONObject userObject = jsonObject.getJSONObject("user");
++                       String user = userObject.getString("login");
++
++
++                       System.out.println("[" + user + "] " + title);
+                }
+        }
+ }
+```
+
+Subimos los cambios al área de ensayo con `git add`:
+
+```shell
+> git add .
+```
+
+Confirmamos los cambios ejecutando `git commit`:
+
+```shell
+> git commit -m'chore: Muestra usuario en listado de tickets'
+[GHC-10-usuarioEstadoYEnlace 75cfef9] chore: Muestra usuario en listado de tickets
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+```
+
+Veamos los últimos cambios confirmados en el grafo:
+
+```shell
+> git log --oneline --graph --all
+
+* 75cfef9 (HEAD -> GHC-10-usuarioEstadoYEnlace) chore: Muestra usuario en listado de tickets
+* 15c8bda (master, listadoTickets) refactor: Extrae clase Client
+* 93eacc0 Muestra listado de issues por consola
+* 90336b5 (tag: v0.0-ligera, tag: v0.0-anotada, tag: v0.0, main) Configuramos Maven en el proyecto
+* 7c5d4ab Añadir MainClass y código trivial para verificar que el proyecto se ejecuta correctamente
+* b1e277c (primer-commit) Esqueleto del proyecto
+```
+
+### Confirmar segundos cambios: estado 
+
+Seguimos trabajando en nuestro ticket, y el siguiente paso es añadir el estado.
+
+Mirando la [Documentación de la API de GitHub](https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28), 
+podemos ver la respuesta `JSON` y cómo extraer el estado. Modificamos el fichero `src/com/alfonsoalba/MainClass.java`
+e incluimos el código para mostrarlo:
+
+```java
+package com.alfonsoalba;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+public class MainClass {
+
+	public static void main(String[] args) throws Exception {
+		try {
+			String token = System.getenv().get("GITHUB_PERSONAL_ACCESS_TOKEN");
+			Client client = new Client(token);
+			JSONArray json = client.getIssues("gradle/gradle");
+			printIssues(json);
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+			throw e;
+		}
+	}
+	
+	private static void printIssues(JSONArray json) {
+		for (int i = 0; i < json.length(); i++) {
+			JSONObject jsonObject = json.getJSONObject(i);
+			String title = jsonObject.getString("title");
+			String state = jsonObject.getString("state");
+
+			JSONObject userObject = jsonObject.getJSONObject("user");
+			String user = userObject.getString("login");
+
+
+			System.out.println("[" + user + "] - (" + state + ") - " + title);
+		}
+	}
+}
+```
+Compilamos la solución y verificamos que efectivamente se muestra el usuario y el estado:
+
+![Salida por consola con usuario y estado](./img/taller-3-7-eclipse-estado.png)
+
+Volvemos a la consola y comprobemos el estado de los ficheros con `git status`:
+
+```shell
+> git status
+
+On branch GHC-10-usuarioEstadoYEnlace
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/com/alfonsoalba/MainClass.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+Comprobemos también los cambios que se han introducido:
+
+```shell
+> git diff
+
+diff --git a/src/com/alfonsoalba/MainClass.java b/src/com/alfonsoalba/MainClass.java
+index e40c6c4..7e991d0 100644
+--- a/src/com/alfonsoalba/MainClass.java
++++ b/src/com/alfonsoalba/MainClass.java
+@@ -21,12 +21,13 @@ public class MainClass {
+                for (int i = 0; i < json.length(); i++) {
+                        JSONObject jsonObject = json.getJSONObject(i);
+                        String title = jsonObject.getString("title");
++                       String state = jsonObject.getString("state");
+
+                        JSONObject userObject = jsonObject.getJSONObject("user");
+                        String user = userObject.getString("login");
+
+
+-                       System.out.println("[" + user + "] " + title);
++                       System.out.println("[" + user + "] - (" + state + ") - " + title);
+                }
+        }
+ }
+```
+
+
+Verificado que los cambios funcionan y muestran el estado, vamos a confirmarlos. En este
+caso con el mensaje "*chore: Muestra estado en listado de Tickets*":
+
+```shell
+> git commit -a -m'chore: Muestra estado en listado de Tickets'
+
+[GHC-10-usuarioEstadoYEnlace 7c3cbbc] chore: Muestra estado en listado de Tickets
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+```
+
+En este caso, en lugar de usar dos comandos (`git add` para subir los cambios al área de ensayo
+y luego `git commit` para confirmar) hemos usado la opción `-a` del comando `git commit`. Esta
+opción sube al área de ensayo únicamente los ficheros modificados o borrados, los ficheros nuevos no
+los sube. Tras confirmar los cambios, el repositorio queda:
+
+```shell
+> git log --oneline --graph --all
+
+* 7c3cbbc (HEAD -> GHC-10-usuarioEstadoYEnlace) chore: Muestra estado en listado de Tickets
+* 75cfef9 chore: Muestra usuario en listado de tickets
+* 15c8bda (master, listadoTickets) refactor: Extrae clase Client
+* 93eacc0 Muestra listado de issues por consola
+* 90336b5 (tag: v0.0-ligera, tag: v0.0-anotada, tag: v0.0, main) Configuramos Maven en el proyecto
+* 7c5d4ab Añadir MainClass y código trivial para verificar que el proyecto se ejecuta correctamente
+* b1e277c (primer-commit) Esqueleto del proyecto
+```
+
+Como vemos, el repositorio sigue siendo una línea recta, es decir, una lista simplemente enlazada.
+
+### Interrupción: Crear rama 
+
+Llegados a este punto, nos interrumpen y nos comunican que a una compañera le está saltando una excepción al 
+ejecutar la aplicación:
+
+```java 
+org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:507)
+	at org.json.JSONArray.<init>(JSONArray.java:109)
+	at org.json.JSONArray.<init>(JSONArray.java:162)
+	at com.alfonsoalba.Client.getJSONFromResponse(Client.java:35)
+	at com.alfonsoalba.Client.getIssues(Client.java:30)
+	at com.alfonsoalba.MainClass.main(MainClass.java:12)
+A JSONArray text must start with '[' at 1 [character 2 line 1]
+Exception in thread "main" org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:507)
+	at org.json.JSONArray.<init>(JSONArray.java:109)
+	at org.json.JSONArray.<init>(JSONArray.java:162)
+	at com.alfonsoalba.Client.getJSONFromResponse(Client.java:35)
+	at com.alfonsoalba.Client.getIssues(Client.java:30)
+	at com.alfonsoalba.MainClass.main(MainClass.java:12)
+```
+🤔 Tras depurar el error nos damos cuenta de que el problema se debe a que el *token* que está usando nuestro 
+compañero no es válido. Imaginemos que este error es lo suficientemente crítico como para tener que detener el trabajo 
+que estamos haciendo en la rama `GHC-10-usuarioEstadoYEnlace` y corregirlo. Creamos una tarea en Jira para trabajar en 
+la correción del error, `GHC-11`.
+
+Llegados a este punto necesitamos poder **cambiar de contexto**, es decir, poder pasar de la tarea `GHC-10` a la 
+tarea `GHC-11` y viceversa. En estos cambios de contexto es donde las ramas de `git` resultan extremadamente potentes.
+
+Antes de crear la rama, vamos a añadir un poco de contexto: 
+- La rama `GHC-10-usuarioEstadoYEnlace` 
+  está todavía sin terminar y no sabemos cuándo la terminaremos, por lo que esperar a que esta rama termine para resolver 
+  el error y desplegarlo todo junto no es una opción
+- Como consecuencia, debemos seleccionar una instantánea anterior sobre la que trabajar, corregir el error y desplegar. 
+  ¿Qué instantánea seleccionamos? El sentido común nos indica que debe ser la última que está en producción 
+- El puntero que nos indica qué instantánea está en producción es `master`, por lo que crearemos nuestra nueva rama 
+  apuntando a la misma confirmación a la que apunta `master`
+
+Como ves, para decidir dónde creo la rama nos hemos parado pensar qué queremos hacer (hemos 
+respondido a la pregunta *¿qué queremos hacer con nuestra vida?* de la que hablamos en las diapositivas). Entiende la 
+diferencia entre ese procedimiento y otras maneras de tomar la decisión como:
+- pongo la rama en `master` porque es la más importante
+- pongo la rama en `master` porque es la única que tengo 
+- pongo la rama en `master` porque lo pone en `Stackoverflow` o me lo dijo un señor en un curso de `git` 
+
+Seguramente en un caso tan sencillo como este te pueda parecer innecesario hacer toda esta reflexión para crear una 
+rama. A medida que el curso se complique, o cuando salgas de estos talleres enlatados y te enfrentes a un repositorio 
+real, verás que sabiendo qué quieres hacer, realizar las operaciones de `git` es más fácil y cometerás menos errores.
+
+En la consola, usamos el comando `git switch` para crear la rama y, a la vez, hacer que la rama nueva sea
+la rama activa:
+
+```shell
+> git switch -c GHC-11-verificaToken master
+
+Switched to a new branch 'GHC-11-verificaToken'
+```
+
+Las opciones que hemos utilizado en este comando son:
+- `-c` Crea la rama 
+- `GHC-11-verificaToken` Nombre de la rama que vamos a crear y activar
+- `master` Dónde queremos que apunte la nueva rama. Si este argumento se omite, la rama se
+  crea apuntando a la misma confirmación a la que apunta `HEAD`
+
+
+Una vez creada la rama, comprobamos que aparece una nueva referencia `GHC-11-verificaToken` que apunta a la 
+confirmación `15c8bda` (al mismo sitio al que apunta `master`):
+
+```shell
+> git log --oneline --graph --all
+
+* 7c3cbbc (GHC-10-usuarioEstadoYEnlace) chore: Muestra estado en listado de Tickets
+* 75cfef9 chore: Muestra usuario en listado de tickets
+* 15c8bda (HEAD -> GHC-11-verificaToken, master, listadoTickets) refactor: Extrae clase Client
+* 93eacc0 Muestra listado de issues por consola
+* 90336b5 (tag: v0.0-ligera, tag: v0.0-anotada, tag: v0.0, main) Configuramos Maven en el proyecto
+* 7c5d4ab Añadir MainClass y código trivial para verificar que el proyecto se ejecuta correctamente
+* b1e277c (primer-commit) Esqueleto del proyecto
+
+```
+### Corregir el error 
+
+El primer paso para corregir el error va a ser crear una nueva clase `InvalidTokenException` en `Eclipse` que 
+utilizaremos para capturar el error y mostrar un mensaje por consola más amigable que el error que se muestra 
+en este momento. 
+
+En `Eclipse`, hacemos clic usando el botón derecho sobre el paquete `com.alfonsoalba`. En el menú contextual 
+seleccionamos *New* -> *Class*:
+![Clase InvalidTokenException paso 1](./img/taller-3-7-eclipse-GHC-11-crear-clase-invalid-token-exception-paso-1.png)
+
+El nombre de la clase será `InvalidTokenException` y el nombre de la clase padre (campo `superclass`) será `Exception`:
+
+![Clase InvalidTokenException paso 2](./img/taller-3-7-eclipse-GHC-11-crear-clase-invalid-token-exception-paso-2.png)
+
+Editamos el fichero `src/com/alfonsoalba/InvalidTokenException.java` y añadimos el siguiente código:
+```java 
+// src/com/alfonsoalba/InvalidTokenException.java
+package com.alfonsoalba;
+
+public class InvalidTokenException extends Exception {
+	public InvalidTokenException(String errorMessage) {
+		super(errorMessage);
+	}
+}
+```
+
+Por otro lado, modificamos `Client.java` para que verifique el `token` antes de hacer cualquier cosa y lance 
+esta nueva excepción si no es válido:
+
+```java
+// src/com/alfonsoalba/Client.java
+package com.alfonsoalba;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import org.json.JSONArray;
+import org.json.JSONException;
+
+public class Client {
+	private HttpClient client;
+	private String token;
+
+	public Client(String token) throws InvalidTokenException, IOException, InterruptedException {
+		this.client = HttpClient.newHttpClient();
+		this.token = token;
+		this.verifyToken();
+	}
+
+	public JSONArray getIssues(String repo) throws Exception {
+		String url = "https://api.github.com/repos/" + repo + "/issues";
+		HttpRequest request = HttpRequest.newBuilder(URI.create(url))
+				.header("Accept", "application/vnd.github+json")
+				.header("Content-Type", "application/vnd.github.raw+json")
+				.header("Authorization", "Bearer " + token)
+				.header("X-GitHub-Api-Version", "2022-11-28")
+				.build();
+
+		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+		return getJSONFromResponse(response);
+	}
+
+	private void verifyToken() throws InvalidTokenException, IOException, InterruptedException {
+		String url = "https://api.github.com/octocat/";
+		HttpRequest request = HttpRequest.newBuilder(URI.create(url))
+				.header("Accept", "application/vnd.github+json")
+				.header("Content-Type", "application/vnd.github.raw+json")
+				.header("Authorization", "Bearer " + this.token)
+				.header("X-GitHub-Api-Version", "2022-11-28")
+				.build();
+
+		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+		if (response.statusCode() == 401) {
+			throw new InvalidTokenException("El token parece que no es correcto");
+		}
+	}
+	
+	private JSONArray getJSONFromResponse(HttpResponse<String> response) throws JSONException {
+		try {
+			return new JSONArray(response.body());
+		} catch (JSONException e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
+}
+```
+
+Finalmente, modificamos `MainClass.java` para capturar la excepción y mostrar el mensaje de error:
+```java
+// src/com/alfonsoalba/MainClass.java
+package com.alfonsoalba;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+public class MainClass {
+
+	public static void main(String[] args) throws Exception {
+		try {
+			String token = System.getenv().get("GITHUB_PERSONAL_ACCESS_TOKEN");
+			Client client = new Client(token);
+			JSONArray json = client.getIssues("gradle/gradle");
+			printIssues(json);
+		} catch(InvalidTokenException e) {
+			System.out.println(e.getMessage());
+			System.exit(1);
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+			throw e;
+		}
+	}
+	
+	private static void printIssues(JSONArray json) {
+		for (int i = 0; i < json.length(); i++) {
+			JSONObject jsonObject = json.getJSONObject(i);
+			String title = jsonObject.getString("title");
+			System.out.println("Title: " + title);
+		}
+	}
+}
+```
+
+Si no lo hemos hecho ya, editamos la variable de entorno `GITHUB_PERSONAL_ACCESS_TOKEN` y ponemos `...` al principio 
+para tener un `token` que no es válido. Ejecutamos la solución y verificamos que se muestra el mensaje
+en lugar de la excepción:
+
+![Tarea GHC-11 ejecutar solución](./img/taller-3-7-eclipse-GHC-11-ejecutar-solucion.png)
+
+Editamos de nuevo la variable de entorno `GITHUB_PERSONAL_ACCESS_TOKEN` y quitamos los `...` que hemos puesto
+al principio para que la aplicación vuelva a funcionar.
+
+Vamos a confirmar los cambios. Comprobamos con `git status` el estado de nuestros ficheros:
+
+```shell
+> git status
+
+On branch GHC-11-verificaToken
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/com/alfonsoalba/Client.java
+        modified:   src/com/alfonsoalba/MainClass.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        src/com/alfonsoalba/InvalidTokenException.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+Tenemos ficheros nuevos en el área de trabajo, por lo que la opción `-a` del commando  `git commit` no será
+suficiente para confirmar todos los cambios. Añadimos primero todos los ficheros al área de ensayo con `git add`
+y confirmamos los cambios usando `git commit`:
+
+```shell
+> git add .
+> git commit -m'chore: Error legible si el token no es válido'
+
+[GHC-11-verificaToken eaff0cc] chore: Error legible si el token no es válido
+ 3 files changed, 29 insertions(+), 1 deletion(-)
+ create mode 100644 src/com/alfonsoalba/InvalidTokenException.java
+```
+
+Veamos cómo ha quedado el grafo del repositorio una vez confirmados los cambios:
+
+```shell
+> git log --graph --oneline --all
+* eaff0cc (HEAD -> GHC-11-verificaToken) chore: Error legible si el token no es válido
+| * 7c3cbbc (GHC-10-usuarioEstadoYEnlace) chore: Muestra estado en listado de Tickets
+| * 75cfef9 chore: Muestra usuario en listado de tickets
+|/
+* 15c8bda (master, listadoTickets) refactor: Extrae clase Client
+* 93eacc0 Muestra listado de issues por consola
+* 90336b5 (tag: v0.0-ligera, tag: v0.0-anotada, tag: v0.0, main) Configuramos Maven en el proyecto
+* 7c5d4ab Añadir MainClass y código trivial para verificar que el proyecto se ejecuta correctamente
+* b1e277c (primer-commit) Esqueleto del proyecto
+```
+Tras confirmar los cambios, vemos que el respositorio ha dejado de ser una lista simplemente enlazada ya que ha 
+aparecido una bifurcación en nuestra estructura de datos. Esta bifurcación no aparece por que creamos una rama,
+sino porque **partiendo de un mismo código fuente, hemos confirmado dos modificaciones diferentes**.
+
+Estamos listos para desplegar una nueva versión.
+
+### Desplegar
+
+Una vez corregido el error, vamos a desplegarlo. En este proyecto, el primer paso para desplegar es enviarle el 
+ejecutable *al jefe* para que lo pruebe. Supongamos que recibimos luz verde para desplegar. Seguramente este 
+procedimiento se pueda mejorar a medida que el proyecto avance, por ejemplo añadiendo tests automatizados, 
+para evitar depender de que una persona haga estas pruebas. Veremos si llegamos a ese punto en algún momento.
+
+El siguiente paso es integrar en la rama `master` el código de la nueva versión, que está en  `GHC-11-verificaToken`. 
+Queremos integrar en `master`, así que hacemos `master` la rama activa usando `git switch`:
+
+```shell
+> git switch master
+Switched to branch 'master'
+```
+La rama que contiene el código que queremos integrar es `GHC-11-verificaToken`. Utilizamos el comando `git merge`
+para integrar el código en la rama activa:
+
+```shell
+> git merge GHC-11-verificaToken
+
+Updating 15c8bda..eaff0cc
+Fast-forward
+ src/com/alfonsoalba/Client.java                | 20 +++++++++++++++++++-
+ src/com/alfonsoalba/InvalidTokenException.java |  7 +++++++
+ src/com/alfonsoalba/MainClass.java             | 21 ++++++++++++---------
+ 3 files changed, 38 insertions(+), 10 deletions(-)
+ create mode 100644 src/com/alfonsoalba/InvalidTokenException.java
+```
+
+¡Ya podemos volver a la rama `GHC-10-usuarioEstadoYEnlace` y terminarla!
+
+### Confirmar terceros cambios: mostrar URL del ticket
+
+Nos encontramos ahora ante un dilema, así que es importante tener claro *qué queremos hacer con nuestra vida*: queremos 
+terminar el trabajo que hemos empezado en `GHC-10-usuarioEstadoYEnlace` para desplegarlo. Podemos seguir dos caminos:
+- Integrar el código que corrige el error (y que está en `master`) en nuestra rama `GHC-10-usuarioEstadoYEnlace`,
+  añadir la URL y desplegar (integrarlo en `master`)
+- Terminar la tarea mostrando la URL en la rama `GHC-10-usuarioEstadoYEnlace` y una vez terminada, desplegarlo 
+  (integrarlo en `master`) donde el error ya está corregido 
+
+En este caso, cualquiera de los dos caminos es válido. Podemos acabar discutiendo durante un buen rato sobre cuál es 
+mejor, cuál nos gusta más, cuál pensamos que es el más *lógico* según nuestro sentido común. Con este contexto y 
+para este código fuente, la verdad es que cualquiera de los dos caminos es válido. Daos cuenta de que he escrito 
+*con este contexto y para este código fuente*, en otro contexto puede que uno de los dos caminos no sea el mejor 
+o directamente no sea viable. Una vez más insisto en la importancia de *saber qué queremos hacer con nuestra vida* para 
+decidir qué operaciones de `git` vamos a ejecutar.
+
+Vamos a seguir el segundo camino. Si no lo hiciste antes, editamos la variable de entorno `GITHUB_PERSONAL_ACCESS_TOKEN`
+y quitamos los `...` del `token` para que la aplicación muestre de nuevo el listado de tickets de `GitHub`.
+
+Mirando la [Documentación de la API de GitHub](https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28), 
+podemos ver la respuesta `JSON` y cómo extraer el enlace. Modificamos el fichero `src/com/alfonsoalba/MainClass.java`
+e incluimos el código que muestra el enlace. 
+
+En `Eclipse`, editamos el fichero `MainClass.java` y añadimos el enlace:
+
+```java
+// src/com/alfonsoalba/MainClass.java
+package com.alfonsoalba;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+public class MainClass {
+
+	public static void main(String[] args) throws Exception {
+		try {
+			String token = System.getenv().get("GITHUB_PERSONAL_ACCESS_TOKEN");
+			Client client = new Client(token);
+			JSONArray json = client.getIssues("gradle/gradle");
+			printIssues(json);
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+			throw e;
+		}
+	}
+	
+	private static void printIssues(JSONArray json) {
+		for (int i = 0; i < json.length(); i++) {
+			JSONObject jsonObject = json.getJSONObject(i);
+			String title = jsonObject.getString("title");
+			String state = jsonObject.getString("state");
+			String url = jsonObject.getString("url");
+
+			JSONObject userObject = jsonObject.getJSONObject("user");
+			String user = userObject.getString("login");
+
+
+			System.out.println("[" + user + "] - (" + state + ") - " + title);
+			System.out.println("\t" + url );
+		}
+	}
+}
+```
+
+Ejecutamos la solución y verificamos que se muestra el enlace:
+
+![Muestra enlace](./img/taller-3-7-eclipse-enlace.png)
+
+Volvemos a la consola y verificamos el estado de nuestros ficheros con `git status`:
+
+```shell
+> git status
+On branch GHC-10-usuarioEstadoYEnlace
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/com/alfonsoalba/MainClass.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+Terminamos el trabajo en nuestra rama confirmando los cambios:
+
+```shell
+> git commit -a -m'chore: Muestra enlace en listado de tickets'
+
+[GHC-10-usuarioEstadoYEnlace 3e532d9] chore: Muestra enlace en listado de tickets
+ 1 file changed, 3 insertions(+)
+```
+
+Veamos cómo ha quedado el grafo del repositorio tras confirmar los cambios:
+
+```shell
+> git log --graph --oneline --all
+* 3e532d9 (HEAD -> GHC-10-usuarioEstadoYEnlace) chore: Muestra enlace en listado de tickets
+* 7c3cbbc chore: Muestra estado en listado de Tickets
+* 75cfef9 chore: Muestra usuario en listado de tickets
+| * eaff0cc (master, GHC-11-verificaToken) chore: Error legible si el token no es válido
+|/
+* 15c8bda (listadoTickets) refactor: Extrae clase Client
+* 93eacc0 Muestra listado de issues por consola
+* 90336b5 (tag: v0.0-ligera, tag: v0.0-anotada, tag: v0.0, main) Configuramos Maven en el proyecto
+* 7c5d4ab Añadir MainClass y código trivial para verificar que el proyecto se ejecuta correctamente
+* b1e277c (primer-commit) Esqueleto del proyecto
+```
+
+¡Estamos listos para desplegar `GHC-10`!
+
+### Desplegar
+
+
+Terminada la tarea `GHC-10`, vamos a desplegarla. En este proyecto, el primer paso para desplegar es enviarle el 
+ejecutable *al jefe* para que lo pruebe. Tendremos que avisar 
+al jefe de que en este ejecutable que le enviamos, se sigue mostrando una excepción en lugar de un mensaje 
+cuando el `token` no es válido. Cuando pruebe la versión final a distribuir verá que todo funciona correctamente.
+Supongamos que tras las pruebas que hace *el jefe*, recibimos luz verde para desplegar.
+
+Dado que estamos desplegando, lo que queremos hacer es integrar `GHC-10-usuarioEstadoYEnlace` en `master`.
+Usamos el comando `git switch` para hacer `master` la rama activa:
+
+```shell
+> git switch master
+
+Switched to branch 'master'
+```
+La respuesta a la pregunta *¿Dónde está el código que quiero integrar?*, que es `GHC-10-usuarioEstadoYEnlace`
+nos dice qué rama queremos integrar en la rama activa (`master`). Usamos el comando `git merge` para
+integrar:
+
+```shell
+> git merge GHC-10-usuarioEstadoYEnlace
+```
+Al ejecutar el comando, se abrirá el editor por defecto (`vi`) para modificar el mensaje del *merge commit* que se
+va crear:
+
+```text
+Merge branch 'GHC-10-usuarioEstadoYEnlace'
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.
+```
+
+Vamos a mantener el mensaje que `git` ha generado por defecto. Para ello, tecleamos la siguiente combinación de
+teclas para salir de `vi`:  `:wq`. Al hacerlo, volveremos a la consola, donde veremos el mensaje de que `git merge`
+se ha ejecutado correctamente justo por encima del *prompt* del sistema:
+
+```shell
+Auto-merging src/com/alfonsoalba/MainClass.java
+Merge made by the 'ort' strategy.
+ src/com/alfonsoalba/MainClass.java | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+> _
+```
+Veamos cómo ha quedado el grafo después de integrar la rama `GHC-10-usuarioEstadoYEnlace` en `master`:
+
+```shell
+> git log --graph --oneline --all
+
+*   61dc6c2 (HEAD -> master) Merge branch 'GHC-10-usuarioEstadoYEnlace'
+|\
+| * 3e532d9 (GHC-10-usuarioEstadoYEnlace) chore: Muestra enlace en listado de tickets
+| * 7c3cbbc chore: Muestra estado en listado de Tickets
+| * 75cfef9 chore: Muestra usuario en listado de tickets
+* | eaff0cc (GHC-11-verificaToken) chore: Error legible si el token no es válido
+|/
+* 15c8bda (listadoTickets) refactor: Extrae clase Client
+* 93eacc0 Muestra listado de issues por consola
+* 90336b5 (tag: v0.0-ligera, tag: v0.0-anotada, tag: v0.0, main) Configuramos Maven en el proyecto
+* 7c5d4ab Añadir MainClass y código trivial para verificar que el proyecto se ejecuta correctamente
+* b1e277c (primer-commit) Esqueleto del proyecto
+```
+
+Utilizando el comando `git show`, podemos inspeccionar el *merge commit*:
+
+```shell
+$ git show
+commit 4a19956a3cf4bd34eedfb294f8cd596e5baf1edf (HEAD -> master)
+Merge: f55481b 9a0f81b
+Author: Alfonso Alba García <alfonso@alfonsoalba.com>
+Date:   Sat Nov 2 07:35:24 2024 +0100
+
+    Merge branch 'GHC-10-usuarioEstadoYEnlace'
+```
+Vemos que es un commit con la misma información que tienen los otros 
+*commits*: nombre e email del autor, fecha, mensaje y *checksum* del *commit* anterior. La diferencia es que 
+este tiene dos *commits* anteriores (mira la línea `Merge:` en la salida del comando  `git show`) y el mensaje es el
+que `git` nos sugirió cuando ejecutamos `git merge`.
 
 Antes de distribuir el ejecutable a los usuarios, se lo enviaríamos *al jefe* para que hiciese un último chequeo 
 de que todo funciona correctamente. 
