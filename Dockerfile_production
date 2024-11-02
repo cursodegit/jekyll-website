@@ -28,7 +28,7 @@ COPY . /usr/src/app/
 RUN bundle install
 RUN bundle exec jekyll build
 
-FROM nginx:1.22-alpine
+FROM nginx:1.27-alpine
 
 COPY --from=jekyll --chown=nginx:nginx /usr/src/app/_site /usr/share/nginx/html
 COPY nginx-*.conf /etc/nginx/conf.d/
