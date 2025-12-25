@@ -74,20 +74,20 @@ el icono `Create`:
 
 ![Crear repositorio](./img/crear-repo-en-sourcetree.png)
 
-En la ventana emergente, seleccionar la ruta al proyecto de eclipse, que 
-en este ejemplo es `C:\Users\aalba\eclipse-workspace\GithubClient`. Una vez
+En la ventana emergente, seleccionar la ruta al proyecto, que 
+en este ejemplo es `C:\Users\Alfonso Alba García\MyStuff\github-client\`. Una vez
 seleccionada la ruta, hacemos click en `Create`
 
-![Crear repositorio con SourceTree: seleccionar ruta](./img/crear-repo-en-sourcetree-seleccionar-ruta-go-vscode.png) 
+![Crear repositorio con SourceTree: seleccionar ruta](./img/go/crear-repo-en-sourcetree-seleccionar-ruta.png) 
 
 Al hacerlo, `SourceTree` nos mostrará un aviso de que la carpeta no está vacía: 
 
-![Crear repositorio con SourceTree: carpeta no vacía](./img/crear-repo-en-sourcetree-aviso-carpeta-no-vacia-go-vscode.png)
+![Crear repositorio con SourceTree: carpeta no vacía](./img/go/crear-repo-en-sourcetree-aviso-carpeta-no-vacia.png)
 
 Hacemos click en `Yes` para continuar. Si todo ha ido bien, `SourceTree` nos llevará 
 a la pantalla con el repositorio:
 
-![Crear repositorio con SourceTree: proyecto creado](./img/crear-repo-en-sourcetree-proyecto-creado-go-vscode.png)
+![Crear repositorio con SourceTree: proyecto creado](./img/go/crear-repo-en-sourcetree-proyecto-creado.png)
 
 ### Usando la consola
 
@@ -107,7 +107,7 @@ Por ejemplo, `/home/aalba/MyStuff/GitHubClient`.
 Tras ejecutar el comando `git init`, aparecerá la carpeta oculta `.git/` en la propia 
 carpeta del proyecto:
 
-![Crear repositorio con SourceTree: carpeta .git](./img/crear-repo-en-sourcetree-carpeta-dotgit-go-vscode.png)
+![Crear repositorio con SourceTree: carpeta .git](./img/go/crear-repo-en-sourcetree-carpeta-dotgit.png)
 
 Usando la consola también podemos ver esta carpeta:
 
@@ -129,7 +129,7 @@ La carpeta `.git/objects` contiene los objetos de git (`commit`, `tree`, `blob`,
 se generan al hacer un commit. En este momento, esa capeta está vacía ya que 
 nuestro repositorio no contine ningún commit:
 
-![Crear repositorio con SourceTree: carpeta .git/objects vacía](./img/crear-repo-en-sourcetree-dotgit-objects-vacia-go-vscode.png)
+![Crear repositorio con SourceTree: carpeta .git/objects vacía](./img/go/crear-repo-en-sourcetree-dotgit-objects-vacia.png)
 
 ## El fichero .gitignore 
 
@@ -162,7 +162,7 @@ nuevos para él (de ahí el icono con la interrogación que `SourceTree`
 utiliza para representarlos):
 
 
-![Primer commit](./img/primer-commit-ficheros-no-preparados-go-vscode.png)
+![Primer commit](./img/go/primer-commit-ficheros-no-preparados.png)
 
 
 ### Preparación de los ficheros 
@@ -170,7 +170,7 @@ utiliza para representarlos):
 Hacemos clic sobre el botón `Stage all` que está en la ventana _Unstaged files_.
 Al hacerlo, veremos que todos los ficheros suben al área de preparación (_staging area_):
 
-![Primer commit: ficheros preparados](./img/primer-commit-ficheros-preparados-go-vscode.png)
+![Primer commit: ficheros preparados](./img/go/primer-commit-ficheros-preparados.png)
 
 ### Haciendo (por fin) el primer commit
 
@@ -183,12 +183,12 @@ pantalla aparecerá el formulario para escribir el mensaje y confirmar los cambi
 que está en la parte inferior derecha, debajo del espacio para escribir 
 el mensaje. Al hacerlo, confirmaremos los cambios en el repositorio:
 
-![Primer commit: mensaje](./img/primer-commit-mensaje-go-vscode.png)
+![Primer commit: mensaje](./img/go/primer-commit-mensaje.png)
 
 Una vez confirmados los cambios, `SourceTree` nos mostrará la historia del 
 repositorio:
 
-![Primer commit: historia](./img/primer-commit-historia-go-vscode.png)
+![Primer commit: historia](./img/go/primer-commit-historia.png)
 
 (Si no te aparece esta vista después de confirmar los cambios, puedes acceder
 a ella haciendo click sobre `History` en la parte izquierda de la pantalla). 
@@ -203,7 +203,7 @@ En esta vista, cuando seleccionamos un _commit_, podremos ver toda su informaci�
 - Cambios que se han confirmado, que en este caso son todo ficheros nuevos al 
   ser nuestro primer _commit_
 
-![Primer commit: datos del commit](./img/primer-commit-datos-del-commit-go-vscode.png)
+![Primer commit: datos del commit](./img/go/primer-commit-datos-del-commit.png)
 
 ### Usando la consola
 
@@ -211,7 +211,7 @@ Usamos el comando `git status` para ver el estado en el que están los ficheros:
 
 ```
 > git status
-On branch master
+On branch main
 
 No commits yet
 
@@ -242,7 +242,7 @@ volvemos a ejecutar el comando `git status`:
 ```shell
 > git status
 
-On branch master
+On branch main
 
 No commits yet
 
@@ -259,7 +259,7 @@ usamos el comando `git commit`:
 
 ```shell
 > git commit -m'Esqueleto del proyecto'
-[master (root-commit) d8e6e282] Esqueleto del proyecto
+[main (root-commit) d5ee988] Esqueleto del proyecto
  3 files changed, 38 insertions(+)
  create mode 100644 .gitignore
  create mode 100644 go.mod
@@ -271,7 +271,7 @@ Para ver la historia de una manera similar a como la muestra `SourceTree` utiliz
 
 ```shell
 >  git log --format='%Cblue%h%Creset %<(50,trunc)%s %Cgreen%an(%ae)%Creset %ah' --graph
-* d8e6e28 Esqueleto del proyecto                             Alfonso Alba García(alfonso@alfonsoalba.com) Feb 1 2055
+* d5ee988 Esqueleto del proyecto                             Alfonso Alba García(alfonso@alfonsoalba.com) Feb 1 2055
 ```
 
 Como formatear la salida del comando `git log` se puede ver en 
@@ -280,7 +280,7 @@ en ese detalle. La versión abreviada, que muestra únicamente el grafo, es la s
 
 ```shell
 > git log --oneline --graph
-* d8e6e28 (HEAD -> master) Esqueleto del proyecto
+* d5ee988 (HEAD -> main) Esqueleto del proyecto
 ```
 
 este será el comando que utilizaremos en muchas ocasiones en los talleres que haremos durante el curso.
