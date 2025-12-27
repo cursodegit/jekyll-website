@@ -52,19 +52,19 @@ Mi cliente de Github
 Abrimos el repositorio con `SourceTree` y vamos a la sección *File Status*. 
 Veremos los dos ficheros que hemos creado en la sección *Unstaged changes*:
 
-![Segundo commit: cambios sin preparar](./img/go/segundo-commit-cambios-sin-preparar.png)
+![Segundo commit: cambios sin preparar](/assets/img/talleres/go/segundo-commit-cambios-sin-preparar.png)
 
 Añadimos los ficheros área de preparación haciendo clic sobre el botón
 `Stage all`. Hacemos cliec sobre el botón `Commit` en la barra superior y 
 escribirmos el siguiente mensaje en el cuadro de diálogo: 
 "Añadir MainClass y código trivial para verificar que el proyecto se ejecuta correctamente":
 
-![Segundo commit: cambios preparados](./img/go/segundo-commit-preparados.png)
+![Segundo commit: cambios preparados](/assets/img/talleres/go/segundo-commit-preparados.png)
 
 Escribimos el mensaje para la confirmación de cambios: *"Añadir dependencias: cobra"*. Después, confirmamos los cambios haciendo clic sobre el 
 botón *Commit* de la parte inferior derecha de la ventana. Tras confirmar los cambios, `SourceTree` nos mostrará la histora del respositorio:
 
-![Segundo commit: historia](./img/go/segundo-commit-historia.png)
+![Segundo commit: historia](/assets/img/talleres/go/segundo-commit-historia.png)
 
 ### Si lo queremos hacer por consola...
 
@@ -190,7 +190,7 @@ exit status 1
 Confirmamos los cambios usando la interfaz gráfica como hemos hecho 
 ya en ocasiones anteriores:
 
-![Tercer commit: confirmar cambios](./img/go/tercer-commit-confirmar-cambios.png)
+![Tercer commit: confirmar cambios](/assets/img/talleres/go/tercer-commit-confirmar-cambios.png)
 
 #### Usando la consola
 Usamos `git status` para ver los cambios en el área de trabajo:
@@ -225,7 +225,7 @@ Ejecutamos `git add` y `git commit` para confirmar los cambios:
 Tras hacer tercera confirmación de cambios, podemos ver la historia del repositorio
 haciendo clic a la izquierda sobre _History_:
 
-![Tercer commit: historia](./img/go/tercer-commit-historia.png)
+![Tercer commit: historia](/assets/img/talleres/go/tercer-commit-historia.png)
 
 O usando la consola:
 

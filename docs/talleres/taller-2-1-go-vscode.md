@@ -78,16 +78,16 @@ En la ventana emergente, seleccionar la ruta al proyecto, que
 en este ejemplo es `C:\Users\Alfonso Alba García\MyStuff\github-client\`. Una vez
 seleccionada la ruta, hacemos click en `Create`
 
-![Crear repositorio con SourceTree: seleccionar ruta](./img/go/crear-repo-en-sourcetree-seleccionar-ruta.png) 
+![Crear repositorio con SourceTree: seleccionar ruta](/assets/img/talleres/go/crear-repo-en-sourcetree-seleccionar-ruta.png) 
 
 Al hacerlo, `SourceTree` nos mostrará un aviso de que la carpeta no está vacía: 
 
-![Crear repositorio con SourceTree: carpeta no vacía](./img/go/crear-repo-en-sourcetree-aviso-carpeta-no-vacia.png)
+![Crear repositorio con SourceTree: carpeta no vacía](/assets/img/talleres/go/crear-repo-en-sourcetree-aviso-carpeta-no-vacia.png)
 
 Hacemos click en `Yes` para continuar. Si todo ha ido bien, `SourceTree` nos llevará 
 a la pantalla con el repositorio:
 
-![Crear repositorio con SourceTree: proyecto creado](./img/go/crear-repo-en-sourcetree-proyecto-creado.png)
+![Crear repositorio con SourceTree: proyecto creado](/assets/img/talleres/go/crear-repo-en-sourcetree-proyecto-creado.png)
 
 ### Usando la consola
 
@@ -107,7 +107,7 @@ Por ejemplo, `/home/aalba/MyStuff/GitHubClient`.
 Tras ejecutar el comando `git init`, aparecerá la carpeta oculta `.git/` en la propia 
 carpeta del proyecto:
 
-![Crear repositorio con SourceTree: carpeta .git](./img/go/crear-repo-en-sourcetree-carpeta-dotgit.png)
+![Crear repositorio con SourceTree: carpeta .git](/assets/img/talleres/go/crear-repo-en-sourcetree-carpeta-dotgit.png)
 
 Usando la consola también podemos ver esta carpeta:
 
@@ -129,7 +129,7 @@ La carpeta `.git/objects` contiene los objetos de git (`commit`, `tree`, `blob`,
 se generan al hacer un commit. En este momento, esa capeta está vacía ya que 
 nuestro repositorio no contine ningún commit:
 
-![Crear repositorio con SourceTree: carpeta .git/objects vacía](./img/go/crear-repo-en-sourcetree-dotgit-objects-vacia.png)
+![Crear repositorio con SourceTree: carpeta .git/objects vacía](/assets/img/talleres/go/crear-repo-en-sourcetree-dotgit-objects-vacia.png)
 
 ## El fichero .gitignore 
 
@@ -162,7 +162,7 @@ nuevos para él (de ahí el icono con la interrogación que `SourceTree`
 utiliza para representarlos):
 
 
-![Primer commit](./img/go/primer-commit-ficheros-no-preparados.png)
+![Primer commit](/assets/img/talleres/go/primer-commit-ficheros-no-preparados.png)
 
 
 ### Preparación de los ficheros 
@@ -170,7 +170,7 @@ utiliza para representarlos):
 Hacemos clic sobre el botón `Stage all` que está en la ventana _Unstaged files_.
 Al hacerlo, veremos que todos los ficheros suben al área de preparación (_staging area_):
 
-![Primer commit: ficheros preparados](./img/go/primer-commit-ficheros-preparados.png)
+![Primer commit: ficheros preparados](/assets/img/talleres/go/primer-commit-ficheros-preparados.png)
 
 ### Haciendo (por fin) el primer commit
 
@@ -183,12 +183,12 @@ pantalla aparecerá el formulario para escribir el mensaje y confirmar los cambi
 que está en la parte inferior derecha, debajo del espacio para escribir 
 el mensaje. Al hacerlo, confirmaremos los cambios en el repositorio:
 
-![Primer commit: mensaje](./img/go/primer-commit-mensaje.png)
+![Primer commit: mensaje](/assets/img/talleres/go/primer-commit-mensaje.png)
 
 Una vez confirmados los cambios, `SourceTree` nos mostrará la historia del 
 repositorio:
 
-![Primer commit: historia](./img/go/primer-commit-historia.png)
+![Primer commit: historia](/assets/img/talleres/go/primer-commit-historia.png)
 
 (Si no te aparece esta vista después de confirmar los cambios, puedes acceder
 a ella haciendo click sobre `History` en la parte izquierda de la pantalla). 
@@ -203,7 +203,7 @@ En esta vista, cuando seleccionamos un _commit_, podremos ver toda su informaci�
 - Cambios que se han confirmado, que en este caso son todo ficheros nuevos al 
   ser nuestro primer _commit_
 
-![Primer commit: datos del commit](./img/go/primer-commit-datos-del-commit.png)
+![Primer commit: datos del commit](/assets/img/talleres/go/primer-commit-datos-del-commit.png)
 
 ### Usando la consola
 
