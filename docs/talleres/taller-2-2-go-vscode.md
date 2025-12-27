@@ -2,7 +2,7 @@
 layout: lab
 ---
 
-# Taller 2 (versión Go con Visual Studio Code): primeros _commits_
+# Taller 2.2 (versión Go con Visual Studio Code): primeros _commits_
 
 ## Índice
 
@@ -10,10 +10,10 @@ layout: lab
 {:toc}
 
 ## Requisitos
-Este taller es continuación del taller [Taller 1: esqueleto del proyecto y primer commit]({% link docs/talleres/taller-2-1-go-vscode.md %}).
+Este taller es continuación del taller [Taller 2.1: esqueleto del proyecto y primer commit]({% link docs/talleres/taller-2-1-go-vscode.md %}).
 
-Es necesario haber completado el [taller 1]({% link docs/talleres/taller-2-1-go-vscode.md %}) para poder realizar este taller.
-Puedes importar el proyecto [github-client-taller-2-1.zip]({% link docs/talleres/go/github-client-taller-2-1.zip %}) en `Visual Studio Code` y partir de él para hacer este taller.
+Es necesario haber completado el [taller 2.1]({% link docs/talleres/taller-2-1-go-vscode.md %}) para poder realizar este taller.
+Puedes importar el proyecto [github-client-taller-2-1.zip]({% link /assets/zipfiles/talleres/go/github-client-taller-2-1.zip %}) en `Visual Studio Code` y partir de él hacer este taller.
 
 ## Objetivos
 - Añadir dependencias al proyecto, que este compile y que muestre una primera salida por pantalla
