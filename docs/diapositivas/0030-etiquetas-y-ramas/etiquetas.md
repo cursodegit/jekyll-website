@@ -119,6 +119,32 @@ Veremos más detalles en las siguientes diapositivas.
 
 ^^^^^^
 
+#### Etiquetas: ¿cómo las implementa `git`?
+
+En git 3.0, se utilizará un fichero indexado (`reftable`) para almacenar las etiquetas
+
+[Ver Git 3.0 Breaking Changes](https://git-scm.com/docs/BreakingChanges#_git_3_0)
+
+Notes:
+
+La manera de almacenar referencias como ficheros en el disco duro acarrea una serie de problemas
+que se resolverán con el uso de tablas de referencias (`reftable`):
+- Rendimiento: en repositorios con millones de referencias ciertas operaciones como borrar 
+  una rama pueden demorarse más de lo deseable
+- Dependencia del sistema de ficheros: Window, OSX y Linux tienen distintos sistemas de ficheros.
+  En entornos con multiples sistemas operativos esto supone tener que adoptar convenios 
+  para evitar los problemas con los nombres de las referencias que veremos en esta sección.
+
+Aunque `reftable` será el formato de almacenamiento por defecto en git 3.0,
+actualmente está marcado como una caracteristica experimental y no 
+recomiendo su uso. Otras implementaciones de git como `libgit2`, `jgit` o
+`gitoxide` todavía no lo soportan (a fecha de diciembre de 2025).
+
+Aún así, a partir de la versión 2.45 de git es posible activar y usar `reftable` si estámos 
+interesados en probarlo o jugar con él. 
+
+^^^^^^
+
 #### Tipos de etiquetas 
 
 - Ligera (_lightway_): El fichero contiene el nombre de la confirmación a la que apunta el tag
