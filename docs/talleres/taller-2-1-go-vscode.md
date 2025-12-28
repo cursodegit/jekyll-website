@@ -1,9 +1,9 @@
 ---
 layout: lab
-title: "Taller 1: esqueleto del proyecto y primer commit"
+title: "Taller 2.1: esqueleto del proyecto y primer commit"
 ---
 
-# Taller 2.1: esqueleto del proyecto y primer _commit_
+# Taller 2.1 (versión Go con Visual Studio Code): esqueleto del proyecto y primer _commit_
 
 ## Requisitos
 Para realizar este taller es necesario tener instalado el siguiente software:

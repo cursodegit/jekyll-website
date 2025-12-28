@@ -9,4 +9,4 @@
 ☑️ Ver el contenido de un objeto de tipo `blob`
 
 
-[Ir al taller 3](../../talleres/taller-2-3-java-eclipse.html)
+[Ir al taller 3](../../talleres/taller-2-3-go-vscode.html)
