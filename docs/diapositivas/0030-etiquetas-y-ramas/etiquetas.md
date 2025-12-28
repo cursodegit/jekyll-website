@@ -97,7 +97,7 @@ otros criterios para considerar un _commit_ importante y etiquetarlo.
 - Crear etiquetas
 - Borrar etiquetas
 
-[Taller 3.1](../../talleres/taller-3-1-java-eclipse.html)
+[Taller 3.1](../../talleres/taller-3-1-go-vscode.html)
 
 ^^^^^^
 

@@ -1,6 +1,6 @@
 ---
 layout: lab
-title: Taller 2.2: primeros commits
+title: "Taller 2.2: primeros commits"
 ---
 
 # Taller 2.2 (versión Go con Visual Studio Code): primeros _commits_
