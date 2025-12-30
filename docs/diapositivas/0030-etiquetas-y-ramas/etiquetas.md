@@ -152,6 +152,26 @@ interesados en probarlo o jugar con él.
 
 ^^^^^^
 
+#### Tipos de etiquetas 
+
+Según [la documentación de git](https://git-scm.com/docs/git-tag):
+
+- Etiquetas ligeras están pensadas para etiquetar de forma privada o temporal
+- Etiquetas anotadas están pensadas para despliegue (compatir a través de un servidor de git) 
+
+Notes: 
+
+Este es el motivo por el que `Sourcetree` recomienda el uso de etiquetas anotadas.
+
+Hay algunos comandos (como `git describe`) que ignoran las etiquetas ligeras. Sin embargo, mi
+experiencia es que siempre he usado etiquetas ligeras en los equipos en los que he estado
+y nunca hemos encontrado comandos de git que las ignoren.
+
+En cualquier caso, siempre es aconsejable seguir la recomendación que se da en la documentación
+y utilizar etiquetas anotadas cuando vayamos a hacer *push* de estas referencias.
+
+^^^^^^
+
 #### Tipos de etiquetas: Ligera
 
 El fichero sólo contiene la suma `sha` de la confirmación a la que apunta la etiqueta 
@@ -219,7 +239,7 @@ esta se creará como etiqueta ligera.
 - Crear etiquetas anotadas
 - Inspeccionar el objeto de tipo `tag`
 
-[Taller 3.2](../../talleres/taller-3-2-java-eclipse.html)
+[Taller 3.2](../../talleres/taller-3-2-go-vscode.html)
 
 ^^^^^^
 
@@ -369,11 +389,3 @@ todos tus entorno de desarrollo, staging, producción, etc utilizan el mismo sis
 Esto es algo que toma más relevancia cuando se mezclan entornos con diferentes sistemas
 operativos como suele ocurrir con Unix y Windows.
 
-^^^^^^
-
-#### Taller 3.2: Tipos de etiquetas
-
-- Etiquetas ligeras (_lightweight tags_)
-- Borrar etiquetas (_annotated tags_)
-
-[Taller 3.2](../../talleres/taller-3-2-java-eclipse.html)
