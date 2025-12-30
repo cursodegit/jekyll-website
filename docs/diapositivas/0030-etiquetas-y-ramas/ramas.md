@@ -218,7 +218,7 @@ o de irrelevante que el resto de las ramas que tengamos en nuestro repositorio. 
 
 #### Taller 3.3: Renombrando `master`
 
-[Ir al Taller 3.3](../../talleres/taller-3-3-java-eclipse.html)
+[Ir al Taller 3.3](../../talleres/taller-3-3-go-vscode.html)
 
 ^^^^^^
 
