@@ -375,4 +375,4 @@ sólo se implementan ya para el comando `git switch`.
 
 #### Taller 3.5: Cambiar la rama activa
 
-[Ir al Taller 3.5](../../talleres/taller-3-5-java-eclipse.html)
+[Ir al Taller 3.5](../../talleres/taller-3-5-go-vscode.html)
