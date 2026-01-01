@@ -288,7 +288,7 @@ Los principales proveedores de servidores de git hacen en al integrar un PR sea 
 
 #### Taller 3.6: *feature branches* y *fast-forward merge* 
 
-[Ir al Taller 3.6](../../talleres/taller-3-6-java-eclipse.html)
+[Ir al Taller 3.6](../../talleres/taller-3-6-go-vscode.html)
 
 ^^^^^^
 
