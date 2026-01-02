@@ -1,4 +1,4 @@
-FROM docker.io/library/ruby:3.4.7
+FROM docker.io/library/ruby:3.4.7 AS jekyll
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -6,13 +6,9 @@ RUN mkdir -p /usr/src/app && \
     mkdir -p /usr/src/app/node_modules && \  
     mkdir -p /usr/src/app/docker_data && \  
     mkdir -p /gems && \
-    curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
-    curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update && apt-get install -yqq yarn && \
-    apt-get install -yqq --no-install-recommends nodejs && \
-    apt-get install -yqq locales && \
-    apt-get clean && rm -r /var/lib/apt/lists
+    apt update && \
+    apt install -yqq locales && \
+    apt clean && rm -r /var/lib/apt/lists
 WORKDIR /usr/src/app
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
@@ -28,7 +24,7 @@ COPY . /usr/src/app/
 RUN bundle install
 RUN bundle exec jekyll build
 
-FROM nginx:1.27-alpine
+FROM docker.io/library/nginx:1.29-alpine
 
 COPY --from=jekyll --chown=nginx:nginx /usr/src/app/_site /usr/share/nginx/html
 COPY nginx-*.conf /etc/nginx/conf.d/
