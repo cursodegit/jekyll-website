@@ -294,4 +294,4 @@ Los principales proveedores de servidores de git hacen en al integrar un PR sea 
 
 #### Taller 3.7: Cambio de contexto y *merge commits*
 
-[Ir al Taller 3.7](../../talleres/taller-3-7-java-eclipse.html)
+[Ir al Taller 3.7](../../talleres/taller-3-7-go-vscode.html)
