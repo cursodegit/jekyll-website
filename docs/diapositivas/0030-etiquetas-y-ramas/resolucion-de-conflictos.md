@@ -155,7 +155,7 @@ se generó.
 
 #### Taller 3.8: Resolución de conflictos durante `git merge`
 
-[Ir al Taller 3.8](../../talleres/taller-3-8-java-eclipse.html)
+[Ir al Taller 3.8](../../talleres/taller-3-8-go-vscode.html)
 
 ^^^^^^ 
 
