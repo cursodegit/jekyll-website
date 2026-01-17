@@ -29,7 +29,7 @@ El objetivo es acabar *rompiendo* el repositorio, borrando toda la historia para
 
 #### Laboratorio: Copia de seguridad
 
-[Ir al Taller 4.1](../../talleres/taller-4-1-java-eclipse.html)
+[Ir al Taller 4.1](../../talleres/taller-4-1-go-vscode.html)
 
 Notes:
 
