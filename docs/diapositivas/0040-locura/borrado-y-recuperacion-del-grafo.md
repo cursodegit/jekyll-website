@@ -297,7 +297,7 @@ sin forzar el borrado
 
 #### Borrando el grafo
 
-[Taller 4.2: Borrando el grafo](../../talleres/taller-4-2-java-eclipse.html)
+[Taller 4.2: Borrando el grafo](../../talleres/taller-4-2-go-vscode.html)
 
 ^^^^^^
 
