@@ -124,7 +124,7 @@ Finalmente, para ver la historia podemos usar el comando `git log`:
 
 A continuación, utilizando `cobra`, mostraremos un primer mensaje al usuario que ejecute nuestra aplicación.
 
-### Modifiacando el código
+### Modificando el código
 
 Editamos el fichero `main.go` y lo sustituimos por el siguiente código:
 

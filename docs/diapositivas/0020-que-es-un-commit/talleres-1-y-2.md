@@ -1,6 +1,6 @@
 ## Taller 1 
 
-☑️ Crear proyecto en `Eclipse`
+☑️ Crear proyecto en `go`
 
 ☑️ Inicializar repositorio
 
@@ -12,9 +12,9 @@
 
 ## Taller 2
 
-☑️ Convertir el proyecto a Maven
+☑️ Añadir dependencias
 
-☑️ Realizar siguientes commits
+☑️ Confirmar segundos cambios
 
 [Ir al taller 2](../../talleres/taller-2-2-go-vscode.html)
 
