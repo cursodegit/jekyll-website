@@ -258,5 +258,5 @@ Hemos conseguido volver a ver la historia de nuestro repositorio creando una ram
 
 En el `reflog` de `HEAD` no queda constancia de estas operaciones, por lo que no tenemos
 forma de recuperar esta información. Por suerte, hicimos una copia de seguridad
-de nuestro repositorio y cuando la restauremos en el Taller 4.5 recuperaremos esta
+de nuestro repositorio y cuando la restauremos en el Taller 4.4 recuperaremos esta
 información.
