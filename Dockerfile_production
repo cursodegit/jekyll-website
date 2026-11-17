@@ -22,7 +22,7 @@ ENV LC_ALL=en_US.UTF-8
 ENV BUNDLE_PATH="/gems"
 COPY . /usr/src/app/
 RUN bundle install
-RUN bundle exec jekyll build
+RUN JEKYLL_ENV=production bundle exec jekyll build
 
 FROM docker.io/library/nginx:1.29-alpine
 
