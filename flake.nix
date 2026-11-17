@@ -18,6 +18,7 @@
         default = pkgs.mkShell {
           packages = with pkgs; [
             git
+            google-cloud-sdk
             jujutsu
             pi-coding-agent
             ruby

@@ -1,4 +1,4 @@
-FROM docker.io/library/ruby:3.4.7
+FROM docker.io/library/ruby:4
 
 ENV DEBIAN_FRONTEND noninteractive
 ARG JEKYLL_UID=10001

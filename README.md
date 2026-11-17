@@ -62,6 +62,9 @@ Si estamos usando `podman`, copiar el siguiente fichero:
 cp ~/.docker/config.json ~/.config/containers/
 ```
 
+(mira abajo para autenticarse con podman si no está docker instalado)
+
+
 Ejecutar el comando `podman login` para autenticarse en el repositorio de contenedores:
 
 ```bash
@@ -85,4 +88,19 @@ y desplegar en Cloud Run:
 
 ```bash
 ./bin/deploy-latest.sh
+```
+
+## Authenticate podman in the Google Cloud Registry
+
+Authenticate in google cloud:
+
+```shell
+gcloud auth login
+gcloud config set project web-cursodegit-com
+```
+
+Then run podman login with an access token:
+
+```shell
+gcloud auth print-access-token | podman login --username oauth2accesstoken --password-stdin europe-west1-docker.pkg.dev
 ```

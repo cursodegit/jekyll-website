@@ -1,4 +1,4 @@
-FROM docker.io/library/ruby:3.4.7 AS jekyll
+FROM docker.io/library/ruby:4 AS jekyll
 
 ENV DEBIAN_FRONTEND=noninteractive
 
