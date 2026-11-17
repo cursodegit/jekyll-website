@@ -1,0 +1,38 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1794495034,
+        "narHash": "sha256-QG/HY0t5t3sfT2ozW/Ikis5Klqf0X4nfTuLvFaBpNno=",
+        "rev": "2074cc672349f14240fb7ea90d509e0b643e9dd4",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1118975.2074cc672349/nixexprs.tar.zst"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst"
+      }
+    },
+    "nixpkgs-ruby": {
+      "locked": {
+        "lastModified": 1794495034,
+        "narHash": "sha256-QG/HY0t5t3sfT2ozW/Ikis5Klqf0X4nfTuLvFaBpNno=",
+        "rev": "2074cc672349f14240fb7ea90d509e0b643e9dd4",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1118975.2074cc672349/nixexprs.tar.zst"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1118975.2074cc672349/nixexprs.tar.zst"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-ruby": "nixpkgs-ruby"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
