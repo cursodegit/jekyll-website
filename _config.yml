@@ -22,7 +22,7 @@ title: Curso avanzado de git
 # Used by jekyll-seo-tag for the home page <title>: "title | tagline".
 # Without it, the (long) description is used instead.
 tagline: Formación para equipos de desarrollo
-email: your-email@example.com
+email: cursos@cursodegit.com
 description: >- # this means to ignore newlines until "baseurl:"
   Curso avanzado de git presencial y a distancia. Entiende cómo funciona git
   desde la base y mejora la productividad de tu equipo.
