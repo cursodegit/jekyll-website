@@ -51,14 +51,14 @@ Hacemos doble clic sobre la rama `primer-commit` para hacerla la rama principal:
 
 ![Cambiar rama activa a primer-commit](./img/cambiar-rama-activa-a-primer-commit.png)
 
-¿Porqué nos aparece esa línea gris en el log? Si seleccionas ese *commit* gris 
+¿Por qué nos aparece esa línea gris en el log? Si seleccionas ese *commit* gris 
 con la descripción *Uncommitted changes* que está arriba en el log y miras
 en `Sourcetree` los cambios en el área de trabajo, verás sencillamente que el fichero 
 `.gitignore` está haciendo su función:
 
 ![Cambiar rama activa a primer-commit](./img/cambiar-rama-activa-primer-commit-con-unstaged-changes.png)
 
-Entraremos en mucho más detalle de porqué ha pasado esto cuando veamos el fichero `.gitignore` y el índice de `git`
+Entraremos en mucho más detalle de por qué ha pasado esto cuando veamos el fichero `.gitignore` y el índice de `git`
 en profundidad. De momento, solo adelantaremos que esos ficheros, que son los ficheros resultado de la compilación de 
 `Java`, ya no se están ignorando porque en nuestro área de trabajo ya no tenemos el fichero `.gitignore`.
 

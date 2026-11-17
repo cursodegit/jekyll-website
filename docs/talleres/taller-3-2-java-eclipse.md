@@ -143,7 +143,7 @@ v0.0-anotada    Inicio del desarrollo
 v0.0-ligera     Configuramos Maven en el proyecto
 ```
 
-¿Porqué la etiqueta `v0.0` no contiene un mensaje? Recuerda que esta etiqueta la creamos 
+¿Por qué la etiqueta `v0.0` no contiene un mensaje? Recuerda que esta etiqueta la creamos 
 usando `Sourcetree`. `Sourcetree` crea etiquetas anotadas por defecto, pero cuando la creamos
 no pusimos ningún texto, así que se guardó un mensaje vacío. Podemos verlo utilizando 
 el comando `git cat-file`:

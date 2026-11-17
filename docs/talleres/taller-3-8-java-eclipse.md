@@ -30,7 +30,7 @@ Queremos desplegar las ramas `GHC-12-extraePrintIssues` y la rama `GHC-13-usaCol
 
 ![Punto de partida](./img/taller-3-8-sourcetree-punto-de-partida.png)
 
-Al hacer las integraciones, tendremos conflictos que deberemos resolver. ¿Porqué tendremos conflictos? Si miras el código, verás que en la rama `GHC-13-usaColorEnListadoDeTickets`
+Al hacer las integraciones, tendremos conflictos que deberemos resolver. ¿Por qué tendremos conflictos? Si miras el código, verás que en la rama `GHC-13-usaColorEnListadoDeTickets`
 se modifica el código de la función privada `printIssues` mientras que en la rama `GHC-12-extraePrintIssues` esa función se extrae a una clase.
 
 ## Objetivos

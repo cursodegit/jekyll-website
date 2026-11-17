@@ -67,7 +67,7 @@ La carpeta `.git/objects` contiene todos los cambios que hemos confirmado
 hasta ahora en los dos talleres anteriores, distribuidos en el 
 mini sistema de ficheros que conforman los objetos de git.
 
-¿Y porqué decimos que git implementa un mini sistema de ficheros? Vamos 
+¿Y por qué decimos que git implementa un mini sistema de ficheros? Vamos 
 a mirar dentro de estos objetos de git para entenderlo.
 
 ## El objeto de tipo de `commit` de nuestros primeros cambios confirmados
@@ -173,7 +173,7 @@ func main() {
 
 ¡El `blob` contiene nuestro código fuente!
 
-Tras inspeccionar los objetos de tipo git, podemos entender mejor porqué 
+Tras inspeccionar los objetos de tipo git, podemos entender mejor por qué 
 comentamos antes que git implementa un mini sistema de ficheros. Los 
 objetos de tipo `tree` son los equivalentes a nuestros directorios del 
 sistema de ficheros, mientras que los objetos de tipo `blob` serían 

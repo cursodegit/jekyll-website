@@ -93,7 +93,7 @@ que ya sabíamos que pasaba. Pero hizo algo más:
 
 #### ¿Qué es una rama?
 
-¿Porqué `git` llamó `master` a la rama?
+¿Por qué `git` llamó `master` a la rama?
 
 Es el nombre que se utiliza por defecto
 
@@ -118,7 +118,7 @@ A lo largo de 2020 y 2021, los principales servidores de `git` (`GitLab`, `GitHu
 `Bitbucket`, `Azure DevOps`) cambiaron el nombre de la rama por defecto de sus repositorios 
 a `main`.
 
-¿Porqué no se ha puesto `main` por defecto? Empezar un repositorio nuevo con `main` en lugar
+¿Por qué no se ha puesto `main` por defecto? Empezar un repositorio nuevo con `main` en lugar
 de `master` es algo trivial. Sin embargo, cambiar el nombre de la rama principal en 
 un reposotorio ya existente con un equipo de múltiples personas integrado con sistemas
 de integración contínua, no es una tarea que se haga de manera directa. Para mantener 
@@ -356,7 +356,7 @@ los borrará. Cuando cambiamos la rama activa, es como si `git`:
 
 No es exactamente esto lo que hacen los comandos, pero nos sirve para entender a grandes rasgos qué ocurre.
 
-## ¿porqué hay dos comandos?
+## ¿por qué hay dos comandos?
 
 Tradicionalmente, el comando que se utilizaba para cambiar de rama era `git checkout`. 
 El problema es que ese comando sirve para muchas cosas. Por ejemplo, para recuperar

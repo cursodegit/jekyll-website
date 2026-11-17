@@ -95,7 +95,7 @@ Descripción del mensaje de la confirmación de cambios.
 
 Notes:
 
-Esta es la parte en la que describimos qué hemos cambiado y porqué lo hemos
+Esta es la parte en la que describimos qué hemos cambiado y por qué lo hemos
 cambiado. Hemos hablado en detalle de este tema en diapositivas anteriores.
 
 ^^^^^^

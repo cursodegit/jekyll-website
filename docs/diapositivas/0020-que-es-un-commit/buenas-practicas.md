@@ -117,7 +117,7 @@ La regla que se recomienda es escribir el título del _commit_ como continuació
 la frase _Este commit..._ Por ejemplo, `Este commit Resuelve fallo en formulario de contacto`.
 
 Con respecto a poner puntos al final de los mensajes... 50 caracteres no son muchos
-¿porqué desperdiciarlos? 
+¿por qué desperdiciarlos? 
 
 ^^^^^^ 
 
@@ -199,7 +199,7 @@ Lo dicho para la diapositiva anterior se puede aplicar a esta.
 
 ^^^^^^
 
-#### Buenas prácticas: Qué y porqué
+#### Buenas prácticas: Qué y por qué
 
 La instantánea de la confirmación de cambios nos permite saber qué ha cambiado 
 
@@ -207,19 +207,19 @@ La descripción del mensaje nos permite explicar
 
 **qué se ha cambiado** 
 
-**y porqué se han introducido esos cambios**
+**y por qué se han introducido esos cambios**
 
 Notes:
 
 El objetivo de la descripción del mensaje es darle contexto a la persona que 
-la lea. El código nos dice qué ha cambiado, pero no nos dice porqué. En la 
+la lea. El código nos dice qué ha cambiado, pero no nos dice por qué. En la 
 siguiente diapositiva vemos un ejemplo de un mensaje de que incluye qué 
-se ha cambiado en el commit y porqué se ha hecho. Sin ver el código 
+se ha cambiado en el commit y por qué se ha hecho. Sin ver el código 
 ¿eres capaz de imaginarte qué te vas a encontrar en los cambios que se 
 han confirmado?
 
 ^^^^^^ 
-#### Buenas prácticas: Qué y porqué
+#### Buenas prácticas: Qué y por qué
 
 ¿una mejor descripción? 
 

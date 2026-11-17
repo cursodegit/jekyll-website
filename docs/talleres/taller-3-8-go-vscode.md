@@ -30,7 +30,7 @@ Queremos desplegar las ramas `GHC-13-crea-package-commands` y la rama `GHC-14-mu
 
 ![Punto de partida]({% link assets/img/talleres/go/taller-3-8-sourcetree-punto-de-partida.png %})
 
-Al hacer las integraciones, tendremos conflictos que deberemos resolver. ¿Porqué tendremos conflictos? Si miras el código, verás que en la rama 
+Al hacer las integraciones, tendremos conflictos que deberemos resolver. ¿Por qué tendremos conflictos? Si miras el código, verás que en la rama 
 `GHC-14-muestra-salida-con-colores` modifica el código de los comandos `autStatusCmd` y `prListCmd`, mientras que en la 
 rama `GHC-13-crea-package-commands` esos comandos se extraen la paquete `commands`.
 
@@ -192,7 +192,7 @@ Switched to branch 'main'
 ### Integrando `GHC-13-crea-package-commands`
 
 Empezamos por integrar la rama `GHC-13-crea-package-commands`. Siguiendo las mismos 
-pasos que en talleres anteriores, utilizamos el comando `git merge` para integrar el códido en `main`:
+pasos que en talleres anteriores, utilizamos el comando `git merge` para integrar el código en `main`:
 
 ```powershell
 $ git merge GHC-13-crea-package-commands 
@@ -297,7 +297,7 @@ Vemos que nos aparecen dos secciones:
 - `Changes to be committed`: contiene los ficheros que `git` ha podido mezclar y que ya están en el área de ensayo, listos
   para confirmarse
 - `Unmerged paths`: contiene los ficheros que `git` no ha podido mezclar, en nuestro caso `main.go`. Junto a cada fichero,
-  `git` nos muestra porqué no ha podido mezclar los cambios, en este caso es porque en ambas ramas se han modificado las 
+  `git` nos muestra por qué no ha podido mezclar los cambios, en este caso es porque en ambas ramas se han modificado las 
   mismas secciones del fichero `main.go`
 
 Veamos cómo podemos resolver estos conflictos.

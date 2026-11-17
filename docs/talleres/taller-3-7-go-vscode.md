@@ -177,7 +177,7 @@ el siguiente mensaje:
 > Este comportamiento está alineado con los estándares del equipo de infraestructura.
 > Si la variable no existe, se busca el fichero ~/.config/github-client/token. 
 
-Como hemos hecho en confirmaciones anteriores, incluimos junto al mensaje el porqué estamos introduciendo este cambio.
+Como hemos hecho en confirmaciones anteriores, incluimos junto al mensaje por qué estamos introduciendo este cambio.
 
 ![Confirmar GHC-11 paso 2]({% link assets/img/talleres/go/taller-3-7-sourcetree-confirmar-GHC-11-paso-2.png %})
 
@@ -390,7 +390,7 @@ Subimos los cambios al área de ensayo usando el comando `git add` y confirmamos
 > Este comportamiento está alineado con los estándares del equipo de infraestructura.
 > Si la variable no existe, se busca el fichero ~/.config/github-client/token. 
 
-Como hemos hecho en confirmaciones anteriores, incluimos junto al mensaje el porqué estamos introduciendo este cambio:
+Como hemos hecho en confirmaciones anteriores, incluimos junto al mensaje por qué estamos introduciendo este cambio:
 
 ```powershell
 > git commit -m'feat: comando auth status utiliza GHC_TOKEN para leer el token

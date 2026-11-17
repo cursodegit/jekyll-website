@@ -90,7 +90,7 @@ de la confirmación de cambios podemos añadir el siguiente texto:
 
 > Creamos una primera implementación sencilla del comando `auth login` que pregunta
 > al usuario el token. En un futuro podemos desarrollar una integración con oauth 
-> para obtener el token. Dado que esto es una prueba de concepto, he decicido
+> para obtener el token. Dado que esto es una prueba de concepto, he decidido
 > simplificar este paso para avanzar con otras funcionalidades.
 
 Tras confirmarlos, este será el estado de nuestro repositorio:
@@ -101,9 +101,9 @@ Tras confirmarlos, este será el estado de nuestro repositorio:
 Vemos cómo el repositorio sigue siendo una lista simplemente enlazada,
 que se representa como una línea recta. No se tuerce ni se birfurca.
 
-Además, hemos incluido en la descripción de la confirmación de cambios un texto que describe el porqué hemos decicido
+Además, hemos incluido en la descripción de la confirmación de cambios un texto que describe por qué hemos decidido
 implementar el comando de esta manera. Esa información no se puede ver en el código fuente por lo que incluirla
-en la descripción ayuda a la persona que revise el código a saber porqué he optado por esta implementación.
+en la descripción ayuda a la persona que revise el código a saber por qué he optado por esta implementación.
 
 ### Comando `auth status`
 
@@ -112,7 +112,7 @@ en la descripción ayuda a la persona que revise el código a saber porqué he o
 Confirmamos los cambios en `Sourcetree` con el mensaje *feat: implementa el comando auth status*:
 
 A la vez que hicimos en la confirmación de cambios previa, vamos a incluir un texto en la descripción
-que explique porqué hemos implementado el comando `auth status` de esta manera:
+que explique por qué hemos implementado el comando `auth status` de esta manera:
 
 > Para comprobar que el token es correcto, implemento una llamada a un endpoint
 > de la API rest que no dependa de los permisos que tiene el token. Uno de esos 
@@ -208,7 +208,7 @@ de la confirmación de cambios podemos añadir el siguiente texto:
 
 > Creamos una primera implementación sencilla del comando `auth login` que pregunta
 > al usuario el token. En un futuro podemos desarrollar una integración con oauth 
-> para obtener el token. Dado que esto es una prueba de concepto, he decicido
+> para obtener el token. Dado que esto es una prueba de concepto, he decidido
 > simplificar este paso para avanzar con otras funcionalidades.
 
 
@@ -217,7 +217,7 @@ de la confirmación de cambios podemos añadir el siguiente texto:
 > git commit -m'feat: Implementa el comando auth login.
 Creamos una primera implementación sencilla del comando `auth login` que pregunta
 al usuario el token. En un futuro podemos desarrollar una integración con oauth 
-para obtener el token. Dado que esto es una prueba de concepto, he decicido
+para obtener el token. Dado que esto es una prueba de concepto, he decidido
 simplificar este paso para avanzar con otras funcionalidades.'
 
 [comando-auth 5344602] feat: Implementa el comando auth login
@@ -243,7 +243,7 @@ No se tuerce ni se birfurca:
 
 Confirmamos los cambios con el mensaje *feat: implementa el comando auth status*. 
 A la vez que hicimos en la confirmación de cambios previa, vamos a incluir un texto en la descripción
-que explique porqué hemos implementado el comando `auth status` de esta manera:
+que explique por qué hemos implementado el comando `auth status` de esta manera:
 
 > Para comprobar que el token es correcto, implemento una llamada a un endpoint
 > de la API rest que no dependa de los permisos que tiene el token. Uno de esos 

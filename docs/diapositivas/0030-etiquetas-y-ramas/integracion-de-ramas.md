@@ -200,7 +200,7 @@ Notes:
 
 Cuando ejecutamos el comando `git merge`, es `git` (en la configuración por defecto) quién decide si hace 
 *fast-foward* o no. Sin embargo, es importante entender en qué consiste esta operación para entender
-porqué el grafo del repositorio queda como queda después de ejecutar el comando `merge`.
+por qué el grafo del repositorio queda como queda después de ejecutar el comando `merge`.
 
 Entendiendo esta operación podemos decidir si queremos o no que `git` haga las integraciones de código de esta manera,
 como veremos en diapositivas posteriores.
