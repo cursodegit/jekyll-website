@@ -35,6 +35,7 @@ lang: es
 # theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 twitter:
   username: cursodegit
@@ -72,3 +73,15 @@ exclude:
   - nginx*.conf
   - Dockerfile
   - Dockerfile_production
+  - .jj
+
+# Password-protected course material (see default.conf) is kept out of the sitemap.
+defaults:
+  - scope:
+      path: "docs/talleres"
+    values:
+      sitemap: false
+  - scope:
+      path: "docs/diapositivas"
+    values:
+      sitemap: false
