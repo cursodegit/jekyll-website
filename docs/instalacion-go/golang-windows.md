@@ -1,6 +1,6 @@
 ---
 layout: documentation-page
-title: Instalación de Go Land en Windows
+title: Instalación de Go Lang en Windows
 description: >- 
     Preparación para el curso - Instrucciones para la instalación de Go Lang en Windows 
 image: /assets/img/cards/cursos_avanzados.jpeg  
