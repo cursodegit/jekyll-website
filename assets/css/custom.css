@@ -54,3 +54,8 @@
     left: auto;
     text-align: center;    
   }
+
+/* Counters on the home page are plain text (not headings) but keep the h2 look */
+.single-cool-fact .h2 {
+    font-size: 42px;
+}
