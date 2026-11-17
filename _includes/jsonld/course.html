@@ -1,0 +1,48 @@
+{%- comment -%}
+  Course + CourseInstance structured data for the course pages.
+  Parameters:
+    name:     course name
+    mode:     schema.org courseMode ("Onsite" or "Online")
+    workload: ISO 8601 duration of the course (e.g. "PT30H")
+  The description and URL are taken from the page front matter.
+{%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": {{ page.url | absolute_url | append: "#course" | jsonify }},
+  "name": {{ include.name | jsonify }},
+  "description": {{ page.description | strip | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "inLanguage": "es",
+  "educationalLevel": "Avanzado",
+  "coursePrerequisites": "Experiencia previa en el uso de git o algún otro sistema de control de versiones",
+  "teaches": [
+    "Cómo funciona git, el modelo de objetos y la estructura de datos que gestiona los commits de un repositorio",
+    "Qué son las ramas en git, su funcionamiento y cómo utilizarlas para trabajar en equipo",
+    "Qué es un repositorio remoto y el funcionamiento del comando push",
+    "Diferentes flujos de trabajo en git"
+  ],
+  "provider": {
+    "@type": "Organization",
+    "@id": {{ "/#organization" | absolute_url | jsonify }},
+    "name": "cursodegit.com",
+    "url": {{ "/" | absolute_url | jsonify }}
+  },
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": {{ include.mode | jsonify }},
+    "courseWorkload": {{ include.workload | jsonify }},
+    "inLanguage": "es",
+    "instructor": {
+      "@type": "Person",
+      "@id": {{ "/sobre-nosotros.html#alfonso-alba-garcia" | absolute_url | jsonify }},
+      "name": "Alfonso Alba García"
+    }
+  }
+}
+</script>

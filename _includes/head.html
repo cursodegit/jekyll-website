@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="{{ "/assets/css/custom.css" | relative_url }}">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,600" rel="stylesheet"> 
+    <!-- Structured data -->
+    {% include jsonld/organization.html %}
     <!-- Breadcrumb trail-->
     {% contentblock breadcrumb_trail %}
     <!-- End Breadcrumb trail-->

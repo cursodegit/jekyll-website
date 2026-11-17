@@ -1,0 +1,23 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": {{ "/#organization" | absolute_url | jsonify }},
+  "name": "cursodegit.com",
+  "url": {{ "/" | absolute_url | jsonify }},
+  "logo": {{ "/assets/img/logo/cursodegit_logo.png" | absolute_url | jsonify }},
+  "description": {{ site.description | jsonify }},
+  "founder": {
+    "@type": "Person",
+    "@id": {{ "/sobre-nosotros.html#alfonso-alba-garcia" | absolute_url | jsonify }},
+    "name": "Alfonso Alba García"
+  },
+  "sameAs": [
+    "https://github.com/cursodegit",
+    "https://twitter.com/cursodegit",
+    "https://www.linkedin.com/company/cursos-de-git",
+    "https://www.facebook.com/cursodegit",
+    "https://www.youtube.com/channel/UCxrqcHQVPkwiNu_BOuZ4jdQ"
+  ]
+}
+</script>
