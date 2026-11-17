@@ -1,0 +1,17 @@
+---
+layout: null
+sitemap: false
+---
+# Anthropic (Claude)
+# ClaudeBot: training data
+# Claude-SearchBot: search results in Claude
+# Claude-User: pages fetched when a Claude user asks about them
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: {{ "/sitemap.xml" | absolute_url }}
