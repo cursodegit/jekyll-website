@@ -16,7 +16,7 @@ image: /assets/img/cards/cursos_avanzados.jpeg
         "@type": "ListItem",
         "position": 1,
         "name": "Inicio",
-        "item": "https://wwww.cursodegit.com/"
+        "item": "https://www.cursodegit.com/"
       },{
         "@type": "ListItem",
         "position": 2,
